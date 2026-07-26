@@ -1,0 +1,8 @@
+build/
+*.class
+*.o
+*.cooja
+*.pyc
+__pycache__/
+venv/
+*.log
