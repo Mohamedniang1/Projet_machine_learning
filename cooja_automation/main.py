@@ -8,6 +8,7 @@ from parse_log import parse_cooja_log
 def run_pipeline():
     print("=== DÉBUT DU PIPELINE AUTOMATISÉ COOJA ===")
 
+
     # 1. Vérification de l'existence du fichier .csc
     if not os.path.exists(config.CSC_FILE_PATH):
         print(f"[!] Erreur: Le fichier {config.CSC_FILE_PATH} n'existe pas.")
