@@ -1,19 +1,11 @@
 import re
-import os
 
-def generate_simulation():
-    csc_base = "rpl-udp-cooja.csc"
-    csc_out = "simulation_rpl.csc"
+# Lire le fichier officiel de Contiki-NG
+with open("rpl-udp-cooja.csc", "r", encoding="utf-8") as f:
+    content = f.read()
 
-    if not os.path.exists(csc_base):
-        print(f"[!] Fichier de base {csc_base} introuvable.")
-        return
-
-    with open(csc_base, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # 1. Injection du ScriptRunner (Timeout + log.testOK)
-    script_plugin = """
+# Bloc du plugin ScriptRunner avec un Timeout de 1h (3600000 ms)
+script_plugin = """
   <plugin>
     org.contikios.cooja.plugins.ScriptRunner
     <plugin_config>
@@ -34,22 +26,11 @@ def generate_simulation():
   </plugin>
 </simconf>
 """
-    new_content = content.replace("</simconf>", script_plugin)
 
-    # 2. Injection d'une perte radio réaliste dans UDGM (PDR variable)
-    if "<org.contikios.cooja.radiomediums.UDGM>" in new_content:
-        udgm_config = """<org.contikios.cooja.radiomediums.UDGM>
-        <transmitting_range>50.0</transmitting_range>
-        <interference_range>100.0</interference_range>
-        <success_ratio_tx>0.95</success_ratio_tx>
-        <success_ratio_rx>0.88</success_ratio_rx>
-      </org.contikios.cooja.radiomediums.UDGM>"""
-        new_content = re.sub(r'<org\.contikios\.cooja\.radiomediums\.UDGM\/>', udgm_config, new_content)
+# Inserer le plugin juste avant la fermeture </simconf>
+new_content = content.replace("</simconf>", script_plugin)
 
-    with open(csc_out, "w", encoding="utf-8") as f:
-        f.write(new_content)
+with open("simulation_rpl.csc", "w", encoding="utf-8") as f:
+    f.write(new_content)
 
-    print("[+] Fichier simulation_rpl.csc mis à jour (ScriptRunner + Taux de perte UDGM injectés) !")
-
-if __name__ == "__main__":
-    generate_simulation()
+print("[+] Fichier simulation_rpl.csc prêt avec Timeout !") 
