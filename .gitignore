@@ -6,3 +6,7 @@ build/
 __pycache__/
 venv/
 *.log
+cooja_automation/dataset.csv
+cooja_automation/logs/
+cooja_automation/experiment_status.csv
+cooja_automation/.~lock.*

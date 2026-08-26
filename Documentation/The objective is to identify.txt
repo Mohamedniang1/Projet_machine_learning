@@ -1,0 +1,31 @@
+During the last meeting, you told me to list all parameters, not only Imin and Imax. So, I tried to identify the different network parameters that we can vary in our simulations.
+
+I grouped these parameters into different categories: RPL parameters, radio parameters, topology parameters, and traffic parameters.
+
+First, we have the RPL parameters. We already considered Imin and Imax in our first experiments. Last week we added other parameters such as the DIO redundancy constant, the objective function and the routing metric.
+
+For example, the DIO redundancy constant(k) controls the suppression of redundant DIO messages.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+currently, i have listed only 15 parameters, but there are others.
+
+These parameters will become the input features of the Machine Learning model, which will determine which parameters have the greatest impact on network performance
+
+The objective is to identify the network and RPL parameters that can be varied during the simulations.

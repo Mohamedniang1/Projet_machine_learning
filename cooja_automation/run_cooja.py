@@ -70,12 +70,32 @@ def write_project_conf(
     imax: int,
     k: int,
     send_interval: int,
+    objective_function: str,
 ):
     """
-    Génère la configuration compilée par Contiki-NG.
+    Génère project-conf.h pour Contiki-NG.
+
+    objective_function :
+        - "MRHOF"
+        - "OF0"
     """
 
     doublings = imax - imin
+
+    objective_function = objective_function.upper()
+
+    if objective_function == "MRHOF":
+        rpl_ocp = "RPL_OCP_MRHOF"
+
+    elif objective_function == "OF0":
+        rpl_ocp = "RPL_OCP_OF0"
+
+    else:
+        raise ValueError(
+            "Objective Function invalide : "
+            f"{objective_function}. "
+            "Valeurs autorisées : MRHOF, OF0"
+        )
 
     content = f"""\
 #ifndef PROJECT_CONF_H_
@@ -92,6 +112,14 @@ def write_project_conf(
 #define RPL_CONF_DIO_INTERVAL_MIN {imin}
 #define RPL_CONF_DIO_INTERVAL_DOUBLINGS {doublings}
 #define RPL_CONF_DIO_REDUNDANCY {k}
+
+/* =========================================================
+ * RPL OBJECTIVE FUNCTION
+ * Tous les noeuds supportent OF0 et MRHOF.
+ * Le root sélectionne l'OF utilisée pour cette expérience.
+ * ========================================================= */
+#define RPL_CONF_SUPPORTED_OFS {{&rpl_of0, &rpl_mrhof}}
+#define RPL_CONF_OF_OCP {rpl_ocp}
 
 /* =========================================================
  * APPLICATION
@@ -195,6 +223,7 @@ def run_simulation(
     tx_range: float,
     nb_nodes: int,
     send_interval: int,
+    objective_function: str,
     run_name: str,
     clean_build: bool = True,
 ) -> Path:
@@ -233,6 +262,7 @@ def run_simulation(
         imax=imax,
         k=k,
         send_interval=send_interval,
+        objective_function=objective_function,
     )
 
     # --------------------------------------------------------
@@ -267,6 +297,7 @@ def run_simulation(
     print(f"Imax          : {imax}")
     print(f"Doublings     : {doublings}")
     print(f"k             : {k}")
+    print(f"Objective Fn  : {objective_function}")
     print(f"TX Range      : {tx_range}")
     print(f"Nb nodes      : {nb_nodes}")
     print(f"Send interval : {send_interval}s")
@@ -346,7 +377,8 @@ if __name__ == "__main__":
         tx_range=50.0,
         nb_nodes=12,
         send_interval=10,
-        run_name="test_new_parameters",
+        objective_function="OF0",
+        run_name="test_of0",
         clean_build=True,
     )
 

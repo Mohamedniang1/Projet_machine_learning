@@ -1,0 +1,17 @@
+column,role,family,type,unit,origin,used_as_ml_feature,description
+run_name,metadata,experiment,string,,experiment_generator.py,No,Identifiant unique du run.
+seed,metadata,experiment,integer,,Cooja,No,Graine aléatoire de la simulation.
+imin,feature,RPL/Trickle,integer,exponent,RPL_CONF_DIO_INTERVAL_MIN,Yes,Exposant de l'intervalle Trickle minimal.
+imax,feature,RPL/Trickle,integer,exponent,RPL Trickle configuration,Yes,Exposant représentant l'intervalle Trickle maximal.
+k,feature,RPL/Trickle,integer,,RPL_CONF_DIO_REDUNDANCY,Yes,Constante de redondance Trickle.
+tx_range,feature,radio,float,m,Cooja UDGM,Yes,Portée de transmission configurée dans Cooja.
+nb_nodes,feature,topology,integer,nodes,Cooja topology,Yes,Nombre de nœuds simulés.
+send_interval,feature,application,integer,s,APP_CONF_SEND_INTERVAL,Yes,Intervalle nominal entre deux transmissions applicatives.
+objective_function,feature,RPL routing,categorical,,RPL_CONF_OF_OCP,Yes,Objective Function RPL utilisée. Valeurs possibles : OF0 ou MRHOF.
+n_samples,quality_control,dataset,integer,samples,build_run_dataset.py,No,Nombre d'observations agrégées dans le run.
+pdr_window_mean,target,QoS,float,%,udp-client.c,No,Packet Delivery Ratio moyen.
+delay_avg_ms_mean,target,QoS,float,ms,udp-client.c,No,Délai RTT moyen.
+rssi_avg_mean,target,radio,float,dBm,PACKETBUF_ATTR_RSSI,No,RSSI moyen observé.
+etx_mean,target,routing,float,expected transmissions,Contiki-NG link-stats,No,ETX moyen observé.
+radio_tx_percent_mean,target,radio_activity,float,%,Energest,No,Pourcentage moyen de temps passé en transmission radio.
+energy_estimated_mj_mean,target,energy,float,mJ,Energest + Tmote Sky reference electrical model,No,Énergie moyenne estimée par nœud et par fenêtre de mesure. Calculée à partir des temps Energest et d'un profil électrique Tmote Sky de référence. Ce n'est pas une mesure physique directe.

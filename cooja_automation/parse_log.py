@@ -106,36 +106,29 @@ CSV_COLUMNS = [
     # --------------------------------------------------------
     # IDENTIFICATION DE L'EXPÉRIENCE
     # --------------------------------------------------------
-
     "run_name",
 
     # --------------------------------------------------------
     # PARAMÈTRES CONTRÔLÉS
     # --------------------------------------------------------
-
     "seed",
-
     "imin",
     "imax",
     "k",
-
     "tx_range",
-
     "nb_nodes",
-
     "send_interval",
+    "objective_function",
 
     # --------------------------------------------------------
     # INFORMATIONS COOJA
     # --------------------------------------------------------
-
     "cooja_time",
     "mote_id",
 
     # --------------------------------------------------------
     # INFORMATIONS DU NŒUD
     # --------------------------------------------------------
-
     "node",
     "time",
 
@@ -146,19 +139,15 @@ CSV_COLUMNS = [
     "tx_total",
     "rx_total",
     "dup_total",
-
     "pdr_global",
-
     "tx_window",
     "rx_window",
     "dup_window",
-
     "pdr_window",
 
     # --------------------------------------------------------
     # DELAY
     # --------------------------------------------------------
-
     "delay_avg_ms",
     "delay_min_ms",
     "delay_max_ms",
@@ -166,27 +155,21 @@ CSV_COLUMNS = [
     # --------------------------------------------------------
     # RADIO / RPL
     # --------------------------------------------------------
-
     "rssi_avg",
     "etx",
-
     "rank",
     "parent_rank",
     "parent_id",
-
     "neighbors",
 
     # --------------------------------------------------------
     # ENERGEST
     # --------------------------------------------------------
-
     "cpu_ticks",
     "lpm_ticks",
     "deep_lpm_ticks",
-
     "radio_tx_ticks",
     "radio_listen_ticks",
-
     "total_time_ticks",
 
     # On garde les deux pour compatibilité.
@@ -196,7 +179,6 @@ CSV_COLUMNS = [
     # --------------------------------------------------------
     # ÉTAT DU NŒUD
     # --------------------------------------------------------
-
     "connected",
 ]
 
@@ -402,21 +384,15 @@ def parse_log_file(
     log_file: Path,
     *,
     run_name: str = "",
-
     seed: int | None = None,
-
     imin: int | None = None,
     imax: int | None = None,
     k: int | None = None,
-
     tx_range: float | None = None,
-
     nb_nodes: int | None = None,
-
     send_interval: int | None = None,
-
+    objective_function: str | None = None,
     ignore_before_seconds: int = 0,
-
     connected_only: bool = False,
 
 ) -> list[dict[str, Any]]:
@@ -513,19 +489,15 @@ def parse_log_file(
             )
 
             row["seed"] = seed
-
             row["imin"] = imin
             row["imax"] = imax
             row["k"] = k
-
             row["tx_range"] = tx_range
-
             row["nb_nodes"] = nb_nodes
-
+            row["objective_function"] = objective_function
             row["send_interval"] = (
                 send_interval
             )
-
             rows.append(
                 row
             )
@@ -622,25 +594,17 @@ def parse_and_save(
     *,
     log_file: Path,
     output_file: Path,
-
     run_name: str = "",
-
     seed: int | None = None,
-
     imin: int | None = None,
     imax: int | None = None,
     k: int | None = None,
-
     tx_range: float | None = None,
-
     nb_nodes: int | None = None,
-
     send_interval: int | None = None,
-
+    objective_function: str | None = None,
     ignore_before_seconds: int = 0,
-
     connected_only: bool = False,
-
     append: bool = False,
 
 ) -> int:
@@ -662,21 +626,15 @@ def parse_and_save(
 
     rows = parse_log_file(
         log_file,
-
         run_name=run_name,
-
         seed=seed,
-
         imin=imin,
         imax=imax,
         k=k,
-
         tx_range=tx_range,
-
         nb_nodes=nb_nodes,
-
         send_interval=send_interval,
-
+        objective_function=objective_function,
         ignore_before_seconds=(
             ignore_before_seconds
         ),
@@ -779,6 +737,12 @@ def build_argument_parser() -> argparse.ArgumentParser:
     )
 
     parser.add_argument(
+        "--objective-function",
+        type=str,
+        choices=["MRHOF", "OF0"],
+    )
+
+    parser.add_argument(
         "--ignore-before",
         type=int,
         default=0,
@@ -838,7 +802,8 @@ def main() -> None:
         nb_nodes=args.nb_nodes,
 
         send_interval=args.send_interval,
-
+        objective_function=args.objective_function,
+        
         ignore_before_seconds=(
             args.ignore_before
         ),
