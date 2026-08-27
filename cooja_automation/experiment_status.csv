@@ -1,1155 +1,678 @@
 run_name,config_id,seed,imin,imax,k,tx_range,nb_nodes,send_interval,objective_function,status,rows_added,error
-run_0001_cfg_001_seed_1_mrhof,1,1,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0002_cfg_001_seed_2_mrhof,1,2,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0003_cfg_001_seed_3_mrhof,1,3,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0004_cfg_001_seed_4_mrhof,1,4,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0005_cfg_001_seed_5_mrhof,1,5,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0006_cfg_001_seed_6_mrhof,1,6,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0007_cfg_001_seed_7_mrhof,1,7,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0008_cfg_001_seed_8_mrhof,1,8,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0009_cfg_001_seed_9_mrhof,1,9,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0010_cfg_001_seed_10_mrhof,1,10,8,16,0,40.0,12,5,MRHOF,SUCCESS,627,
-run_0011_cfg_002_seed_1_of0,2,1,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0012_cfg_002_seed_2_of0,2,2,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0013_cfg_002_seed_3_of0,2,3,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0014_cfg_002_seed_4_of0,2,4,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0015_cfg_002_seed_5_of0,2,5,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0016_cfg_002_seed_6_of0,2,6,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0017_cfg_002_seed_7_of0,2,7,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0018_cfg_002_seed_8_of0,2,8,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0019_cfg_002_seed_9_of0,2,9,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0020_cfg_002_seed_10_of0,2,10,8,16,0,40.0,12,5,OF0,SUCCESS,627,
-run_0021_cfg_003_seed_1_mrhof,3,1,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0022_cfg_003_seed_2_mrhof,3,2,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0023_cfg_003_seed_3_mrhof,3,3,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0024_cfg_003_seed_4_mrhof,3,4,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0025_cfg_003_seed_5_mrhof,3,5,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0026_cfg_003_seed_6_mrhof,3,6,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0027_cfg_003_seed_7_mrhof,3,7,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0028_cfg_003_seed_8_mrhof,3,8,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0029_cfg_003_seed_9_mrhof,3,9,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0030_cfg_003_seed_10_mrhof,3,10,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_0031_cfg_004_seed_1_of0,4,1,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0032_cfg_004_seed_2_of0,4,2,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0033_cfg_004_seed_3_of0,4,3,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0034_cfg_004_seed_4_of0,4,4,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0035_cfg_004_seed_5_of0,4,5,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0036_cfg_004_seed_6_of0,4,6,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0037_cfg_004_seed_7_of0,4,7,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0038_cfg_004_seed_8_of0,4,8,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0039_cfg_004_seed_9_of0,4,9,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0040_cfg_004_seed_10_of0,4,10,8,16,0,40.0,12,10,OF0,SUCCESS,627,
-run_0041_cfg_005_seed_1_mrhof,5,1,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0042_cfg_005_seed_2_mrhof,5,2,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0043_cfg_005_seed_3_mrhof,5,3,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0044_cfg_005_seed_4_mrhof,5,4,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0045_cfg_005_seed_5_mrhof,5,5,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0046_cfg_005_seed_6_mrhof,5,6,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0047_cfg_005_seed_7_mrhof,5,7,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0048_cfg_005_seed_8_mrhof,5,8,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0049_cfg_005_seed_9_mrhof,5,9,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0050_cfg_005_seed_10_mrhof,5,10,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_0051_cfg_006_seed_1_of0,6,1,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0052_cfg_006_seed_2_of0,6,2,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0053_cfg_006_seed_3_of0,6,3,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0054_cfg_006_seed_4_of0,6,4,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0055_cfg_006_seed_5_of0,6,5,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0056_cfg_006_seed_6_of0,6,6,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0057_cfg_006_seed_7_of0,6,7,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0058_cfg_006_seed_8_of0,6,8,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0059_cfg_006_seed_9_of0,6,9,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0060_cfg_006_seed_10_of0,6,10,8,16,0,40.0,12,20,OF0,SUCCESS,627,
-run_0061_cfg_007_seed_1_mrhof,7,1,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0062_cfg_007_seed_2_mrhof,7,2,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0063_cfg_007_seed_3_mrhof,7,3,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0064_cfg_007_seed_4_mrhof,7,4,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0065_cfg_007_seed_5_mrhof,7,5,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0066_cfg_007_seed_6_mrhof,7,6,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0067_cfg_007_seed_7_mrhof,7,7,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0068_cfg_007_seed_8_mrhof,7,8,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0069_cfg_007_seed_9_mrhof,7,9,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0070_cfg_007_seed_10_mrhof,7,10,8,16,0,40.0,16,5,MRHOF,SUCCESS,855,
-run_0071_cfg_008_seed_1_of0,8,1,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0072_cfg_008_seed_2_of0,8,2,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0073_cfg_008_seed_3_of0,8,3,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0074_cfg_008_seed_4_of0,8,4,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0075_cfg_008_seed_5_of0,8,5,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0076_cfg_008_seed_6_of0,8,6,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0077_cfg_008_seed_7_of0,8,7,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0078_cfg_008_seed_8_of0,8,8,8,16,0,40.0,16,5,OF0,SUCCESS,854,
-run_0079_cfg_008_seed_9_of0,8,9,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0080_cfg_008_seed_10_of0,8,10,8,16,0,40.0,16,5,OF0,SUCCESS,855,
-run_0081_cfg_009_seed_1_mrhof,9,1,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0082_cfg_009_seed_2_mrhof,9,2,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0083_cfg_009_seed_3_mrhof,9,3,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0084_cfg_009_seed_4_mrhof,9,4,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0085_cfg_009_seed_5_mrhof,9,5,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0086_cfg_009_seed_6_mrhof,9,6,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0087_cfg_009_seed_7_mrhof,9,7,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0088_cfg_009_seed_8_mrhof,9,8,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0089_cfg_009_seed_9_mrhof,9,9,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0090_cfg_009_seed_10_mrhof,9,10,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
-run_0091_cfg_010_seed_1_of0,10,1,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0092_cfg_010_seed_2_of0,10,2,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0093_cfg_010_seed_3_of0,10,3,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0094_cfg_010_seed_4_of0,10,4,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0095_cfg_010_seed_5_of0,10,5,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0096_cfg_010_seed_6_of0,10,6,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0097_cfg_010_seed_7_of0,10,7,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0098_cfg_010_seed_8_of0,10,8,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0099_cfg_010_seed_9_of0,10,9,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0100_cfg_010_seed_10_of0,10,10,8,16,0,40.0,16,10,OF0,SUCCESS,855,
-run_0101_cfg_011_seed_1_of0,11,1,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0102_cfg_011_seed_2_of0,11,2,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0103_cfg_011_seed_3_of0,11,3,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0104_cfg_011_seed_4_of0,11,4,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0105_cfg_011_seed_5_of0,11,5,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0106_cfg_011_seed_6_of0,11,6,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0107_cfg_011_seed_7_of0,11,7,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0108_cfg_011_seed_8_of0,11,8,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0109_cfg_011_seed_9_of0,11,9,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0110_cfg_011_seed_10_of0,11,10,8,16,0,40.0,16,20,OF0,SUCCESS,855,
-run_0111_cfg_012_seed_1_mrhof,12,1,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0112_cfg_012_seed_2_mrhof,12,2,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0113_cfg_012_seed_3_mrhof,12,3,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0114_cfg_012_seed_4_mrhof,12,4,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0115_cfg_012_seed_5_mrhof,12,5,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0116_cfg_012_seed_6_mrhof,12,6,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0117_cfg_012_seed_7_mrhof,12,7,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0118_cfg_012_seed_8_mrhof,12,8,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0119_cfg_012_seed_9_mrhof,12,9,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0120_cfg_012_seed_10_mrhof,12,10,8,16,0,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0121_cfg_013_seed_1_mrhof,13,1,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0122_cfg_013_seed_2_mrhof,13,2,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0123_cfg_013_seed_3_mrhof,13,3,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0124_cfg_013_seed_4_mrhof,13,4,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0125_cfg_013_seed_5_mrhof,13,5,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0126_cfg_013_seed_6_mrhof,13,6,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0127_cfg_013_seed_7_mrhof,13,7,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0128_cfg_013_seed_8_mrhof,13,8,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0129_cfg_013_seed_9_mrhof,13,9,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0130_cfg_013_seed_10_mrhof,13,10,8,16,0,40.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0131_cfg_014_seed_1_of0,14,1,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0132_cfg_014_seed_2_of0,14,2,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0133_cfg_014_seed_3_of0,14,3,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0134_cfg_014_seed_4_of0,14,4,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0135_cfg_014_seed_5_of0,14,5,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0136_cfg_014_seed_6_of0,14,6,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0137_cfg_014_seed_7_of0,14,7,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0138_cfg_014_seed_8_of0,14,8,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0139_cfg_014_seed_9_of0,14,9,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0140_cfg_014_seed_10_of0,14,10,8,16,0,40.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0141_cfg_015_seed_1_of0,15,1,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0142_cfg_015_seed_2_of0,15,2,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0143_cfg_015_seed_3_of0,15,3,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0144_cfg_015_seed_4_of0,15,4,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0145_cfg_015_seed_5_of0,15,5,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0146_cfg_015_seed_6_of0,15,6,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0147_cfg_015_seed_7_of0,15,7,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0148_cfg_015_seed_8_of0,15,8,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0149_cfg_015_seed_9_of0,15,9,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0150_cfg_015_seed_10_of0,15,10,8,16,0,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0151_cfg_016_seed_1_mrhof,16,1,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0152_cfg_016_seed_2_mrhof,16,2,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0153_cfg_016_seed_3_mrhof,16,3,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0154_cfg_016_seed_4_mrhof,16,4,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0155_cfg_016_seed_5_mrhof,16,5,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0156_cfg_016_seed_6_mrhof,16,6,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0157_cfg_016_seed_7_mrhof,16,7,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0158_cfg_016_seed_8_mrhof,16,8,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0159_cfg_016_seed_9_mrhof,16,9,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0160_cfg_016_seed_10_mrhof,16,10,8,16,0,50.0,12,5,MRHOF,SUCCESS,627,
-run_0161_cfg_017_seed_1_of0,17,1,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0162_cfg_017_seed_2_of0,17,2,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0163_cfg_017_seed_3_of0,17,3,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0164_cfg_017_seed_4_of0,17,4,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0165_cfg_017_seed_5_of0,17,5,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0166_cfg_017_seed_6_of0,17,6,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0167_cfg_017_seed_7_of0,17,7,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0168_cfg_017_seed_8_of0,17,8,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0169_cfg_017_seed_9_of0,17,9,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0170_cfg_017_seed_10_of0,17,10,8,16,0,50.0,12,5,OF0,SUCCESS,627,
-run_0171_cfg_018_seed_1_of0,18,1,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0172_cfg_018_seed_2_of0,18,2,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0173_cfg_018_seed_3_of0,18,3,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0174_cfg_018_seed_4_of0,18,4,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0175_cfg_018_seed_5_of0,18,5,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0176_cfg_018_seed_6_of0,18,6,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0177_cfg_018_seed_7_of0,18,7,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0178_cfg_018_seed_8_of0,18,8,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0179_cfg_018_seed_9_of0,18,9,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0180_cfg_018_seed_10_of0,18,10,8,16,0,50.0,12,10,OF0,SUCCESS,627,
-run_0181_cfg_019_seed_1_mrhof,19,1,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0182_cfg_019_seed_2_mrhof,19,2,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0183_cfg_019_seed_3_mrhof,19,3,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0184_cfg_019_seed_4_mrhof,19,4,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0185_cfg_019_seed_5_mrhof,19,5,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0186_cfg_019_seed_6_mrhof,19,6,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0187_cfg_019_seed_7_mrhof,19,7,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0188_cfg_019_seed_8_mrhof,19,8,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0189_cfg_019_seed_9_mrhof,19,9,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0190_cfg_019_seed_10_mrhof,19,10,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
-run_0191_cfg_020_seed_1_of0,20,1,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0192_cfg_020_seed_2_of0,20,2,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0193_cfg_020_seed_3_of0,20,3,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0194_cfg_020_seed_4_of0,20,4,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0195_cfg_020_seed_5_of0,20,5,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0196_cfg_020_seed_6_of0,20,6,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0197_cfg_020_seed_7_of0,20,7,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0198_cfg_020_seed_8_of0,20,8,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0199_cfg_020_seed_9_of0,20,9,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0200_cfg_020_seed_10_of0,20,10,8,16,0,50.0,16,5,OF0,SUCCESS,855,
-run_0201_cfg_021_seed_1_mrhof,21,1,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0202_cfg_021_seed_2_mrhof,21,2,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0203_cfg_021_seed_3_mrhof,21,3,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0204_cfg_021_seed_4_mrhof,21,4,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0205_cfg_021_seed_5_mrhof,21,5,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0206_cfg_021_seed_6_mrhof,21,6,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0207_cfg_021_seed_7_mrhof,21,7,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0208_cfg_021_seed_8_mrhof,21,8,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0209_cfg_021_seed_9_mrhof,21,9,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0210_cfg_021_seed_10_mrhof,21,10,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
-run_0211_cfg_022_seed_1_of0,22,1,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0212_cfg_022_seed_2_of0,22,2,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0213_cfg_022_seed_3_of0,22,3,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0214_cfg_022_seed_4_of0,22,4,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0215_cfg_022_seed_5_of0,22,5,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0216_cfg_022_seed_6_of0,22,6,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0217_cfg_022_seed_7_of0,22,7,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0218_cfg_022_seed_8_of0,22,8,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0219_cfg_022_seed_9_of0,22,9,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0220_cfg_022_seed_10_of0,22,10,8,16,0,50.0,16,20,OF0,SUCCESS,855,
-run_0221_cfg_023_seed_1_mrhof,23,1,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0222_cfg_023_seed_2_mrhof,23,2,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0223_cfg_023_seed_3_mrhof,23,3,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0224_cfg_023_seed_4_mrhof,23,4,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0225_cfg_023_seed_5_mrhof,23,5,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0226_cfg_023_seed_6_mrhof,23,6,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0227_cfg_023_seed_7_mrhof,23,7,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0228_cfg_023_seed_8_mrhof,23,8,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0229_cfg_023_seed_9_mrhof,23,9,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0230_cfg_023_seed_10_mrhof,23,10,8,16,0,50.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0231_cfg_024_seed_1_of0,24,1,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0232_cfg_024_seed_2_of0,24,2,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0233_cfg_024_seed_3_of0,24,3,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0234_cfg_024_seed_4_of0,24,4,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0235_cfg_024_seed_5_of0,24,5,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0236_cfg_024_seed_6_of0,24,6,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0237_cfg_024_seed_7_of0,24,7,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0238_cfg_024_seed_8_of0,24,8,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0239_cfg_024_seed_9_of0,24,9,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0240_cfg_024_seed_10_of0,24,10,8,16,0,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0241_cfg_025_seed_1_of0,25,1,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0242_cfg_025_seed_2_of0,25,2,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0243_cfg_025_seed_3_of0,25,3,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0244_cfg_025_seed_4_of0,25,4,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0245_cfg_025_seed_5_of0,25,5,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0246_cfg_025_seed_6_of0,25,6,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0247_cfg_025_seed_7_of0,25,7,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0248_cfg_025_seed_8_of0,25,8,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0249_cfg_025_seed_9_of0,25,9,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0250_cfg_025_seed_10_of0,25,10,8,16,0,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0251_cfg_026_seed_1_of0,26,1,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0252_cfg_026_seed_2_of0,26,2,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0253_cfg_026_seed_3_of0,26,3,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0254_cfg_026_seed_4_of0,26,4,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0255_cfg_026_seed_5_of0,26,5,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0256_cfg_026_seed_6_of0,26,6,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0257_cfg_026_seed_7_of0,26,7,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0258_cfg_026_seed_8_of0,26,8,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0259_cfg_026_seed_9_of0,26,9,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0260_cfg_026_seed_10_of0,26,10,8,16,0,60.0,12,5,OF0,SUCCESS,627,
-run_0261_cfg_027_seed_1_mrhof,27,1,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0262_cfg_027_seed_2_mrhof,27,2,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0263_cfg_027_seed_3_mrhof,27,3,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0264_cfg_027_seed_4_mrhof,27,4,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0265_cfg_027_seed_5_mrhof,27,5,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0266_cfg_027_seed_6_mrhof,27,6,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0267_cfg_027_seed_7_mrhof,27,7,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0268_cfg_027_seed_8_mrhof,27,8,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0269_cfg_027_seed_9_mrhof,27,9,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0270_cfg_027_seed_10_mrhof,27,10,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
-run_0271_cfg_028_seed_1_of0,28,1,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0272_cfg_028_seed_2_of0,28,2,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0273_cfg_028_seed_3_of0,28,3,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0274_cfg_028_seed_4_of0,28,4,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0275_cfg_028_seed_5_of0,28,5,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0276_cfg_028_seed_6_of0,28,6,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0277_cfg_028_seed_7_of0,28,7,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0278_cfg_028_seed_8_of0,28,8,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0279_cfg_028_seed_9_of0,28,9,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0280_cfg_028_seed_10_of0,28,10,8,16,0,60.0,12,20,OF0,SUCCESS,627,
-run_0281_cfg_029_seed_1_mrhof,29,1,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0282_cfg_029_seed_2_mrhof,29,2,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0283_cfg_029_seed_3_mrhof,29,3,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0284_cfg_029_seed_4_mrhof,29,4,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0285_cfg_029_seed_5_mrhof,29,5,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0286_cfg_029_seed_6_mrhof,29,6,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0287_cfg_029_seed_7_mrhof,29,7,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0288_cfg_029_seed_8_mrhof,29,8,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0289_cfg_029_seed_9_mrhof,29,9,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0290_cfg_029_seed_10_mrhof,29,10,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
-run_0291_cfg_030_seed_1_of0,30,1,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0292_cfg_030_seed_2_of0,30,2,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0293_cfg_030_seed_3_of0,30,3,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0294_cfg_030_seed_4_of0,30,4,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0295_cfg_030_seed_5_of0,30,5,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0296_cfg_030_seed_6_of0,30,6,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0297_cfg_030_seed_7_of0,30,7,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0298_cfg_030_seed_8_of0,30,8,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0299_cfg_030_seed_9_of0,30,9,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0300_cfg_030_seed_10_of0,30,10,8,16,0,60.0,16,5,OF0,SUCCESS,855,
-run_0301_cfg_031_seed_1_of0,31,1,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0302_cfg_031_seed_2_of0,31,2,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0303_cfg_031_seed_3_of0,31,3,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0304_cfg_031_seed_4_of0,31,4,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0305_cfg_031_seed_5_of0,31,5,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0306_cfg_031_seed_6_of0,31,6,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0307_cfg_031_seed_7_of0,31,7,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0308_cfg_031_seed_8_of0,31,8,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0309_cfg_031_seed_9_of0,31,9,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0310_cfg_031_seed_10_of0,31,10,8,16,0,60.0,16,10,OF0,SUCCESS,855,
-run_0311_cfg_032_seed_1_mrhof,32,1,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0312_cfg_032_seed_2_mrhof,32,2,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0313_cfg_032_seed_3_mrhof,32,3,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0314_cfg_032_seed_4_mrhof,32,4,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0315_cfg_032_seed_5_mrhof,32,5,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0316_cfg_032_seed_6_mrhof,32,6,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0317_cfg_032_seed_7_mrhof,32,7,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0318_cfg_032_seed_8_mrhof,32,8,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0319_cfg_032_seed_9_mrhof,32,9,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0320_cfg_032_seed_10_mrhof,32,10,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
-run_0321_cfg_033_seed_1_of0,33,1,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0322_cfg_033_seed_2_of0,33,2,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0323_cfg_033_seed_3_of0,33,3,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0324_cfg_033_seed_4_of0,33,4,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0325_cfg_033_seed_5_of0,33,5,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0326_cfg_033_seed_6_of0,33,6,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0327_cfg_033_seed_7_of0,33,7,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0328_cfg_033_seed_8_of0,33,8,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0329_cfg_033_seed_9_of0,33,9,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0330_cfg_033_seed_10_of0,33,10,8,16,0,60.0,16,20,OF0,SUCCESS,855,
-run_0331_cfg_034_seed_1_mrhof,34,1,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0332_cfg_034_seed_2_mrhof,34,2,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0333_cfg_034_seed_3_mrhof,34,3,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0334_cfg_034_seed_4_mrhof,34,4,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0335_cfg_034_seed_5_mrhof,34,5,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0336_cfg_034_seed_6_mrhof,34,6,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0337_cfg_034_seed_7_mrhof,34,7,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0338_cfg_034_seed_8_mrhof,34,8,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0339_cfg_034_seed_9_mrhof,34,9,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0340_cfg_034_seed_10_mrhof,34,10,8,16,0,60.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0341_cfg_035_seed_1_of0,35,1,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0342_cfg_035_seed_2_of0,35,2,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0343_cfg_035_seed_3_of0,35,3,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0344_cfg_035_seed_4_of0,35,4,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0345_cfg_035_seed_5_of0,35,5,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0346_cfg_035_seed_6_of0,35,6,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0347_cfg_035_seed_7_of0,35,7,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0348_cfg_035_seed_8_of0,35,8,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0349_cfg_035_seed_9_of0,35,9,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0350_cfg_035_seed_10_of0,35,10,8,16,0,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0351_cfg_036_seed_1_of0,36,1,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0352_cfg_036_seed_2_of0,36,2,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0353_cfg_036_seed_3_of0,36,3,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0354_cfg_036_seed_4_of0,36,4,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0355_cfg_036_seed_5_of0,36,5,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0356_cfg_036_seed_6_of0,36,6,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0357_cfg_036_seed_7_of0,36,7,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0358_cfg_036_seed_8_of0,36,8,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0359_cfg_036_seed_9_of0,36,9,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0360_cfg_036_seed_10_of0,36,10,8,16,0,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0361_cfg_037_seed_1_mrhof,37,1,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0362_cfg_037_seed_2_mrhof,37,2,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0363_cfg_037_seed_3_mrhof,37,3,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0364_cfg_037_seed_4_mrhof,37,4,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0365_cfg_037_seed_5_mrhof,37,5,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0366_cfg_037_seed_6_mrhof,37,6,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0367_cfg_037_seed_7_mrhof,37,7,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0368_cfg_037_seed_8_mrhof,37,8,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0369_cfg_037_seed_9_mrhof,37,9,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0370_cfg_037_seed_10_mrhof,37,10,8,16,0,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0371_cfg_038_seed_1_mrhof,38,1,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0372_cfg_038_seed_2_mrhof,38,2,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0373_cfg_038_seed_3_mrhof,38,3,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0374_cfg_038_seed_4_mrhof,38,4,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0375_cfg_038_seed_5_mrhof,38,5,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0376_cfg_038_seed_6_mrhof,38,6,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0377_cfg_038_seed_7_mrhof,38,7,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0378_cfg_038_seed_8_mrhof,38,8,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0379_cfg_038_seed_9_mrhof,38,9,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0380_cfg_038_seed_10_mrhof,38,10,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
-run_0381_cfg_039_seed_1_of0,39,1,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0382_cfg_039_seed_2_of0,39,2,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0383_cfg_039_seed_3_of0,39,3,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0384_cfg_039_seed_4_of0,39,4,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0385_cfg_039_seed_5_of0,39,5,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0386_cfg_039_seed_6_of0,39,6,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0387_cfg_039_seed_7_of0,39,7,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0388_cfg_039_seed_8_of0,39,8,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0389_cfg_039_seed_9_of0,39,9,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0390_cfg_039_seed_10_of0,39,10,8,16,5,40.0,12,10,OF0,SUCCESS,627,
-run_0391_cfg_040_seed_1_mrhof,40,1,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0392_cfg_040_seed_2_mrhof,40,2,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0393_cfg_040_seed_3_mrhof,40,3,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0394_cfg_040_seed_4_mrhof,40,4,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0395_cfg_040_seed_5_mrhof,40,5,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0396_cfg_040_seed_6_mrhof,40,6,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0397_cfg_040_seed_7_mrhof,40,7,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0398_cfg_040_seed_8_mrhof,40,8,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0399_cfg_040_seed_9_mrhof,40,9,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0400_cfg_040_seed_10_mrhof,40,10,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
-run_0401_cfg_041_seed_1_of0,41,1,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0402_cfg_041_seed_2_of0,41,2,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0403_cfg_041_seed_3_of0,41,3,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0404_cfg_041_seed_4_of0,41,4,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0405_cfg_041_seed_5_of0,41,5,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0406_cfg_041_seed_6_of0,41,6,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0407_cfg_041_seed_7_of0,41,7,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0408_cfg_041_seed_8_of0,41,8,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0409_cfg_041_seed_9_of0,41,9,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0410_cfg_041_seed_10_of0,41,10,8,16,5,40.0,12,20,OF0,SUCCESS,627,
-run_0411_cfg_042_seed_1_mrhof,42,1,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0412_cfg_042_seed_2_mrhof,42,2,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0413_cfg_042_seed_3_mrhof,42,3,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0414_cfg_042_seed_4_mrhof,42,4,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0415_cfg_042_seed_5_mrhof,42,5,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0416_cfg_042_seed_6_mrhof,42,6,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0417_cfg_042_seed_7_mrhof,42,7,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0418_cfg_042_seed_8_mrhof,42,8,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0419_cfg_042_seed_9_mrhof,42,9,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0420_cfg_042_seed_10_mrhof,42,10,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
-run_0421_cfg_043_seed_1_mrhof,43,1,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0422_cfg_043_seed_2_mrhof,43,2,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0423_cfg_043_seed_3_mrhof,43,3,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0424_cfg_043_seed_4_mrhof,43,4,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0425_cfg_043_seed_5_mrhof,43,5,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0426_cfg_043_seed_6_mrhof,43,6,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0427_cfg_043_seed_7_mrhof,43,7,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0428_cfg_043_seed_8_mrhof,43,8,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0429_cfg_043_seed_9_mrhof,43,9,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0430_cfg_043_seed_10_mrhof,43,10,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
-run_0431_cfg_044_seed_1_of0,44,1,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0432_cfg_044_seed_2_of0,44,2,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0433_cfg_044_seed_3_of0,44,3,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0434_cfg_044_seed_4_of0,44,4,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0435_cfg_044_seed_5_of0,44,5,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0436_cfg_044_seed_6_of0,44,6,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0437_cfg_044_seed_7_of0,44,7,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0438_cfg_044_seed_8_of0,44,8,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0439_cfg_044_seed_9_of0,44,9,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0440_cfg_044_seed_10_of0,44,10,8,16,5,40.0,16,10,OF0,SUCCESS,855,
-run_0441_cfg_045_seed_1_mrhof,45,1,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0442_cfg_045_seed_2_mrhof,45,2,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0443_cfg_045_seed_3_mrhof,45,3,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0444_cfg_045_seed_4_mrhof,45,4,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0445_cfg_045_seed_5_mrhof,45,5,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0446_cfg_045_seed_6_mrhof,45,6,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0447_cfg_045_seed_7_mrhof,45,7,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0448_cfg_045_seed_8_mrhof,45,8,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0449_cfg_045_seed_9_mrhof,45,9,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0450_cfg_045_seed_10_mrhof,45,10,8,16,5,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0451_cfg_046_seed_1_mrhof,46,1,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0452_cfg_046_seed_2_mrhof,46,2,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0453_cfg_046_seed_3_mrhof,46,3,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0454_cfg_046_seed_4_mrhof,46,4,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0455_cfg_046_seed_5_mrhof,46,5,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0456_cfg_046_seed_6_mrhof,46,6,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0457_cfg_046_seed_7_mrhof,46,7,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0458_cfg_046_seed_8_mrhof,46,8,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0459_cfg_046_seed_9_mrhof,46,9,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0460_cfg_046_seed_10_mrhof,46,10,8,16,5,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0461_cfg_047_seed_1_of0,47,1,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0462_cfg_047_seed_2_of0,47,2,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0463_cfg_047_seed_3_of0,47,3,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0464_cfg_047_seed_4_of0,47,4,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0465_cfg_047_seed_5_of0,47,5,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0466_cfg_047_seed_6_of0,47,6,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0467_cfg_047_seed_7_of0,47,7,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0468_cfg_047_seed_8_of0,47,8,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0469_cfg_047_seed_9_of0,47,9,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0470_cfg_047_seed_10_of0,47,10,8,16,5,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0471_cfg_048_seed_1_mrhof,48,1,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0472_cfg_048_seed_2_mrhof,48,2,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0473_cfg_048_seed_3_mrhof,48,3,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0474_cfg_048_seed_4_mrhof,48,4,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0475_cfg_048_seed_5_mrhof,48,5,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0476_cfg_048_seed_6_mrhof,48,6,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0477_cfg_048_seed_7_mrhof,48,7,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0478_cfg_048_seed_8_mrhof,48,8,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0479_cfg_048_seed_9_mrhof,48,9,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0480_cfg_048_seed_10_mrhof,48,10,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
-run_0481_cfg_049_seed_1_mrhof,49,1,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0482_cfg_049_seed_2_mrhof,49,2,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0483_cfg_049_seed_3_mrhof,49,3,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0484_cfg_049_seed_4_mrhof,49,4,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0485_cfg_049_seed_5_mrhof,49,5,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0486_cfg_049_seed_6_mrhof,49,6,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0487_cfg_049_seed_7_mrhof,49,7,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0488_cfg_049_seed_8_mrhof,49,8,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0489_cfg_049_seed_9_mrhof,49,9,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0490_cfg_049_seed_10_mrhof,49,10,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
-run_0491_cfg_050_seed_1_of0,50,1,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0492_cfg_050_seed_2_of0,50,2,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0493_cfg_050_seed_3_of0,50,3,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0494_cfg_050_seed_4_of0,50,4,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0495_cfg_050_seed_5_of0,50,5,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0496_cfg_050_seed_6_of0,50,6,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0497_cfg_050_seed_7_of0,50,7,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0498_cfg_050_seed_8_of0,50,8,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0499_cfg_050_seed_9_of0,50,9,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0500_cfg_050_seed_10_of0,50,10,8,16,5,50.0,12,10,OF0,SUCCESS,627,
-run_0501_cfg_051_seed_1_mrhof,51,1,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0502_cfg_051_seed_2_mrhof,51,2,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0503_cfg_051_seed_3_mrhof,51,3,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0504_cfg_051_seed_4_mrhof,51,4,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0505_cfg_051_seed_5_mrhof,51,5,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0506_cfg_051_seed_6_mrhof,51,6,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0507_cfg_051_seed_7_mrhof,51,7,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0508_cfg_051_seed_8_mrhof,51,8,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0509_cfg_051_seed_9_mrhof,51,9,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0510_cfg_051_seed_10_mrhof,51,10,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
-run_0511_cfg_052_seed_1_of0,52,1,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0512_cfg_052_seed_2_of0,52,2,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0513_cfg_052_seed_3_of0,52,3,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0514_cfg_052_seed_4_of0,52,4,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0515_cfg_052_seed_5_of0,52,5,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0516_cfg_052_seed_6_of0,52,6,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0517_cfg_052_seed_7_of0,52,7,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0518_cfg_052_seed_8_of0,52,8,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0519_cfg_052_seed_9_of0,52,9,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0520_cfg_052_seed_10_of0,52,10,8,16,5,50.0,12,20,OF0,SUCCESS,627,
-run_0521_cfg_053_seed_1_mrhof,53,1,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0522_cfg_053_seed_2_mrhof,53,2,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0523_cfg_053_seed_3_mrhof,53,3,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0524_cfg_053_seed_4_mrhof,53,4,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0525_cfg_053_seed_5_mrhof,53,5,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0526_cfg_053_seed_6_mrhof,53,6,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0527_cfg_053_seed_7_mrhof,53,7,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0528_cfg_053_seed_8_mrhof,53,8,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0529_cfg_053_seed_9_mrhof,53,9,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0530_cfg_053_seed_10_mrhof,53,10,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
-run_0531_cfg_054_seed_1_of0,54,1,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0532_cfg_054_seed_2_of0,54,2,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0533_cfg_054_seed_3_of0,54,3,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0534_cfg_054_seed_4_of0,54,4,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0535_cfg_054_seed_5_of0,54,5,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0536_cfg_054_seed_6_of0,54,6,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0537_cfg_054_seed_7_of0,54,7,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0538_cfg_054_seed_8_of0,54,8,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0539_cfg_054_seed_9_of0,54,9,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0540_cfg_054_seed_10_of0,54,10,8,16,5,50.0,16,5,OF0,SUCCESS,855,
-run_0541_cfg_055_seed_1_mrhof,55,1,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0542_cfg_055_seed_2_mrhof,55,2,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0543_cfg_055_seed_3_mrhof,55,3,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0544_cfg_055_seed_4_mrhof,55,4,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0545_cfg_055_seed_5_mrhof,55,5,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0546_cfg_055_seed_6_mrhof,55,6,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0547_cfg_055_seed_7_mrhof,55,7,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0548_cfg_055_seed_8_mrhof,55,8,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0549_cfg_055_seed_9_mrhof,55,9,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0550_cfg_055_seed_10_mrhof,55,10,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
-run_0551_cfg_056_seed_1_of0,56,1,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0552_cfg_056_seed_2_of0,56,2,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0553_cfg_056_seed_3_of0,56,3,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0554_cfg_056_seed_4_of0,56,4,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0555_cfg_056_seed_5_of0,56,5,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0556_cfg_056_seed_6_of0,56,6,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0557_cfg_056_seed_7_of0,56,7,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0558_cfg_056_seed_8_of0,56,8,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0559_cfg_056_seed_9_of0,56,9,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0560_cfg_056_seed_10_of0,56,10,8,16,5,50.0,16,10,OF0,SUCCESS,855,
-run_0561_cfg_057_seed_1_mrhof,57,1,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0562_cfg_057_seed_2_mrhof,57,2,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0563_cfg_057_seed_3_mrhof,57,3,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0564_cfg_057_seed_4_mrhof,57,4,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0565_cfg_057_seed_5_mrhof,57,5,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0566_cfg_057_seed_6_mrhof,57,6,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0567_cfg_057_seed_7_mrhof,57,7,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0568_cfg_057_seed_8_mrhof,57,8,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0569_cfg_057_seed_9_mrhof,57,9,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0570_cfg_057_seed_10_mrhof,57,10,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
-run_0571_cfg_058_seed_1_of0,58,1,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0572_cfg_058_seed_2_of0,58,2,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0573_cfg_058_seed_3_of0,58,3,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0574_cfg_058_seed_4_of0,58,4,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0575_cfg_058_seed_5_of0,58,5,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0576_cfg_058_seed_6_of0,58,6,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0577_cfg_058_seed_7_of0,58,7,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0578_cfg_058_seed_8_of0,58,8,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0579_cfg_058_seed_9_of0,58,9,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0580_cfg_058_seed_10_of0,58,10,8,16,5,50.0,16,20,OF0,SUCCESS,855,
-run_0581_cfg_059_seed_1_mrhof,59,1,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0582_cfg_059_seed_2_mrhof,59,2,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0583_cfg_059_seed_3_mrhof,59,3,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0584_cfg_059_seed_4_mrhof,59,4,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0585_cfg_059_seed_5_mrhof,59,5,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0586_cfg_059_seed_6_mrhof,59,6,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0587_cfg_059_seed_7_mrhof,59,7,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0588_cfg_059_seed_8_mrhof,59,8,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0589_cfg_059_seed_9_mrhof,59,9,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0590_cfg_059_seed_10_mrhof,59,10,8,16,5,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0591_cfg_060_seed_1_mrhof,60,1,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0592_cfg_060_seed_2_mrhof,60,2,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0593_cfg_060_seed_3_mrhof,60,3,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0594_cfg_060_seed_4_mrhof,60,4,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0595_cfg_060_seed_5_mrhof,60,5,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0596_cfg_060_seed_6_mrhof,60,6,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0597_cfg_060_seed_7_mrhof,60,7,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0598_cfg_060_seed_8_mrhof,60,8,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0599_cfg_060_seed_9_mrhof,60,9,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0600_cfg_060_seed_10_mrhof,60,10,8,16,5,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0601_cfg_061_seed_1_of0,61,1,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0602_cfg_061_seed_2_of0,61,2,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0603_cfg_061_seed_3_of0,61,3,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0604_cfg_061_seed_4_of0,61,4,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0605_cfg_061_seed_5_of0,61,5,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0606_cfg_061_seed_6_of0,61,6,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0607_cfg_061_seed_7_of0,61,7,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0608_cfg_061_seed_8_of0,61,8,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0609_cfg_061_seed_9_of0,61,9,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0610_cfg_061_seed_10_of0,61,10,8,16,5,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0611_cfg_062_seed_1_mrhof,62,1,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0612_cfg_062_seed_2_mrhof,62,2,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0613_cfg_062_seed_3_mrhof,62,3,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0614_cfg_062_seed_4_mrhof,62,4,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0615_cfg_062_seed_5_mrhof,62,5,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0616_cfg_062_seed_6_mrhof,62,6,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0617_cfg_062_seed_7_mrhof,62,7,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0618_cfg_062_seed_8_mrhof,62,8,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0619_cfg_062_seed_9_mrhof,62,9,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0620_cfg_062_seed_10_mrhof,62,10,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
-run_0621_cfg_063_seed_1_of0,63,1,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0622_cfg_063_seed_2_of0,63,2,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0623_cfg_063_seed_3_of0,63,3,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0624_cfg_063_seed_4_of0,63,4,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0625_cfg_063_seed_5_of0,63,5,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0626_cfg_063_seed_6_of0,63,6,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0627_cfg_063_seed_7_of0,63,7,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0628_cfg_063_seed_8_of0,63,8,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0629_cfg_063_seed_9_of0,63,9,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0630_cfg_063_seed_10_of0,63,10,8,16,5,60.0,12,5,OF0,SUCCESS,627,
-run_0631_cfg_064_seed_1_mrhof,64,1,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0632_cfg_064_seed_2_mrhof,64,2,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0633_cfg_064_seed_3_mrhof,64,3,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0634_cfg_064_seed_4_mrhof,64,4,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0635_cfg_064_seed_5_mrhof,64,5,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0636_cfg_064_seed_6_mrhof,64,6,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0637_cfg_064_seed_7_mrhof,64,7,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0638_cfg_064_seed_8_mrhof,64,8,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0639_cfg_064_seed_9_mrhof,64,9,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0640_cfg_064_seed_10_mrhof,64,10,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
-run_0641_cfg_065_seed_1_of0,65,1,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0642_cfg_065_seed_2_of0,65,2,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0643_cfg_065_seed_3_of0,65,3,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0644_cfg_065_seed_4_of0,65,4,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0645_cfg_065_seed_5_of0,65,5,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0646_cfg_065_seed_6_of0,65,6,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0647_cfg_065_seed_7_of0,65,7,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0648_cfg_065_seed_8_of0,65,8,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0649_cfg_065_seed_9_of0,65,9,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0650_cfg_065_seed_10_of0,65,10,8,16,5,60.0,12,10,OF0,SUCCESS,627,
-run_0651_cfg_066_seed_1_mrhof,66,1,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0652_cfg_066_seed_2_mrhof,66,2,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0653_cfg_066_seed_3_mrhof,66,3,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0654_cfg_066_seed_4_mrhof,66,4,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0655_cfg_066_seed_5_mrhof,66,5,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0656_cfg_066_seed_6_mrhof,66,6,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0657_cfg_066_seed_7_mrhof,66,7,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0658_cfg_066_seed_8_mrhof,66,8,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0659_cfg_066_seed_9_mrhof,66,9,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0660_cfg_066_seed_10_mrhof,66,10,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
-run_0661_cfg_067_seed_1_of0,67,1,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0662_cfg_067_seed_2_of0,67,2,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0663_cfg_067_seed_3_of0,67,3,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0664_cfg_067_seed_4_of0,67,4,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0665_cfg_067_seed_5_of0,67,5,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0666_cfg_067_seed_6_of0,67,6,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0667_cfg_067_seed_7_of0,67,7,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0668_cfg_067_seed_8_of0,67,8,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0669_cfg_067_seed_9_of0,67,9,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0670_cfg_067_seed_10_of0,67,10,8,16,5,60.0,12,20,OF0,SUCCESS,627,
-run_0671_cfg_068_seed_1_mrhof,68,1,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0672_cfg_068_seed_2_mrhof,68,2,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0673_cfg_068_seed_3_mrhof,68,3,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0674_cfg_068_seed_4_mrhof,68,4,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0675_cfg_068_seed_5_mrhof,68,5,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0676_cfg_068_seed_6_mrhof,68,6,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0677_cfg_068_seed_7_mrhof,68,7,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0678_cfg_068_seed_8_mrhof,68,8,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0679_cfg_068_seed_9_mrhof,68,9,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0680_cfg_068_seed_10_mrhof,68,10,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
-run_0681_cfg_069_seed_1_mrhof,69,1,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0682_cfg_069_seed_2_mrhof,69,2,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0683_cfg_069_seed_3_mrhof,69,3,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0684_cfg_069_seed_4_mrhof,69,4,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0685_cfg_069_seed_5_mrhof,69,5,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0686_cfg_069_seed_6_mrhof,69,6,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0687_cfg_069_seed_7_mrhof,69,7,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0688_cfg_069_seed_8_mrhof,69,8,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0689_cfg_069_seed_9_mrhof,69,9,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0690_cfg_069_seed_10_mrhof,69,10,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
-run_0691_cfg_070_seed_1_of0,70,1,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0692_cfg_070_seed_2_of0,70,2,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0693_cfg_070_seed_3_of0,70,3,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0694_cfg_070_seed_4_of0,70,4,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0695_cfg_070_seed_5_of0,70,5,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0696_cfg_070_seed_6_of0,70,6,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0697_cfg_070_seed_7_of0,70,7,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0698_cfg_070_seed_8_of0,70,8,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0699_cfg_070_seed_9_of0,70,9,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0700_cfg_070_seed_10_of0,70,10,8,16,5,60.0,16,10,OF0,SUCCESS,855,
-run_0701_cfg_071_seed_1_of0,71,1,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0702_cfg_071_seed_2_of0,71,2,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0703_cfg_071_seed_3_of0,71,3,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0704_cfg_071_seed_4_of0,71,4,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0705_cfg_071_seed_5_of0,71,5,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0706_cfg_071_seed_6_of0,71,6,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0707_cfg_071_seed_7_of0,71,7,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0708_cfg_071_seed_8_of0,71,8,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0709_cfg_071_seed_9_of0,71,9,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0710_cfg_071_seed_10_of0,71,10,8,16,5,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0711_cfg_072_seed_1_mrhof,72,1,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0712_cfg_072_seed_2_mrhof,72,2,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0713_cfg_072_seed_3_mrhof,72,3,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0714_cfg_072_seed_4_mrhof,72,4,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0715_cfg_072_seed_5_mrhof,72,5,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0716_cfg_072_seed_6_mrhof,72,6,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0717_cfg_072_seed_7_mrhof,72,7,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0718_cfg_072_seed_8_mrhof,72,8,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0719_cfg_072_seed_9_mrhof,72,9,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0720_cfg_072_seed_10_mrhof,72,10,8,16,5,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0721_cfg_073_seed_1_of0,73,1,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0722_cfg_073_seed_2_of0,73,2,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0723_cfg_073_seed_3_of0,73,3,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0724_cfg_073_seed_4_of0,73,4,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0725_cfg_073_seed_5_of0,73,5,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0726_cfg_073_seed_6_of0,73,6,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0727_cfg_073_seed_7_of0,73,7,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0728_cfg_073_seed_8_of0,73,8,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0729_cfg_073_seed_9_of0,73,9,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0730_cfg_073_seed_10_of0,73,10,8,16,5,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0731_cfg_074_seed_1_mrhof,74,1,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0732_cfg_074_seed_2_mrhof,74,2,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0733_cfg_074_seed_3_mrhof,74,3,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0734_cfg_074_seed_4_mrhof,74,4,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0735_cfg_074_seed_5_mrhof,74,5,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0736_cfg_074_seed_6_mrhof,74,6,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0737_cfg_074_seed_7_mrhof,74,7,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0738_cfg_074_seed_8_mrhof,74,8,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0739_cfg_074_seed_9_mrhof,74,9,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0740_cfg_074_seed_10_mrhof,74,10,8,16,5,60.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0741_cfg_075_seed_1_of0,75,1,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0742_cfg_075_seed_2_of0,75,2,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0743_cfg_075_seed_3_of0,75,3,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0744_cfg_075_seed_4_of0,75,4,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0745_cfg_075_seed_5_of0,75,5,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0746_cfg_075_seed_6_of0,75,6,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0747_cfg_075_seed_7_of0,75,7,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0748_cfg_075_seed_8_of0,75,8,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0749_cfg_075_seed_9_of0,75,9,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0750_cfg_075_seed_10_of0,75,10,8,16,5,60.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0751_cfg_076_seed_1_of0,76,1,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0752_cfg_076_seed_2_of0,76,2,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0753_cfg_076_seed_3_of0,76,3,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0754_cfg_076_seed_4_of0,76,4,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0755_cfg_076_seed_5_of0,76,5,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0756_cfg_076_seed_6_of0,76,6,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0757_cfg_076_seed_7_of0,76,7,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0758_cfg_076_seed_8_of0,76,8,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0759_cfg_076_seed_9_of0,76,9,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0760_cfg_076_seed_10_of0,76,10,8,16,10,40.0,12,5,OF0,SUCCESS,627,
-run_0761_cfg_077_seed_1_mrhof,77,1,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0762_cfg_077_seed_2_mrhof,77,2,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0763_cfg_077_seed_3_mrhof,77,3,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0764_cfg_077_seed_4_mrhof,77,4,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0765_cfg_077_seed_5_mrhof,77,5,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0766_cfg_077_seed_6_mrhof,77,6,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0767_cfg_077_seed_7_mrhof,77,7,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0768_cfg_077_seed_8_mrhof,77,8,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0769_cfg_077_seed_9_mrhof,77,9,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0770_cfg_077_seed_10_mrhof,77,10,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
-run_0771_cfg_078_seed_1_mrhof,78,1,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0772_cfg_078_seed_2_mrhof,78,2,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0773_cfg_078_seed_3_mrhof,78,3,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0774_cfg_078_seed_4_mrhof,78,4,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0775_cfg_078_seed_5_mrhof,78,5,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0776_cfg_078_seed_6_mrhof,78,6,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0777_cfg_078_seed_7_mrhof,78,7,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0778_cfg_078_seed_8_mrhof,78,8,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0779_cfg_078_seed_9_mrhof,78,9,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0780_cfg_078_seed_10_mrhof,78,10,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
-run_0781_cfg_079_seed_1_of0,79,1,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0782_cfg_079_seed_2_of0,79,2,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0783_cfg_079_seed_3_of0,79,3,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0784_cfg_079_seed_4_of0,79,4,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0785_cfg_079_seed_5_of0,79,5,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0786_cfg_079_seed_6_of0,79,6,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0787_cfg_079_seed_7_of0,79,7,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0788_cfg_079_seed_8_of0,79,8,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0789_cfg_079_seed_9_of0,79,9,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0790_cfg_079_seed_10_of0,79,10,8,16,10,40.0,16,5,OF0,SUCCESS,855,
-run_0791_cfg_080_seed_1_mrhof,80,1,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0792_cfg_080_seed_2_mrhof,80,2,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0793_cfg_080_seed_3_mrhof,80,3,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0794_cfg_080_seed_4_mrhof,80,4,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0795_cfg_080_seed_5_mrhof,80,5,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0796_cfg_080_seed_6_mrhof,80,6,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0797_cfg_080_seed_7_mrhof,80,7,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0798_cfg_080_seed_8_mrhof,80,8,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0799_cfg_080_seed_9_mrhof,80,9,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0800_cfg_080_seed_10_mrhof,80,10,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
-run_0801_cfg_081_seed_1_of0,81,1,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0802_cfg_081_seed_2_of0,81,2,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0803_cfg_081_seed_3_of0,81,3,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0804_cfg_081_seed_4_of0,81,4,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0805_cfg_081_seed_5_of0,81,5,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0806_cfg_081_seed_6_of0,81,6,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0807_cfg_081_seed_7_of0,81,7,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0808_cfg_081_seed_8_of0,81,8,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0809_cfg_081_seed_9_of0,81,9,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0810_cfg_081_seed_10_of0,81,10,8,16,10,40.0,16,10,OF0,SUCCESS,855,
-run_0811_cfg_082_seed_1_mrhof,82,1,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0812_cfg_082_seed_2_mrhof,82,2,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0813_cfg_082_seed_3_mrhof,82,3,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0814_cfg_082_seed_4_mrhof,82,4,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0815_cfg_082_seed_5_mrhof,82,5,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0816_cfg_082_seed_6_mrhof,82,6,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0817_cfg_082_seed_7_mrhof,82,7,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0818_cfg_082_seed_8_mrhof,82,8,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0819_cfg_082_seed_9_mrhof,82,9,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0820_cfg_082_seed_10_mrhof,82,10,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
-run_0821_cfg_083_seed_1_of0,83,1,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0822_cfg_083_seed_2_of0,83,2,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0823_cfg_083_seed_3_of0,83,3,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0824_cfg_083_seed_4_of0,83,4,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0825_cfg_083_seed_5_of0,83,5,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0826_cfg_083_seed_6_of0,83,6,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0827_cfg_083_seed_7_of0,83,7,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0828_cfg_083_seed_8_of0,83,8,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0829_cfg_083_seed_9_of0,83,9,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0830_cfg_083_seed_10_of0,83,10,8,16,10,40.0,16,20,OF0,SUCCESS,855,
-run_0831_cfg_084_seed_1_mrhof,84,1,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0832_cfg_084_seed_2_mrhof,84,2,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0833_cfg_084_seed_3_mrhof,84,3,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0834_cfg_084_seed_4_mrhof,84,4,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0835_cfg_084_seed_5_mrhof,84,5,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0836_cfg_084_seed_6_mrhof,84,6,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0837_cfg_084_seed_7_mrhof,84,7,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0838_cfg_084_seed_8_mrhof,84,8,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0839_cfg_084_seed_9_mrhof,84,9,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0840_cfg_084_seed_10_mrhof,84,10,8,16,10,40.0,20,5,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0841_cfg_085_seed_1_of0,85,1,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0842_cfg_085_seed_2_of0,85,2,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0843_cfg_085_seed_3_of0,85,3,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0844_cfg_085_seed_4_of0,85,4,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0845_cfg_085_seed_5_of0,85,5,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0846_cfg_085_seed_6_of0,85,6,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0847_cfg_085_seed_7_of0,85,7,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0848_cfg_085_seed_8_of0,85,8,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0849_cfg_085_seed_9_of0,85,9,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0850_cfg_085_seed_10_of0,85,10,8,16,10,40.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0851_cfg_086_seed_1_mrhof,86,1,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0852_cfg_086_seed_2_mrhof,86,2,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0853_cfg_086_seed_3_mrhof,86,3,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0854_cfg_086_seed_4_mrhof,86,4,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0855_cfg_086_seed_5_mrhof,86,5,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0856_cfg_086_seed_6_mrhof,86,6,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0857_cfg_086_seed_7_mrhof,86,7,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0858_cfg_086_seed_8_mrhof,86,8,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0859_cfg_086_seed_9_mrhof,86,9,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0860_cfg_086_seed_10_mrhof,86,10,8,16,10,40.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0861_cfg_087_seed_1_of0,87,1,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0862_cfg_087_seed_2_of0,87,2,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0863_cfg_087_seed_3_of0,87,3,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0864_cfg_087_seed_4_of0,87,4,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0865_cfg_087_seed_5_of0,87,5,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0866_cfg_087_seed_6_of0,87,6,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0867_cfg_087_seed_7_of0,87,7,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0868_cfg_087_seed_8_of0,87,8,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0869_cfg_087_seed_9_of0,87,9,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0870_cfg_087_seed_10_of0,87,10,8,16,10,40.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0871_cfg_088_seed_1_mrhof,88,1,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0872_cfg_088_seed_2_mrhof,88,2,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0873_cfg_088_seed_3_mrhof,88,3,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0874_cfg_088_seed_4_mrhof,88,4,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0875_cfg_088_seed_5_mrhof,88,5,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0876_cfg_088_seed_6_mrhof,88,6,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0877_cfg_088_seed_7_mrhof,88,7,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0878_cfg_088_seed_8_mrhof,88,8,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0879_cfg_088_seed_9_mrhof,88,9,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0880_cfg_088_seed_10_mrhof,88,10,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
-run_0881_cfg_089_seed_1_of0,89,1,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0882_cfg_089_seed_2_of0,89,2,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0883_cfg_089_seed_3_of0,89,3,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0884_cfg_089_seed_4_of0,89,4,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0885_cfg_089_seed_5_of0,89,5,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0886_cfg_089_seed_6_of0,89,6,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0887_cfg_089_seed_7_of0,89,7,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0888_cfg_089_seed_8_of0,89,8,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0889_cfg_089_seed_9_of0,89,9,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0890_cfg_089_seed_10_of0,89,10,8,16,10,50.0,12,5,OF0,SUCCESS,627,
-run_0891_cfg_090_seed_1_mrhof,90,1,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0892_cfg_090_seed_2_mrhof,90,2,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0893_cfg_090_seed_3_mrhof,90,3,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0894_cfg_090_seed_4_mrhof,90,4,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0895_cfg_090_seed_5_mrhof,90,5,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0896_cfg_090_seed_6_mrhof,90,6,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0897_cfg_090_seed_7_mrhof,90,7,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0898_cfg_090_seed_8_mrhof,90,8,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0899_cfg_090_seed_9_mrhof,90,9,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0900_cfg_090_seed_10_mrhof,90,10,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
-run_0901_cfg_091_seed_1_of0,91,1,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0902_cfg_091_seed_2_of0,91,2,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0903_cfg_091_seed_3_of0,91,3,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0904_cfg_091_seed_4_of0,91,4,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0905_cfg_091_seed_5_of0,91,5,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0906_cfg_091_seed_6_of0,91,6,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0907_cfg_091_seed_7_of0,91,7,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0908_cfg_091_seed_8_of0,91,8,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0909_cfg_091_seed_9_of0,91,9,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0910_cfg_091_seed_10_of0,91,10,8,16,10,50.0,12,10,OF0,SUCCESS,627,
-run_0911_cfg_092_seed_1_of0,92,1,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0912_cfg_092_seed_2_of0,92,2,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0913_cfg_092_seed_3_of0,92,3,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0914_cfg_092_seed_4_of0,92,4,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0915_cfg_092_seed_5_of0,92,5,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0916_cfg_092_seed_6_of0,92,6,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0917_cfg_092_seed_7_of0,92,7,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0918_cfg_092_seed_8_of0,92,8,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0919_cfg_092_seed_9_of0,92,9,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0920_cfg_092_seed_10_of0,92,10,8,16,10,50.0,12,20,OF0,SUCCESS,627,
-run_0921_cfg_093_seed_1_mrhof,93,1,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0922_cfg_093_seed_2_mrhof,93,2,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0923_cfg_093_seed_3_mrhof,93,3,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0924_cfg_093_seed_4_mrhof,93,4,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0925_cfg_093_seed_5_mrhof,93,5,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0926_cfg_093_seed_6_mrhof,93,6,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0927_cfg_093_seed_7_mrhof,93,7,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0928_cfg_093_seed_8_mrhof,93,8,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0929_cfg_093_seed_9_mrhof,93,9,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0930_cfg_093_seed_10_mrhof,93,10,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
-run_0931_cfg_094_seed_1_mrhof,94,1,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0932_cfg_094_seed_2_mrhof,94,2,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0933_cfg_094_seed_3_mrhof,94,3,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0934_cfg_094_seed_4_mrhof,94,4,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0935_cfg_094_seed_5_mrhof,94,5,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0936_cfg_094_seed_6_mrhof,94,6,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0937_cfg_094_seed_7_mrhof,94,7,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0938_cfg_094_seed_8_mrhof,94,8,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0939_cfg_094_seed_9_mrhof,94,9,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0940_cfg_094_seed_10_mrhof,94,10,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
-run_0941_cfg_095_seed_1_mrhof,95,1,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0942_cfg_095_seed_2_mrhof,95,2,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0943_cfg_095_seed_3_mrhof,95,3,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0944_cfg_095_seed_4_mrhof,95,4,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0945_cfg_095_seed_5_mrhof,95,5,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0946_cfg_095_seed_6_mrhof,95,6,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0947_cfg_095_seed_7_mrhof,95,7,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0948_cfg_095_seed_8_mrhof,95,8,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0949_cfg_095_seed_9_mrhof,95,9,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0950_cfg_095_seed_10_mrhof,95,10,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
-run_0951_cfg_096_seed_1_of0,96,1,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0952_cfg_096_seed_2_of0,96,2,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0953_cfg_096_seed_3_of0,96,3,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0954_cfg_096_seed_4_of0,96,4,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0955_cfg_096_seed_5_of0,96,5,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0956_cfg_096_seed_6_of0,96,6,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0957_cfg_096_seed_7_of0,96,7,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0958_cfg_096_seed_8_of0,96,8,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0959_cfg_096_seed_9_of0,96,9,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0960_cfg_096_seed_10_of0,96,10,8,16,10,50.0,16,20,OF0,SUCCESS,855,
-run_0961_cfg_097_seed_1_of0,97,1,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0962_cfg_097_seed_2_of0,97,2,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0963_cfg_097_seed_3_of0,97,3,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0964_cfg_097_seed_4_of0,97,4,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0965_cfg_097_seed_5_of0,97,5,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0966_cfg_097_seed_6_of0,97,6,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0967_cfg_097_seed_7_of0,97,7,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0968_cfg_097_seed_8_of0,97,8,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0969_cfg_097_seed_9_of0,97,9,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0970_cfg_097_seed_10_of0,97,10,8,16,10,50.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0971_cfg_098_seed_1_mrhof,98,1,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0972_cfg_098_seed_2_mrhof,98,2,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0973_cfg_098_seed_3_mrhof,98,3,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0974_cfg_098_seed_4_mrhof,98,4,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0975_cfg_098_seed_5_mrhof,98,5,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0976_cfg_098_seed_6_mrhof,98,6,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0977_cfg_098_seed_7_mrhof,98,7,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0978_cfg_098_seed_8_mrhof,98,8,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0979_cfg_098_seed_9_mrhof,98,9,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0980_cfg_098_seed_10_mrhof,98,10,8,16,10,50.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0981_cfg_099_seed_1_of0,99,1,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0982_cfg_099_seed_2_of0,99,2,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0983_cfg_099_seed_3_of0,99,3,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0984_cfg_099_seed_4_of0,99,4,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0985_cfg_099_seed_5_of0,99,5,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0986_cfg_099_seed_6_of0,99,6,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0987_cfg_099_seed_7_of0,99,7,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0988_cfg_099_seed_8_of0,99,8,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0989_cfg_099_seed_9_of0,99,9,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0990_cfg_099_seed_10_of0,99,10,8,16,10,50.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0991_cfg_100_seed_1_mrhof,100,1,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0992_cfg_100_seed_2_mrhof,100,2,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0993_cfg_100_seed_3_mrhof,100,3,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0994_cfg_100_seed_4_mrhof,100,4,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0995_cfg_100_seed_5_mrhof,100,5,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0996_cfg_100_seed_6_mrhof,100,6,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0997_cfg_100_seed_7_mrhof,100,7,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0998_cfg_100_seed_8_mrhof,100,8,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_0999_cfg_100_seed_9_mrhof,100,9,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1000_cfg_100_seed_10_mrhof,100,10,8,16,10,50.0,20,20,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1001_cfg_101_seed_1_of0,101,1,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1002_cfg_101_seed_2_of0,101,2,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1003_cfg_101_seed_3_of0,101,3,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1004_cfg_101_seed_4_of0,101,4,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1005_cfg_101_seed_5_of0,101,5,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1006_cfg_101_seed_6_of0,101,6,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1007_cfg_101_seed_7_of0,101,7,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1008_cfg_101_seed_8_of0,101,8,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1009_cfg_101_seed_9_of0,101,9,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1010_cfg_101_seed_10_of0,101,10,8,16,10,50.0,20,20,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1011_cfg_102_seed_1_mrhof,102,1,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1012_cfg_102_seed_2_mrhof,102,2,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1013_cfg_102_seed_3_mrhof,102,3,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1014_cfg_102_seed_4_mrhof,102,4,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1015_cfg_102_seed_5_mrhof,102,5,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1016_cfg_102_seed_6_mrhof,102,6,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1017_cfg_102_seed_7_mrhof,102,7,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1018_cfg_102_seed_8_mrhof,102,8,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1019_cfg_102_seed_9_mrhof,102,9,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1020_cfg_102_seed_10_mrhof,102,10,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
-run_1021_cfg_103_seed_1_of0,103,1,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1022_cfg_103_seed_2_of0,103,2,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1023_cfg_103_seed_3_of0,103,3,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1024_cfg_103_seed_4_of0,103,4,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1025_cfg_103_seed_5_of0,103,5,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1026_cfg_103_seed_6_of0,103,6,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1027_cfg_103_seed_7_of0,103,7,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1028_cfg_103_seed_8_of0,103,8,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1029_cfg_103_seed_9_of0,103,9,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1030_cfg_103_seed_10_of0,103,10,8,16,10,60.0,12,5,OF0,SUCCESS,627,
-run_1031_cfg_104_seed_1_mrhof,104,1,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1032_cfg_104_seed_2_mrhof,104,2,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1033_cfg_104_seed_3_mrhof,104,3,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1034_cfg_104_seed_4_mrhof,104,4,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1035_cfg_104_seed_5_mrhof,104,5,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1036_cfg_104_seed_6_mrhof,104,6,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1037_cfg_104_seed_7_mrhof,104,7,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1038_cfg_104_seed_8_mrhof,104,8,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1039_cfg_104_seed_9_mrhof,104,9,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1040_cfg_104_seed_10_mrhof,104,10,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
-run_1041_cfg_105_seed_1_mrhof,105,1,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1042_cfg_105_seed_2_mrhof,105,2,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1043_cfg_105_seed_3_mrhof,105,3,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1044_cfg_105_seed_4_mrhof,105,4,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1045_cfg_105_seed_5_mrhof,105,5,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1046_cfg_105_seed_6_mrhof,105,6,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1047_cfg_105_seed_7_mrhof,105,7,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1048_cfg_105_seed_8_mrhof,105,8,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1049_cfg_105_seed_9_mrhof,105,9,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1050_cfg_105_seed_10_mrhof,105,10,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
-run_1051_cfg_106_seed_1_mrhof,106,1,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1052_cfg_106_seed_2_mrhof,106,2,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1053_cfg_106_seed_3_mrhof,106,3,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1054_cfg_106_seed_4_mrhof,106,4,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1055_cfg_106_seed_5_mrhof,106,5,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1056_cfg_106_seed_6_mrhof,106,6,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1057_cfg_106_seed_7_mrhof,106,7,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1058_cfg_106_seed_8_mrhof,106,8,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1059_cfg_106_seed_9_mrhof,106,9,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1060_cfg_106_seed_10_mrhof,106,10,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
-run_1061_cfg_107_seed_1_of0,107,1,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1062_cfg_107_seed_2_of0,107,2,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1063_cfg_107_seed_3_of0,107,3,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1064_cfg_107_seed_4_of0,107,4,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1065_cfg_107_seed_5_of0,107,5,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1066_cfg_107_seed_6_of0,107,6,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1067_cfg_107_seed_7_of0,107,7,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1068_cfg_107_seed_8_of0,107,8,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1069_cfg_107_seed_9_of0,107,9,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1070_cfg_107_seed_10_of0,107,10,8,16,10,60.0,16,5,OF0,SUCCESS,855,
-run_1071_cfg_108_seed_1_of0,108,1,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1072_cfg_108_seed_2_of0,108,2,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1073_cfg_108_seed_3_of0,108,3,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1074_cfg_108_seed_4_of0,108,4,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1075_cfg_108_seed_5_of0,108,5,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1076_cfg_108_seed_6_of0,108,6,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1077_cfg_108_seed_7_of0,108,7,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1078_cfg_108_seed_8_of0,108,8,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1079_cfg_108_seed_9_of0,108,9,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1080_cfg_108_seed_10_of0,108,10,8,16,10,60.0,16,10,OF0,SUCCESS,855,
-run_1081_cfg_109_seed_1_of0,109,1,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1082_cfg_109_seed_2_of0,109,2,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1083_cfg_109_seed_3_of0,109,3,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1084_cfg_109_seed_4_of0,109,4,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1085_cfg_109_seed_5_of0,109,5,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1086_cfg_109_seed_6_of0,109,6,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1087_cfg_109_seed_7_of0,109,7,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1088_cfg_109_seed_8_of0,109,8,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1089_cfg_109_seed_9_of0,109,9,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1090_cfg_109_seed_10_of0,109,10,8,16,10,60.0,20,5,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1091_cfg_110_seed_1_mrhof,110,1,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1092_cfg_110_seed_2_mrhof,110,2,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1093_cfg_110_seed_3_mrhof,110,3,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1094_cfg_110_seed_4_mrhof,110,4,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1095_cfg_110_seed_5_mrhof,110,5,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1096_cfg_110_seed_6_mrhof,110,6,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1097_cfg_110_seed_7_mrhof,110,7,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1098_cfg_110_seed_8_mrhof,110,8,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1099_cfg_110_seed_9_mrhof,110,9,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1100_cfg_110_seed_10_mrhof,110,10,8,16,10,60.0,20,10,MRHOF,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1101_cfg_111_seed_1_of0,111,1,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1102_cfg_111_seed_2_of0,111,2,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1103_cfg_111_seed_3_of0,111,3,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1104_cfg_111_seed_4_of0,111,4,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1105_cfg_111_seed_5_of0,111,5,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1106_cfg_111_seed_6_of0,111,6,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1107_cfg_111_seed_7_of0,111,7,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1108_cfg_111_seed_8_of0,111,8,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1109_cfg_111_seed_9_of0,111,9,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1110_cfg_111_seed_10_of0,111,10,8,16,10,60.0,20,10,OF0,FAILED,0,Le simulation_rpl.csc actuel contient seulement 16 nœuds.
-run_1111_cfg_112_seed_1_of0,112,1,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1112_cfg_112_seed_2_of0,112,2,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1113_cfg_112_seed_3_of0,112,3,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1114_cfg_112_seed_4_of0,112,4,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1115_cfg_112_seed_5_of0,112,5,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1116_cfg_112_seed_6_of0,112,6,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1117_cfg_112_seed_7_of0,112,7,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1118_cfg_112_seed_8_of0,112,8,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1119_cfg_112_seed_9_of0,112,9,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1120_cfg_112_seed_10_of0,112,10,8,18,0,40.0,12,5,OF0,SUCCESS,627,
-run_1121_cfg_113_seed_1_mrhof,113,1,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1122_cfg_113_seed_2_mrhof,113,2,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1123_cfg_113_seed_3_mrhof,113,3,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1124_cfg_113_seed_4_mrhof,113,4,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1125_cfg_113_seed_5_mrhof,113,5,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1126_cfg_113_seed_6_mrhof,113,6,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1127_cfg_113_seed_7_mrhof,113,7,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1128_cfg_113_seed_8_mrhof,113,8,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1129_cfg_113_seed_9_mrhof,113,9,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1130_cfg_113_seed_10_mrhof,113,10,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
-run_1131_cfg_114_seed_1_of0,114,1,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1132_cfg_114_seed_2_of0,114,2,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1133_cfg_114_seed_3_of0,114,3,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1134_cfg_114_seed_4_of0,114,4,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1135_cfg_114_seed_5_of0,114,5,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1136_cfg_114_seed_6_of0,114,6,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1137_cfg_114_seed_7_of0,114,7,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1138_cfg_114_seed_8_of0,114,8,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1139_cfg_114_seed_9_of0,114,9,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1140_cfg_114_seed_10_of0,114,10,8,18,0,40.0,12,10,OF0,SUCCESS,627,
-run_1141_cfg_115_seed_1_mrhof,115,1,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1142_cfg_115_seed_2_mrhof,115,2,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1143_cfg_115_seed_3_mrhof,115,3,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1144_cfg_115_seed_4_mrhof,115,4,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1145_cfg_115_seed_5_mrhof,115,5,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1146_cfg_115_seed_6_mrhof,115,6,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1147_cfg_115_seed_7_mrhof,115,7,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1148_cfg_115_seed_8_mrhof,115,8,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1149_cfg_115_seed_9_mrhof,115,9,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1150_cfg_115_seed_10_mrhof,115,10,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
-run_1151_cfg_116_seed_1_of0,116,1,8,18,0,40.0,12,20,OF0,SUCCESS,627,
-run_1152_cfg_116_seed_2_of0,116,2,8,18,0,40.0,12,20,OF0,SUCCESS,627,
-run_1153_cfg_116_seed_3_of0,116,3,8,18,0,40.0,12,20,OF0,SUCCESS,627,
-run_1154_cfg_116_seed_4_of0,116,4,8,18,0,40.0,12,20,OF0,SUCCESS,627,
+run_0004_cfg_001_seed_4_mrhof,1,4,8,16,0,40.0,12,5,MRHOF,SUCCESS,88,
+run_0001_cfg_001_seed_1_mrhof,1,1,8,16,0,40.0,12,5,MRHOF,SUCCESS,407,
+run_0005_cfg_001_seed_5_mrhof,1,5,8,16,0,40.0,12,5,MRHOF,SUCCESS,110,
+run_0002_cfg_001_seed_2_mrhof,1,2,8,16,0,40.0,12,5,MRHOF,SUCCESS,396,
+run_0006_cfg_002_seed_1_of0,2,1,8,16,0,40.0,12,5,OF0,SUCCESS,110,
+run_0003_cfg_001_seed_3_mrhof,1,3,8,16,0,40.0,12,5,MRHOF,SUCCESS,407,
+run_0007_cfg_002_seed_2_of0,2,2,8,16,0,40.0,12,5,OF0,SUCCESS,99,
+run_0004_cfg_001_seed_4_mrhof,1,4,8,16,0,40.0,12,5,MRHOF,SUCCESS,418,
+run_0008_cfg_002_seed_3_of0,2,3,8,16,0,40.0,12,5,OF0,SUCCESS,88,
+run_0005_cfg_001_seed_5_mrhof,1,5,8,16,0,40.0,12,5,MRHOF,SUCCESS,440,
+run_0009_cfg_002_seed_4_of0,2,4,8,16,0,40.0,12,5,OF0,SUCCESS,66,
+run_0006_cfg_002_seed_1_of0,2,1,8,16,0,40.0,12,5,OF0,SUCCESS,440,
+run_0010_cfg_002_seed_5_of0,2,5,8,16,0,40.0,12,5,OF0,SUCCESS,77,
+run_0011_cfg_003_seed_1_mrhof,3,1,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0007_cfg_002_seed_2_of0,2,2,8,16,0,40.0,12,5,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0008_cfg_002_seed_3_of0,2,3,8,16,0,40.0,12,5,OF0,FAILED,0,[Errno 39] Directory not empty: '/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja/obj'
+run_0012_cfg_003_seed_2_mrhof,3,2,8,16,0,40.0,12,10,MRHOF,FAILED,0,"Command '['./gradlew', 'run', '--args=--no-gui /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0012_cfg_003_seed_2_mrhof/simulation.csc']' returned non-zero exit status 1."
+run_0009_cfg_002_seed_4_of0,2,4,8,16,0,40.0,12,5,OF0,SUCCESS,627,
+run_0013_cfg_003_seed_3_mrhof,3,3,8,16,0,40.0,12,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0010_cfg_002_seed_5_of0,2,5,8,16,0,40.0,12,5,OF0,SUCCESS,625,
+run_0014_cfg_003_seed_4_mrhof,3,4,8,16,0,40.0,12,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0015_cfg_003_seed_5_mrhof,3,5,8,16,0,40.0,12,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0011_cfg_003_seed_1_mrhof,3,1,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0016_cfg_004_seed_1_of0,4,1,8,16,0,40.0,12,10,OF0,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0012_cfg_003_seed_2_mrhof,3,2,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0017_cfg_004_seed_2_of0,4,2,8,16,0,40.0,12,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0013_cfg_003_seed_3_mrhof,3,3,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0018_cfg_004_seed_3_of0,4,3,8,16,0,40.0,12,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0014_cfg_003_seed_4_mrhof,3,4,8,16,0,40.0,12,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0019_cfg_004_seed_4_of0,4,4,8,16,0,40.0,12,10,OF0,SUCCESS,627,
+run_0020_cfg_004_seed_5_of0,4,5,8,16,0,40.0,12,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0015_cfg_003_seed_5_mrhof,3,5,8,16,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0021_cfg_005_seed_1_mrhof,5,1,8,16,0,40.0,12,20,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0016_cfg_004_seed_1_of0,4,1,8,16,0,40.0,12,10,OF0,SUCCESS,627,
+run_0022_cfg_005_seed_2_mrhof,5,2,8,16,0,40.0,12,20,MRHOF,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0023_cfg_005_seed_3_mrhof,5,3,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0017_cfg_004_seed_2_of0,4,2,8,16,0,40.0,12,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0018_cfg_004_seed_3_of0,4,3,8,16,0,40.0,12,10,OF0,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0024_cfg_005_seed_4_mrhof,5,4,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0019_cfg_004_seed_4_of0,4,4,8,16,0,40.0,12,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0025_cfg_005_seed_5_mrhof,5,5,8,16,0,40.0,12,20,MRHOF,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0020_cfg_004_seed_5_of0,4,5,8,16,0,40.0,12,10,OF0,SUCCESS,624,
+run_0026_cfg_006_seed_1_of0,6,1,8,16,0,40.0,12,20,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0027_cfg_006_seed_2_of0,6,2,8,16,0,40.0,12,20,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0021_cfg_005_seed_1_mrhof,5,1,8,16,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0028_cfg_006_seed_3_of0,6,3,8,16,0,40.0,12,20,OF0,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0022_cfg_005_seed_2_mrhof,5,2,8,16,0,40.0,12,20,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0029_cfg_006_seed_4_of0,6,4,8,16,0,40.0,12,20,OF0,SUCCESS,626,
+run_0030_cfg_006_seed_5_of0,6,5,8,16,0,40.0,12,20,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0023_cfg_005_seed_3_mrhof,5,3,8,16,0,40.0,12,20,MRHOF,SUCCESS,624,
+run_0024_cfg_005_seed_4_mrhof,5,4,8,16,0,40.0,12,20,MRHOF,SUCCESS,620,
+run_0031_cfg_007_seed_1_mrhof,7,1,8,16,0,40.0,16,5,MRHOF,SUCCESS,165,
+run_0025_cfg_005_seed_5_mrhof,5,5,8,16,0,40.0,12,20,MRHOF,SUCCESS,15,
+run_0026_cfg_006_seed_1_of0,6,1,8,16,0,40.0,12,20,OF0,SUCCESS,627,
+run_0027_cfg_006_seed_2_of0,6,2,8,16,0,40.0,12,20,OF0,SUCCESS,627,
+run_0028_cfg_006_seed_3_of0,6,3,8,16,0,40.0,12,20,OF0,SUCCESS,627,
+run_0032_cfg_007_seed_2_mrhof,7,2,8,16,0,40.0,16,5,MRHOF,SUCCESS,341,
+run_0029_cfg_006_seed_4_of0,6,4,8,16,0,40.0,12,20,OF0,FAILED,0,Aucun SUMMARY trouvé dans /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0029_cfg_006_seed_4_of0/COOJA.testlog
+run_0030_cfg_006_seed_5_of0,6,5,8,16,0,40.0,12,20,OF0,SUCCESS,627,
+run_0033_cfg_007_seed_3_mrhof,7,3,8,16,0,40.0,16,5,MRHOF,SUCCESS,555,
+run_0031_cfg_007_seed_1_mrhof,7,1,8,16,0,40.0,16,5,MRHOF,SUCCESS,210,
+run_0034_cfg_007_seed_4_mrhof,7,4,8,16,0,40.0,16,5,MRHOF,SUCCESS,555,
+run_0032_cfg_007_seed_2_mrhof,7,2,8,16,0,40.0,16,5,MRHOF,SUCCESS,210,
+run_0035_cfg_007_seed_5_mrhof,7,5,8,16,0,40.0,16,5,MRHOF,SUCCESS,540,
+run_0033_cfg_007_seed_3_mrhof,7,3,8,16,0,40.0,16,5,MRHOF,SUCCESS,225,
+run_0036_cfg_008_seed_1_of0,8,1,8,16,0,40.0,16,5,OF0,SUCCESS,555,
+run_0034_cfg_007_seed_4_mrhof,7,4,8,16,0,40.0,16,5,MRHOF,SUCCESS,210,
+run_0037_cfg_008_seed_2_of0,8,2,8,16,0,40.0,16,5,OF0,SUCCESS,555,
+run_0035_cfg_007_seed_5_mrhof,7,5,8,16,0,40.0,16,5,MRHOF,SUCCESS,210,
+run_0038_cfg_008_seed_3_of0,8,3,8,16,0,40.0,16,5,OF0,SUCCESS,585,
+run_0036_cfg_008_seed_1_of0,8,1,8,16,0,40.0,16,5,OF0,SUCCESS,180,
+run_0039_cfg_008_seed_4_of0,8,4,8,16,0,40.0,16,5,OF0,SUCCESS,615,
+run_0037_cfg_008_seed_2_of0,8,2,8,16,0,40.0,16,5,OF0,SUCCESS,165,
+run_0040_cfg_008_seed_5_of0,8,5,8,16,0,40.0,16,5,OF0,SUCCESS,585,
+run_0038_cfg_008_seed_3_of0,8,3,8,16,0,40.0,16,5,OF0,SUCCESS,375,
+run_0041_cfg_009_seed_1_mrhof,9,1,8,16,0,40.0,16,10,MRHOF,SUCCESS,180,
+run_0042_cfg_009_seed_2_mrhof,9,2,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
+run_0039_cfg_008_seed_4_of0,8,4,8,16,0,40.0,16,5,OF0,SUCCESS,105,
+run_0043_cfg_009_seed_3_mrhof,9,3,8,16,0,40.0,16,10,MRHOF,SUCCESS,315,
+run_0040_cfg_008_seed_5_of0,8,5,8,16,0,40.0,16,5,OF0,SUCCESS,825,
+run_0044_cfg_009_seed_4_mrhof,9,4,8,16,0,40.0,16,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0041_cfg_009_seed_1_mrhof,9,1,8,16,0,40.0,16,10,MRHOF,FAILED,0,"Command '['./gradlew', 'run', '--args=--no-gui /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0041_cfg_009_seed_1_mrhof/simulation.csc']' returned non-zero exit status 1."
+run_0045_cfg_009_seed_5_mrhof,9,5,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
+run_0042_cfg_009_seed_2_mrhof,9,2,8,16,0,40.0,16,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0046_cfg_010_seed_1_of0,10,1,8,16,0,40.0,16,10,OF0,SUCCESS,847,
+run_0043_cfg_009_seed_3_mrhof,9,3,8,16,0,40.0,16,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0047_cfg_010_seed_2_of0,10,2,8,16,0,40.0,16,10,OF0,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0044_cfg_009_seed_4_mrhof,9,4,8,16,0,40.0,16,10,MRHOF,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0048_cfg_010_seed_3_of0,10,3,8,16,0,40.0,16,10,OF0,SUCCESS,845,
+run_0045_cfg_009_seed_5_mrhof,9,5,8,16,0,40.0,16,10,MRHOF,SUCCESS,855,
+run_0049_cfg_010_seed_4_of0,10,4,8,16,0,40.0,16,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0050_cfg_010_seed_5_of0,10,5,8,16,0,40.0,16,10,OF0,SUCCESS,853,
+run_0046_cfg_010_seed_1_of0,10,1,8,16,0,40.0,16,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0047_cfg_010_seed_2_of0,10,2,8,16,0,40.0,16,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0051_cfg_011_seed_1_of0,11,1,8,16,0,40.0,16,20,OF0,SUCCESS,837,
+run_0048_cfg_010_seed_3_of0,10,3,8,16,0,40.0,16,10,OF0,FAILED,0,[Errno 2] No such file or directory: PosixPath('/home/mohamed/Bureau/projetStage/contiki-ng/examples/rpl-udp/build/cooja')
+run_0049_cfg_010_seed_4_of0,10,4,8,16,0,40.0,16,10,OF0,SUCCESS,855,
+run_0052_cfg_011_seed_2_of0,11,2,8,16,0,40.0,16,20,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0050_cfg_010_seed_5_of0,10,5,8,16,0,40.0,16,10,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0053_cfg_011_seed_3_of0,11,3,8,16,0,40.0,16,20,OF0,SUCCESS,854,
+run_0051_cfg_011_seed_1_of0,11,1,8,16,0,40.0,16,20,OF0,FAILED,0,"Command '['./gradlew', 'run', '--args=--no-gui /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0051_cfg_011_seed_1_of0/simulation.csc']' returned non-zero exit status 1."
+run_0054_cfg_011_seed_4_of0,11,4,8,16,0,40.0,16,20,OF0,SUCCESS,720,
+run_0052_cfg_011_seed_2_of0,11,2,8,16,0,40.0,16,20,OF0,FAILED,0,Aucun SUMMARY trouvé dans /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0052_cfg_011_seed_2_of0/COOJA.testlog
+run_0055_cfg_011_seed_5_of0,11,5,8,16,0,40.0,16,20,OF0,SUCCESS,735,
+run_0053_cfg_011_seed_3_of0,11,3,8,16,0,40.0,16,20,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0054_cfg_011_seed_4_of0,11,4,8,16,0,40.0,16,20,OF0,SUCCESS,700,
+run_0055_cfg_011_seed_5_of0,11,5,8,16,0,40.0,16,20,OF0,SUCCESS,855,
+run_0056_cfg_012_seed_1_mrhof,12,1,8,16,0,40.0,20,5,MRHOF,SUCCESS,513,
+run_0056_cfg_012_seed_1_mrhof,12,1,8,16,0,40.0,20,5,MRHOF,SUCCESS,513,
+run_0057_cfg_012_seed_2_mrhof,12,2,8,16,0,40.0,20,5,MRHOF,SUCCESS,475,
+run_0057_cfg_012_seed_2_mrhof,12,2,8,16,0,40.0,20,5,MRHOF,SUCCESS,513,
+run_0058_cfg_012_seed_3_mrhof,12,3,8,16,0,40.0,20,5,MRHOF,SUCCESS,475,
+run_0058_cfg_012_seed_3_mrhof,12,3,8,16,0,40.0,20,5,MRHOF,SUCCESS,475,
+run_0059_cfg_012_seed_4_mrhof,12,4,8,16,0,40.0,20,5,MRHOF,SUCCESS,532,
+run_0059_cfg_012_seed_4_mrhof,12,4,8,16,0,40.0,20,5,MRHOF,SUCCESS,513,
+run_0060_cfg_012_seed_5_mrhof,12,5,8,16,0,40.0,20,5,MRHOF,SUCCESS,494,
+run_0060_cfg_012_seed_5_mrhof,12,5,8,16,0,40.0,20,5,MRHOF,SUCCESS,988,
+run_0061_cfg_013_seed_1_mrhof,13,1,8,16,0,40.0,20,10,MRHOF,SUCCESS,0,
+run_0061_cfg_013_seed_1_mrhof,13,1,8,16,0,40.0,20,10,MRHOF,SUCCESS,1007,
+run_0062_cfg_013_seed_2_mrhof,13,2,8,16,0,40.0,20,10,MRHOF,FAILED,0,Aucun SUMMARY trouvé dans /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0062_cfg_013_seed_2_mrhof/COOJA.testlog
+run_0062_cfg_013_seed_2_mrhof,13,2,8,16,0,40.0,20,10,MRHOF,SUCCESS,931,
+run_0063_cfg_013_seed_3_mrhof,13,3,8,16,0,40.0,20,10,MRHOF,SUCCESS,38,
+run_0063_cfg_013_seed_3_mrhof,13,3,8,16,0,40.0,20,10,MRHOF,SUCCESS,931,
+run_0064_cfg_013_seed_4_mrhof,13,4,8,16,0,40.0,20,10,MRHOF,SUCCESS,38,
+run_0064_cfg_013_seed_4_mrhof,13,4,8,16,0,40.0,20,10,MRHOF,SUCCESS,950,
+run_0065_cfg_013_seed_5_mrhof,13,5,8,16,0,40.0,20,10,MRHOF,SUCCESS,19,
+run_0065_cfg_013_seed_5_mrhof,13,5,8,16,0,40.0,20,10,MRHOF,SUCCESS,931,
+run_0066_cfg_014_seed_1_of0,14,1,8,16,0,40.0,20,10,OF0,SUCCESS,38,
+run_0066_cfg_014_seed_1_of0,14,1,8,16,0,40.0,20,10,OF0,SUCCESS,950,
+run_0067_cfg_014_seed_2_of0,14,2,8,16,0,40.0,20,10,OF0,SUCCESS,19,
+run_0067_cfg_014_seed_2_of0,14,2,8,16,0,40.0,20,10,OF0,SUCCESS,893,
+run_0068_cfg_014_seed_3_of0,14,3,8,16,0,40.0,20,10,OF0,SUCCESS,76,
+run_0068_cfg_014_seed_3_of0,14,3,8,16,0,40.0,20,10,OF0,SUCCESS,912,
+run_0069_cfg_014_seed_4_of0,14,4,8,16,0,40.0,20,10,OF0,SUCCESS,57,
+run_0069_cfg_014_seed_4_of0,14,4,8,16,0,40.0,20,10,OF0,SUCCESS,893,
+run_0070_cfg_014_seed_5_of0,14,5,8,16,0,40.0,20,10,OF0,SUCCESS,76,
+run_0071_cfg_015_seed_1_of0,15,1,8,16,0,40.0,20,20,OF0,SUCCESS,1083,
+run_0070_cfg_014_seed_5_of0,14,5,8,16,0,40.0,20,10,OF0,SUCCESS,285,
+run_0072_cfg_015_seed_2_of0,15,2,8,16,0,40.0,20,20,OF0,SUCCESS,570,
+run_0071_cfg_015_seed_1_of0,15,1,8,16,0,40.0,20,20,OF0,SUCCESS,304,
+run_0073_cfg_015_seed_3_of0,15,3,8,16,0,40.0,20,20,OF0,SUCCESS,570,
+run_0072_cfg_015_seed_2_of0,15,2,8,16,0,40.0,20,20,OF0,SUCCESS,323,
+run_0074_cfg_015_seed_4_of0,15,4,8,16,0,40.0,20,20,OF0,SUCCESS,551,
+run_0073_cfg_015_seed_3_of0,15,3,8,16,0,40.0,20,20,OF0,SUCCESS,327,
+run_0075_cfg_015_seed_5_of0,15,5,8,16,0,40.0,20,20,OF0,SUCCESS,532,
+run_0074_cfg_015_seed_4_of0,15,4,8,16,0,40.0,20,20,OF0,SUCCESS,220,
+run_0076_cfg_016_seed_1_mrhof,16,1,8,16,0,50.0,12,5,MRHOF,SUCCESS,494,
+run_0075_cfg_015_seed_5_of0,15,5,8,16,0,40.0,20,20,OF0,SUCCESS,220,
+run_0077_cfg_016_seed_2_mrhof,16,2,8,16,0,50.0,12,5,MRHOF,SUCCESS,286,
+run_0076_cfg_016_seed_1_mrhof,16,1,8,16,0,50.0,12,5,MRHOF,SUCCESS,231,
+run_0078_cfg_016_seed_3_mrhof,16,3,8,16,0,50.0,12,5,MRHOF,SUCCESS,286,
+run_0077_cfg_016_seed_2_mrhof,16,2,8,16,0,50.0,12,5,MRHOF,SUCCESS,220,
+run_0079_cfg_016_seed_4_mrhof,16,4,8,16,0,50.0,12,5,MRHOF,SUCCESS,286,
+run_0078_cfg_016_seed_3_mrhof,16,3,8,16,0,50.0,12,5,MRHOF,SUCCESS,231,
+run_0080_cfg_016_seed_5_mrhof,16,5,8,16,0,50.0,12,5,MRHOF,SUCCESS,286,
+run_0079_cfg_016_seed_4_mrhof,16,4,8,16,0,50.0,12,5,MRHOF,SUCCESS,220,
+run_0081_cfg_017_seed_1_of0,17,1,8,16,0,50.0,12,5,OF0,SUCCESS,297,
+run_0080_cfg_016_seed_5_mrhof,16,5,8,16,0,50.0,12,5,MRHOF,SUCCESS,220,
+run_0082_cfg_017_seed_2_of0,17,2,8,16,0,50.0,12,5,OF0,SUCCESS,286,
+run_0081_cfg_017_seed_1_of0,17,1,8,16,0,50.0,12,5,OF0,SUCCESS,220,
+run_0083_cfg_017_seed_3_of0,17,3,8,16,0,50.0,12,5,OF0,SUCCESS,308,
+run_0082_cfg_017_seed_2_of0,17,2,8,16,0,50.0,12,5,OF0,SUCCESS,198,
+run_0084_cfg_017_seed_4_of0,17,4,8,16,0,50.0,12,5,OF0,SUCCESS,297,
+run_0085_cfg_017_seed_5_of0,17,5,8,16,0,50.0,12,5,OF0,FAILED,0,"Command '['./gradlew', 'run', '--args=--no-gui /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0085_cfg_017_seed_5_of0/simulation.csc']' returned non-zero exit status 1."
+run_0086_cfg_018_seed_1_of0,18,1,8,16,0,50.0,12,10,OF0,FAILED,0,[Errno 28] No space left on device: '/home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0086_cfg_018_seed_1_of0'
+run_0087_cfg_018_seed_2_of0,18,2,8,16,0,50.0,12,10,OF0,run_0083_cfg_017_seed_3_of0,17,3,8,16,0,50.0,12,5,OF0,FAILED,0,Cooja a terminé mais /home/mohamed/Bureau/projetStage/contiki-ng/tools/cooja/COOJA.testlog n'existe pas.
+run_0084_cfg_017_seed_4_of0,17,4,8,16,0,50.0,12,5,OF0,SUCCESS,627,
+run_0085_cfg_017_seed_5_of0,17,5,8,16,0,50.0,12,5,OF0,SUCCESS,627,
+run_0086_cfg_018_seed_1_of0,18,1,8,16,0,50.0,12,10,OF0,SUCCESS,627,
+run_0087_cfg_018_seed_2_of0,18,2,8,16,0,50.0,12,10,OF0,SUCCESS,627,
+run_0088_cfg_018_seed_3_of0,18,3,8,16,0,50.0,12,10,OF0,SUCCESS,627,
+run_0089_cfg_018_seed_4_of0,18,4,8,16,0,50.0,12,10,OF0,SUCCESS,627,
+run_0090_cfg_018_seed_5_of0,18,5,8,16,0,50.0,12,10,OF0,SUCCESS,627,
+run_0091_cfg_019_seed_1_mrhof,19,1,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
+run_0092_cfg_019_seed_2_mrhof,19,2,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
+run_0093_cfg_019_seed_3_mrhof,19,3,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
+run_0094_cfg_019_seed_4_mrhof,19,4,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
+run_0095_cfg_019_seed_5_mrhof,19,5,8,16,0,50.0,16,5,MRHOF,SUCCESS,855,
+run_0096_cfg_020_seed_1_of0,20,1,8,16,0,50.0,16,5,OF0,SUCCESS,855,
+run_0097_cfg_020_seed_2_of0,20,2,8,16,0,50.0,16,5,OF0,SUCCESS,855,
+run_0098_cfg_020_seed_3_of0,20,3,8,16,0,50.0,16,5,OF0,SUCCESS,855,
+run_0099_cfg_020_seed_4_of0,20,4,8,16,0,50.0,16,5,OF0,SUCCESS,855,
+run_0100_cfg_020_seed_5_of0,20,5,8,16,0,50.0,16,5,OF0,SUCCESS,855,
+run_0101_cfg_021_seed_1_mrhof,21,1,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
+run_0102_cfg_021_seed_2_mrhof,21,2,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
+run_0103_cfg_021_seed_3_mrhof,21,3,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
+run_0104_cfg_021_seed_4_mrhof,21,4,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
+run_0105_cfg_021_seed_5_mrhof,21,5,8,16,0,50.0,16,10,MRHOF,SUCCESS,855,
+run_0106_cfg_022_seed_1_of0,22,1,8,16,0,50.0,16,20,OF0,SUCCESS,855,
+run_0107_cfg_022_seed_2_of0,22,2,8,16,0,50.0,16,20,OF0,SUCCESS,855,
+run_0108_cfg_022_seed_3_of0,22,3,8,16,0,50.0,16,20,OF0,SUCCESS,855,
+run_0109_cfg_022_seed_4_of0,22,4,8,16,0,50.0,16,20,OF0,SUCCESS,855,
+run_0110_cfg_022_seed_5_of0,22,5,8,16,0,50.0,16,20,OF0,SUCCESS,855,
+run_0111_cfg_023_seed_1_mrhof,23,1,8,16,0,50.0,20,5,MRHOF,SUCCESS,1083,
+run_0112_cfg_023_seed_2_mrhof,23,2,8,16,0,50.0,20,5,MRHOF,SUCCESS,1083,
+run_0113_cfg_023_seed_3_mrhof,23,3,8,16,0,50.0,20,5,MRHOF,SUCCESS,1083,
+run_0114_cfg_023_seed_4_mrhof,23,4,8,16,0,50.0,20,5,MRHOF,SUCCESS,1083,
+run_0115_cfg_023_seed_5_mrhof,23,5,8,16,0,50.0,20,5,MRHOF,SUCCESS,1083,
+run_0116_cfg_024_seed_1_of0,24,1,8,16,0,50.0,20,5,OF0,SUCCESS,1083,
+run_0117_cfg_024_seed_2_of0,24,2,8,16,0,50.0,20,5,OF0,SUCCESS,1083,
+run_0118_cfg_024_seed_3_of0,24,3,8,16,0,50.0,20,5,OF0,SUCCESS,1083,
+run_0119_cfg_024_seed_4_of0,24,4,8,16,0,50.0,20,5,OF0,SUCCESS,1083,
+run_0120_cfg_024_seed_5_of0,24,5,8,16,0,50.0,20,5,OF0,SUCCESS,1083,
+run_0121_cfg_025_seed_1_of0,25,1,8,16,0,50.0,20,20,OF0,SUCCESS,1083,
+run_0122_cfg_025_seed_2_of0,25,2,8,16,0,50.0,20,20,OF0,SUCCESS,1083,
+run_0123_cfg_025_seed_3_of0,25,3,8,16,0,50.0,20,20,OF0,SUCCESS,1083,
+run_0124_cfg_025_seed_4_of0,25,4,8,16,0,50.0,20,20,OF0,SUCCESS,1083,
+run_0125_cfg_025_seed_5_of0,25,5,8,16,0,50.0,20,20,OF0,SUCCESS,1083,
+run_0126_cfg_026_seed_1_of0,26,1,8,16,0,60.0,12,5,OF0,SUCCESS,627,
+run_0127_cfg_026_seed_2_of0,26,2,8,16,0,60.0,12,5,OF0,SUCCESS,627,
+run_0128_cfg_026_seed_3_of0,26,3,8,16,0,60.0,12,5,OF0,SUCCESS,627,
+run_0129_cfg_026_seed_4_of0,26,4,8,16,0,60.0,12,5,OF0,SUCCESS,627,
+run_0130_cfg_026_seed_5_of0,26,5,8,16,0,60.0,12,5,OF0,SUCCESS,627,
+run_0131_cfg_027_seed_1_mrhof,27,1,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
+run_0132_cfg_027_seed_2_mrhof,27,2,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
+run_0133_cfg_027_seed_3_mrhof,27,3,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
+run_0134_cfg_027_seed_4_mrhof,27,4,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
+run_0135_cfg_027_seed_5_mrhof,27,5,8,16,0,60.0,12,10,MRHOF,SUCCESS,627,
+run_0136_cfg_028_seed_1_of0,28,1,8,16,0,60.0,12,20,OF0,SUCCESS,627,
+run_0137_cfg_028_seed_2_of0,28,2,8,16,0,60.0,12,20,OF0,SUCCESS,627,
+run_0138_cfg_028_seed_3_of0,28,3,8,16,0,60.0,12,20,OF0,SUCCESS,627,
+run_0139_cfg_028_seed_4_of0,28,4,8,16,0,60.0,12,20,OF0,SUCCESS,627,
+run_0140_cfg_028_seed_5_of0,28,5,8,16,0,60.0,12,20,OF0,SUCCESS,627,
+run_0141_cfg_029_seed_1_mrhof,29,1,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
+run_0142_cfg_029_seed_2_mrhof,29,2,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
+run_0143_cfg_029_seed_3_mrhof,29,3,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
+run_0144_cfg_029_seed_4_mrhof,29,4,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
+run_0145_cfg_029_seed_5_mrhof,29,5,8,16,0,60.0,16,5,MRHOF,SUCCESS,855,
+run_0146_cfg_030_seed_1_of0,30,1,8,16,0,60.0,16,5,OF0,SUCCESS,855,
+run_0147_cfg_030_seed_2_of0,30,2,8,16,0,60.0,16,5,OF0,SUCCESS,855,
+run_0148_cfg_030_seed_3_of0,30,3,8,16,0,60.0,16,5,OF0,SUCCESS,855,
+run_0149_cfg_030_seed_4_of0,30,4,8,16,0,60.0,16,5,OF0,SUCCESS,855,
+run_0150_cfg_030_seed_5_of0,30,5,8,16,0,60.0,16,5,OF0,SUCCESS,855,
+run_0151_cfg_031_seed_1_of0,31,1,8,16,0,60.0,16,10,OF0,SUCCESS,855,
+run_0152_cfg_031_seed_2_of0,31,2,8,16,0,60.0,16,10,OF0,SUCCESS,855,
+run_0153_cfg_031_seed_3_of0,31,3,8,16,0,60.0,16,10,OF0,SUCCESS,855,
+run_0154_cfg_031_seed_4_of0,31,4,8,16,0,60.0,16,10,OF0,SUCCESS,855,
+run_0155_cfg_031_seed_5_of0,31,5,8,16,0,60.0,16,10,OF0,SUCCESS,855,
+run_0156_cfg_032_seed_1_mrhof,32,1,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
+run_0157_cfg_032_seed_2_mrhof,32,2,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
+run_0158_cfg_032_seed_3_mrhof,32,3,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
+run_0159_cfg_032_seed_4_mrhof,32,4,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
+run_0160_cfg_032_seed_5_mrhof,32,5,8,16,0,60.0,16,20,MRHOF,SUCCESS,855,
+run_0161_cfg_033_seed_1_of0,33,1,8,16,0,60.0,16,20,OF0,SUCCESS,855,
+run_0162_cfg_033_seed_2_of0,33,2,8,16,0,60.0,16,20,OF0,SUCCESS,855,
+run_0163_cfg_033_seed_3_of0,33,3,8,16,0,60.0,16,20,OF0,SUCCESS,855,
+run_0164_cfg_033_seed_4_of0,33,4,8,16,0,60.0,16,20,OF0,SUCCESS,855,
+run_0165_cfg_033_seed_5_of0,33,5,8,16,0,60.0,16,20,OF0,SUCCESS,855,
+run_0166_cfg_034_seed_1_mrhof,34,1,8,16,0,60.0,20,5,MRHOF,SUCCESS,1083,
+run_0167_cfg_034_seed_2_mrhof,34,2,8,16,0,60.0,20,5,MRHOF,SUCCESS,1083,
+run_0168_cfg_034_seed_3_mrhof,34,3,8,16,0,60.0,20,5,MRHOF,SUCCESS,1083,
+run_0169_cfg_034_seed_4_mrhof,34,4,8,16,0,60.0,20,5,MRHOF,SUCCESS,1083,
+run_0170_cfg_034_seed_5_mrhof,34,5,8,16,0,60.0,20,5,MRHOF,SUCCESS,1083,
+run_0171_cfg_035_seed_1_of0,35,1,8,16,0,60.0,20,5,OF0,SUCCESS,1083,
+run_0172_cfg_035_seed_2_of0,35,2,8,16,0,60.0,20,5,OF0,SUCCESS,1083,
+run_0173_cfg_035_seed_3_of0,35,3,8,16,0,60.0,20,5,OF0,SUCCESS,1083,
+run_0174_cfg_035_seed_4_of0,35,4,8,16,0,60.0,20,5,OF0,SUCCESS,1083,
+run_0175_cfg_035_seed_5_of0,35,5,8,16,0,60.0,20,5,OF0,SUCCESS,1083,
+run_0176_cfg_036_seed_1_of0,36,1,8,16,0,60.0,20,10,OF0,SUCCESS,1083,
+run_0177_cfg_036_seed_2_of0,36,2,8,16,0,60.0,20,10,OF0,SUCCESS,1083,
+run_0178_cfg_036_seed_3_of0,36,3,8,16,0,60.0,20,10,OF0,SUCCESS,1083,
+run_0179_cfg_036_seed_4_of0,36,4,8,16,0,60.0,20,10,OF0,SUCCESS,1083,
+run_0180_cfg_036_seed_5_of0,36,5,8,16,0,60.0,20,10,OF0,SUCCESS,1083,
+run_0181_cfg_037_seed_1_mrhof,37,1,8,16,0,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0182_cfg_037_seed_2_mrhof,37,2,8,16,0,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0183_cfg_037_seed_3_mrhof,37,3,8,16,0,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0184_cfg_037_seed_4_mrhof,37,4,8,16,0,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0185_cfg_037_seed_5_mrhof,37,5,8,16,0,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0186_cfg_038_seed_1_mrhof,38,1,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
+run_0187_cfg_038_seed_2_mrhof,38,2,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
+run_0188_cfg_038_seed_3_mrhof,38,3,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
+run_0189_cfg_038_seed_4_mrhof,38,4,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
+run_0190_cfg_038_seed_5_mrhof,38,5,8,16,5,40.0,12,5,MRHOF,SUCCESS,627,
+run_0191_cfg_039_seed_1_of0,39,1,8,16,5,40.0,12,10,OF0,SUCCESS,627,
+run_0192_cfg_039_seed_2_of0,39,2,8,16,5,40.0,12,10,OF0,SUCCESS,627,
+run_0193_cfg_039_seed_3_of0,39,3,8,16,5,40.0,12,10,OF0,SUCCESS,627,
+run_0194_cfg_039_seed_4_of0,39,4,8,16,5,40.0,12,10,OF0,SUCCESS,627,
+run_0195_cfg_039_seed_5_of0,39,5,8,16,5,40.0,12,10,OF0,SUCCESS,627,
+run_0196_cfg_040_seed_1_mrhof,40,1,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
+run_0197_cfg_040_seed_2_mrhof,40,2,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
+run_0198_cfg_040_seed_3_mrhof,40,3,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
+run_0199_cfg_040_seed_4_mrhof,40,4,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
+run_0200_cfg_040_seed_5_mrhof,40,5,8,16,5,40.0,12,20,MRHOF,SUCCESS,627,
+run_0201_cfg_041_seed_1_of0,41,1,8,16,5,40.0,12,20,OF0,SUCCESS,627,
+run_0202_cfg_041_seed_2_of0,41,2,8,16,5,40.0,12,20,OF0,SUCCESS,627,
+run_0203_cfg_041_seed_3_of0,41,3,8,16,5,40.0,12,20,OF0,SUCCESS,627,
+run_0204_cfg_041_seed_4_of0,41,4,8,16,5,40.0,12,20,OF0,SUCCESS,627,
+run_0205_cfg_041_seed_5_of0,41,5,8,16,5,40.0,12,20,OF0,SUCCESS,627,
+run_0206_cfg_042_seed_1_mrhof,42,1,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
+run_0207_cfg_042_seed_2_mrhof,42,2,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
+run_0208_cfg_042_seed_3_mrhof,42,3,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
+run_0209_cfg_042_seed_4_mrhof,42,4,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
+run_0210_cfg_042_seed_5_mrhof,42,5,8,16,5,40.0,16,5,MRHOF,SUCCESS,855,
+run_0211_cfg_043_seed_1_mrhof,43,1,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
+run_0212_cfg_043_seed_2_mrhof,43,2,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
+run_0213_cfg_043_seed_3_mrhof,43,3,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
+run_0214_cfg_043_seed_4_mrhof,43,4,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
+run_0215_cfg_043_seed_5_mrhof,43,5,8,16,5,40.0,16,10,MRHOF,SUCCESS,855,
+run_0216_cfg_044_seed_1_of0,44,1,8,16,5,40.0,16,10,OF0,SUCCESS,855,
+run_0217_cfg_044_seed_2_of0,44,2,8,16,5,40.0,16,10,OF0,SUCCESS,855,
+run_0218_cfg_044_seed_3_of0,44,3,8,16,5,40.0,16,10,OF0,SUCCESS,855,
+run_0219_cfg_044_seed_4_of0,44,4,8,16,5,40.0,16,10,OF0,SUCCESS,855,
+run_0220_cfg_044_seed_5_of0,44,5,8,16,5,40.0,16,10,OF0,SUCCESS,855,
+run_0221_cfg_045_seed_1_mrhof,45,1,8,16,5,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0222_cfg_045_seed_2_mrhof,45,2,8,16,5,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0223_cfg_045_seed_3_mrhof,45,3,8,16,5,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0224_cfg_045_seed_4_mrhof,45,4,8,16,5,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0225_cfg_045_seed_5_mrhof,45,5,8,16,5,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0226_cfg_046_seed_1_mrhof,46,1,8,16,5,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0227_cfg_046_seed_2_mrhof,46,2,8,16,5,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0228_cfg_046_seed_3_mrhof,46,3,8,16,5,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0229_cfg_046_seed_4_mrhof,46,4,8,16,5,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0230_cfg_046_seed_5_mrhof,46,5,8,16,5,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0231_cfg_047_seed_1_of0,47,1,8,16,5,40.0,20,20,OF0,SUCCESS,1083,
+run_0232_cfg_047_seed_2_of0,47,2,8,16,5,40.0,20,20,OF0,SUCCESS,1083,
+run_0233_cfg_047_seed_3_of0,47,3,8,16,5,40.0,20,20,OF0,SUCCESS,1083,
+run_0234_cfg_047_seed_4_of0,47,4,8,16,5,40.0,20,20,OF0,SUCCESS,1083,
+run_0235_cfg_047_seed_5_of0,47,5,8,16,5,40.0,20,20,OF0,SUCCESS,1083,
+run_0236_cfg_048_seed_1_mrhof,48,1,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
+run_0237_cfg_048_seed_2_mrhof,48,2,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
+run_0238_cfg_048_seed_3_mrhof,48,3,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
+run_0239_cfg_048_seed_4_mrhof,48,4,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
+run_0240_cfg_048_seed_5_mrhof,48,5,8,16,5,50.0,12,5,MRHOF,SUCCESS,627,
+run_0241_cfg_049_seed_1_mrhof,49,1,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
+run_0242_cfg_049_seed_2_mrhof,49,2,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
+run_0243_cfg_049_seed_3_mrhof,49,3,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
+run_0244_cfg_049_seed_4_mrhof,49,4,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
+run_0245_cfg_049_seed_5_mrhof,49,5,8,16,5,50.0,12,10,MRHOF,SUCCESS,627,
+run_0246_cfg_050_seed_1_of0,50,1,8,16,5,50.0,12,10,OF0,SUCCESS,627,
+run_0247_cfg_050_seed_2_of0,50,2,8,16,5,50.0,12,10,OF0,SUCCESS,627,
+run_0248_cfg_050_seed_3_of0,50,3,8,16,5,50.0,12,10,OF0,SUCCESS,627,
+run_0249_cfg_050_seed_4_of0,50,4,8,16,5,50.0,12,10,OF0,SUCCESS,627,
+run_0250_cfg_050_seed_5_of0,50,5,8,16,5,50.0,12,10,OF0,SUCCESS,627,
+run_0251_cfg_051_seed_1_mrhof,51,1,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0252_cfg_051_seed_2_mrhof,51,2,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0253_cfg_051_seed_3_mrhof,51,3,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0254_cfg_051_seed_4_mrhof,51,4,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0255_cfg_051_seed_5_mrhof,51,5,8,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0256_cfg_052_seed_1_of0,52,1,8,16,5,50.0,12,20,OF0,SUCCESS,627,
+run_0257_cfg_052_seed_2_of0,52,2,8,16,5,50.0,12,20,OF0,SUCCESS,627,
+run_0258_cfg_052_seed_3_of0,52,3,8,16,5,50.0,12,20,OF0,SUCCESS,627,
+run_0259_cfg_052_seed_4_of0,52,4,8,16,5,50.0,12,20,OF0,SUCCESS,627,
+run_0260_cfg_052_seed_5_of0,52,5,8,16,5,50.0,12,20,OF0,SUCCESS,627,
+run_0261_cfg_053_seed_1_mrhof,53,1,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
+run_0262_cfg_053_seed_2_mrhof,53,2,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
+run_0263_cfg_053_seed_3_mrhof,53,3,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
+run_0264_cfg_053_seed_4_mrhof,53,4,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
+run_0265_cfg_053_seed_5_mrhof,53,5,8,16,5,50.0,16,5,MRHOF,SUCCESS,855,
+run_0266_cfg_054_seed_1_of0,54,1,8,16,5,50.0,16,5,OF0,SUCCESS,855,
+run_0267_cfg_054_seed_2_of0,54,2,8,16,5,50.0,16,5,OF0,SUCCESS,855,
+run_0268_cfg_054_seed_3_of0,54,3,8,16,5,50.0,16,5,OF0,SUCCESS,855,
+run_0269_cfg_054_seed_4_of0,54,4,8,16,5,50.0,16,5,OF0,SUCCESS,855,
+run_0270_cfg_054_seed_5_of0,54,5,8,16,5,50.0,16,5,OF0,SUCCESS,855,
+run_0271_cfg_055_seed_1_mrhof,55,1,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
+run_0272_cfg_055_seed_2_mrhof,55,2,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
+run_0273_cfg_055_seed_3_mrhof,55,3,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
+run_0274_cfg_055_seed_4_mrhof,55,4,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
+run_0275_cfg_055_seed_5_mrhof,55,5,8,16,5,50.0,16,10,MRHOF,SUCCESS,855,
+run_0276_cfg_056_seed_1_of0,56,1,8,16,5,50.0,16,10,OF0,SUCCESS,855,
+run_0277_cfg_056_seed_2_of0,56,2,8,16,5,50.0,16,10,OF0,SUCCESS,855,
+run_0278_cfg_056_seed_3_of0,56,3,8,16,5,50.0,16,10,OF0,SUCCESS,855,
+run_0279_cfg_056_seed_4_of0,56,4,8,16,5,50.0,16,10,OF0,SUCCESS,855,
+run_0280_cfg_056_seed_5_of0,56,5,8,16,5,50.0,16,10,OF0,SUCCESS,855,
+run_0281_cfg_057_seed_1_mrhof,57,1,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
+run_0282_cfg_057_seed_2_mrhof,57,2,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
+run_0283_cfg_057_seed_3_mrhof,57,3,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
+run_0284_cfg_057_seed_4_mrhof,57,4,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
+run_0285_cfg_057_seed_5_mrhof,57,5,8,16,5,50.0,16,20,MRHOF,SUCCESS,855,
+run_0286_cfg_058_seed_1_of0,58,1,8,16,5,50.0,16,20,OF0,SUCCESS,855,
+run_0287_cfg_058_seed_2_of0,58,2,8,16,5,50.0,16,20,OF0,SUCCESS,855,
+run_0288_cfg_058_seed_3_of0,58,3,8,16,5,50.0,16,20,OF0,SUCCESS,855,
+run_0289_cfg_058_seed_4_of0,58,4,8,16,5,50.0,16,20,OF0,SUCCESS,855,
+run_0290_cfg_058_seed_5_of0,58,5,8,16,5,50.0,16,20,OF0,SUCCESS,855,
+run_0291_cfg_059_seed_1_mrhof,59,1,8,16,5,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0292_cfg_059_seed_2_mrhof,59,2,8,16,5,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0293_cfg_059_seed_3_mrhof,59,3,8,16,5,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0294_cfg_059_seed_4_mrhof,59,4,8,16,5,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0295_cfg_059_seed_5_mrhof,59,5,8,16,5,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0296_cfg_060_seed_1_mrhof,60,1,8,16,5,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0297_cfg_060_seed_2_mrhof,60,2,8,16,5,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0298_cfg_060_seed_3_mrhof,60,3,8,16,5,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0299_cfg_060_seed_4_mrhof,60,4,8,16,5,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0300_cfg_060_seed_5_mrhof,60,5,8,16,5,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0301_cfg_061_seed_1_of0,61,1,8,16,5,50.0,20,20,OF0,SUCCESS,1083,
+run_0302_cfg_061_seed_2_of0,61,2,8,16,5,50.0,20,20,OF0,SUCCESS,1083,
+run_0303_cfg_061_seed_3_of0,61,3,8,16,5,50.0,20,20,OF0,SUCCESS,1083,
+run_0304_cfg_061_seed_4_of0,61,4,8,16,5,50.0,20,20,OF0,SUCCESS,1083,
+run_0305_cfg_061_seed_5_of0,61,5,8,16,5,50.0,20,20,OF0,SUCCESS,1083,
+run_0306_cfg_062_seed_1_mrhof,62,1,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
+run_0307_cfg_062_seed_2_mrhof,62,2,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
+run_0308_cfg_062_seed_3_mrhof,62,3,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
+run_0309_cfg_062_seed_4_mrhof,62,4,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
+run_0310_cfg_062_seed_5_mrhof,62,5,8,16,5,60.0,12,5,MRHOF,SUCCESS,627,
+run_0311_cfg_063_seed_1_of0,63,1,8,16,5,60.0,12,5,OF0,SUCCESS,627,
+run_0312_cfg_063_seed_2_of0,63,2,8,16,5,60.0,12,5,OF0,SUCCESS,627,
+run_0313_cfg_063_seed_3_of0,63,3,8,16,5,60.0,12,5,OF0,SUCCESS,627,
+run_0314_cfg_063_seed_4_of0,63,4,8,16,5,60.0,12,5,OF0,SUCCESS,627,
+run_0315_cfg_063_seed_5_of0,63,5,8,16,5,60.0,12,5,OF0,SUCCESS,627,
+run_0316_cfg_064_seed_1_mrhof,64,1,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
+run_0317_cfg_064_seed_2_mrhof,64,2,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
+run_0318_cfg_064_seed_3_mrhof,64,3,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
+run_0319_cfg_064_seed_4_mrhof,64,4,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
+run_0320_cfg_064_seed_5_mrhof,64,5,8,16,5,60.0,12,10,MRHOF,SUCCESS,627,
+run_0321_cfg_065_seed_1_of0,65,1,8,16,5,60.0,12,10,OF0,SUCCESS,627,
+run_0322_cfg_065_seed_2_of0,65,2,8,16,5,60.0,12,10,OF0,SUCCESS,627,
+run_0323_cfg_065_seed_3_of0,65,3,8,16,5,60.0,12,10,OF0,SUCCESS,627,
+run_0324_cfg_065_seed_4_of0,65,4,8,16,5,60.0,12,10,OF0,SUCCESS,627,
+run_0325_cfg_065_seed_5_of0,65,5,8,16,5,60.0,12,10,OF0,SUCCESS,627,
+run_0326_cfg_066_seed_1_mrhof,66,1,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
+run_0327_cfg_066_seed_2_mrhof,66,2,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
+run_0328_cfg_066_seed_3_mrhof,66,3,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
+run_0329_cfg_066_seed_4_mrhof,66,4,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
+run_0330_cfg_066_seed_5_mrhof,66,5,8,16,5,60.0,12,20,MRHOF,SUCCESS,627,
+run_0331_cfg_067_seed_1_of0,67,1,8,16,5,60.0,12,20,OF0,SUCCESS,627,
+run_0332_cfg_067_seed_2_of0,67,2,8,16,5,60.0,12,20,OF0,SUCCESS,627,
+run_0333_cfg_067_seed_3_of0,67,3,8,16,5,60.0,12,20,OF0,SUCCESS,627,
+run_0334_cfg_067_seed_4_of0,67,4,8,16,5,60.0,12,20,OF0,SUCCESS,627,
+run_0335_cfg_067_seed_5_of0,67,5,8,16,5,60.0,12,20,OF0,SUCCESS,627,
+run_0336_cfg_068_seed_1_mrhof,68,1,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
+run_0337_cfg_068_seed_2_mrhof,68,2,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
+run_0338_cfg_068_seed_3_mrhof,68,3,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
+run_0339_cfg_068_seed_4_mrhof,68,4,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
+run_0340_cfg_068_seed_5_mrhof,68,5,8,16,5,60.0,16,5,MRHOF,SUCCESS,855,
+run_0341_cfg_069_seed_1_mrhof,69,1,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
+run_0342_cfg_069_seed_2_mrhof,69,2,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
+run_0343_cfg_069_seed_3_mrhof,69,3,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
+run_0344_cfg_069_seed_4_mrhof,69,4,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
+run_0345_cfg_069_seed_5_mrhof,69,5,8,16,5,60.0,16,10,MRHOF,SUCCESS,855,
+run_0346_cfg_070_seed_1_of0,70,1,8,16,5,60.0,16,10,OF0,SUCCESS,855,
+run_0347_cfg_070_seed_2_of0,70,2,8,16,5,60.0,16,10,OF0,SUCCESS,855,
+run_0348_cfg_070_seed_3_of0,70,3,8,16,5,60.0,16,10,OF0,SUCCESS,855,
+run_0349_cfg_070_seed_4_of0,70,4,8,16,5,60.0,16,10,OF0,SUCCESS,855,
+run_0350_cfg_070_seed_5_of0,70,5,8,16,5,60.0,16,10,OF0,SUCCESS,855,
+run_0351_cfg_071_seed_1_of0,71,1,8,16,5,60.0,20,5,OF0,SUCCESS,1083,
+run_0352_cfg_071_seed_2_of0,71,2,8,16,5,60.0,20,5,OF0,SUCCESS,1083,
+run_0353_cfg_071_seed_3_of0,71,3,8,16,5,60.0,20,5,OF0,SUCCESS,952,
+run_0354_cfg_071_seed_4_of0,71,4,8,16,5,60.0,20,5,OF0,SUCCESS,1083,
+run_0355_cfg_071_seed_5_of0,71,5,8,16,5,60.0,20,5,OF0,SUCCESS,1083,
+run_0356_cfg_072_seed_1_mrhof,72,1,8,16,5,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0357_cfg_072_seed_2_mrhof,72,2,8,16,5,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0358_cfg_072_seed_3_mrhof,72,3,8,16,5,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0359_cfg_072_seed_4_mrhof,72,4,8,16,5,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0360_cfg_072_seed_5_mrhof,72,5,8,16,5,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0361_cfg_073_seed_1_of0,73,1,8,16,5,60.0,20,10,OF0,SUCCESS,1083,
+run_0362_cfg_073_seed_2_of0,73,2,8,16,5,60.0,20,10,OF0,SUCCESS,1083,
+run_0363_cfg_073_seed_3_of0,73,3,8,16,5,60.0,20,10,OF0,SUCCESS,1083,
+run_0364_cfg_073_seed_4_of0,73,4,8,16,5,60.0,20,10,OF0,SUCCESS,1083,
+run_0365_cfg_073_seed_5_of0,73,5,8,16,5,60.0,20,10,OF0,SUCCESS,1083,
+run_0366_cfg_074_seed_1_mrhof,74,1,8,16,5,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0367_cfg_074_seed_2_mrhof,74,2,8,16,5,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0368_cfg_074_seed_3_mrhof,74,3,8,16,5,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0369_cfg_074_seed_4_mrhof,74,4,8,16,5,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0370_cfg_074_seed_5_mrhof,74,5,8,16,5,60.0,20,20,MRHOF,SUCCESS,1083,
+run_0371_cfg_075_seed_1_of0,75,1,8,16,5,60.0,20,20,OF0,SUCCESS,1083,
+run_0372_cfg_075_seed_2_of0,75,2,8,16,5,60.0,20,20,OF0,SUCCESS,1083,
+run_0373_cfg_075_seed_3_of0,75,3,8,16,5,60.0,20,20,OF0,SUCCESS,1083,
+run_0374_cfg_075_seed_4_of0,75,4,8,16,5,60.0,20,20,OF0,SUCCESS,1083,
+run_0375_cfg_075_seed_5_of0,75,5,8,16,5,60.0,20,20,OF0,SUCCESS,1083,
+run_0376_cfg_076_seed_1_of0,76,1,8,16,10,40.0,12,5,OF0,SUCCESS,627,
+run_0377_cfg_076_seed_2_of0,76,2,8,16,10,40.0,12,5,OF0,SUCCESS,627,
+run_0378_cfg_076_seed_3_of0,76,3,8,16,10,40.0,12,5,OF0,SUCCESS,627,
+run_0379_cfg_076_seed_4_of0,76,4,8,16,10,40.0,12,5,OF0,SUCCESS,627,
+run_0380_cfg_076_seed_5_of0,76,5,8,16,10,40.0,12,5,OF0,SUCCESS,627,
+run_0381_cfg_077_seed_1_mrhof,77,1,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
+run_0382_cfg_077_seed_2_mrhof,77,2,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
+run_0383_cfg_077_seed_3_mrhof,77,3,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
+run_0384_cfg_077_seed_4_mrhof,77,4,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
+run_0385_cfg_077_seed_5_mrhof,77,5,8,16,10,40.0,12,10,MRHOF,SUCCESS,627,
+run_0386_cfg_078_seed_1_mrhof,78,1,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
+run_0387_cfg_078_seed_2_mrhof,78,2,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
+run_0388_cfg_078_seed_3_mrhof,78,3,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
+run_0389_cfg_078_seed_4_mrhof,78,4,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
+run_0390_cfg_078_seed_5_mrhof,78,5,8,16,10,40.0,16,5,MRHOF,SUCCESS,855,
+run_0391_cfg_079_seed_1_of0,79,1,8,16,10,40.0,16,5,OF0,SUCCESS,855,
+run_0392_cfg_079_seed_2_of0,79,2,8,16,10,40.0,16,5,OF0,SUCCESS,855,
+run_0393_cfg_079_seed_3_of0,79,3,8,16,10,40.0,16,5,OF0,SUCCESS,855,
+run_0394_cfg_079_seed_4_of0,79,4,8,16,10,40.0,16,5,OF0,SUCCESS,855,
+run_0395_cfg_079_seed_5_of0,79,5,8,16,10,40.0,16,5,OF0,SUCCESS,855,
+run_0396_cfg_080_seed_1_mrhof,80,1,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
+run_0397_cfg_080_seed_2_mrhof,80,2,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
+run_0398_cfg_080_seed_3_mrhof,80,3,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
+run_0399_cfg_080_seed_4_mrhof,80,4,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
+run_0400_cfg_080_seed_5_mrhof,80,5,8,16,10,40.0,16,10,MRHOF,SUCCESS,855,
+run_0401_cfg_081_seed_1_of0,81,1,8,16,10,40.0,16,10,OF0,SUCCESS,855,
+run_0402_cfg_081_seed_2_of0,81,2,8,16,10,40.0,16,10,OF0,SUCCESS,855,
+run_0403_cfg_081_seed_3_of0,81,3,8,16,10,40.0,16,10,OF0,SUCCESS,855,
+run_0404_cfg_081_seed_4_of0,81,4,8,16,10,40.0,16,10,OF0,SUCCESS,855,
+run_0405_cfg_081_seed_5_of0,81,5,8,16,10,40.0,16,10,OF0,SUCCESS,855,
+run_0406_cfg_082_seed_1_mrhof,82,1,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
+run_0407_cfg_082_seed_2_mrhof,82,2,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
+run_0408_cfg_082_seed_3_mrhof,82,3,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
+run_0409_cfg_082_seed_4_mrhof,82,4,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
+run_0410_cfg_082_seed_5_mrhof,82,5,8,16,10,40.0,16,20,MRHOF,SUCCESS,855,
+run_0411_cfg_083_seed_1_of0,83,1,8,16,10,40.0,16,20,OF0,SUCCESS,855,
+run_0412_cfg_083_seed_2_of0,83,2,8,16,10,40.0,16,20,OF0,SUCCESS,855,
+run_0413_cfg_083_seed_3_of0,83,3,8,16,10,40.0,16,20,OF0,SUCCESS,855,
+run_0414_cfg_083_seed_4_of0,83,4,8,16,10,40.0,16,20,OF0,SUCCESS,855,
+run_0415_cfg_083_seed_5_of0,83,5,8,16,10,40.0,16,20,OF0,SUCCESS,855,
+run_0416_cfg_084_seed_1_mrhof,84,1,8,16,10,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0417_cfg_084_seed_2_mrhof,84,2,8,16,10,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0418_cfg_084_seed_3_mrhof,84,3,8,16,10,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0419_cfg_084_seed_4_mrhof,84,4,8,16,10,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0420_cfg_084_seed_5_mrhof,84,5,8,16,10,40.0,20,5,MRHOF,SUCCESS,1083,
+run_0421_cfg_085_seed_1_of0,85,1,8,16,10,40.0,20,5,OF0,SUCCESS,1080,
+run_0422_cfg_085_seed_2_of0,85,2,8,16,10,40.0,20,5,OF0,SUCCESS,1083,
+run_0423_cfg_085_seed_3_of0,85,3,8,16,10,40.0,20,5,OF0,SUCCESS,1083,
+run_0424_cfg_085_seed_4_of0,85,4,8,16,10,40.0,20,5,OF0,SUCCESS,1083,
+run_0425_cfg_085_seed_5_of0,85,5,8,16,10,40.0,20,5,OF0,SUCCESS,1083,
+run_0426_cfg_086_seed_1_mrhof,86,1,8,16,10,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0427_cfg_086_seed_2_mrhof,86,2,8,16,10,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0428_cfg_086_seed_3_mrhof,86,3,8,16,10,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0429_cfg_086_seed_4_mrhof,86,4,8,16,10,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0430_cfg_086_seed_5_mrhof,86,5,8,16,10,40.0,20,20,MRHOF,SUCCESS,1083,
+run_0431_cfg_087_seed_1_of0,87,1,8,16,10,40.0,20,20,OF0,SUCCESS,1083,
+run_0432_cfg_087_seed_2_of0,87,2,8,16,10,40.0,20,20,OF0,SUCCESS,1083,
+run_0433_cfg_087_seed_3_of0,87,3,8,16,10,40.0,20,20,OF0,SUCCESS,1083,
+run_0434_cfg_087_seed_4_of0,87,4,8,16,10,40.0,20,20,OF0,SUCCESS,1083,
+run_0435_cfg_087_seed_5_of0,87,5,8,16,10,40.0,20,20,OF0,SUCCESS,1083,
+run_0436_cfg_088_seed_1_mrhof,88,1,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
+run_0437_cfg_088_seed_2_mrhof,88,2,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
+run_0438_cfg_088_seed_3_mrhof,88,3,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
+run_0439_cfg_088_seed_4_mrhof,88,4,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
+run_0440_cfg_088_seed_5_mrhof,88,5,8,16,10,50.0,12,5,MRHOF,SUCCESS,627,
+run_0441_cfg_089_seed_1_of0,89,1,8,16,10,50.0,12,5,OF0,SUCCESS,627,
+run_0442_cfg_089_seed_2_of0,89,2,8,16,10,50.0,12,5,OF0,SUCCESS,627,
+run_0443_cfg_089_seed_3_of0,89,3,8,16,10,50.0,12,5,OF0,SUCCESS,627,
+run_0444_cfg_089_seed_4_of0,89,4,8,16,10,50.0,12,5,OF0,SUCCESS,627,
+run_0445_cfg_089_seed_5_of0,89,5,8,16,10,50.0,12,5,OF0,SUCCESS,627,
+run_0446_cfg_090_seed_1_mrhof,90,1,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
+run_0447_cfg_090_seed_2_mrhof,90,2,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
+run_0448_cfg_090_seed_3_mrhof,90,3,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
+run_0449_cfg_090_seed_4_mrhof,90,4,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
+run_0450_cfg_090_seed_5_mrhof,90,5,8,16,10,50.0,12,10,MRHOF,SUCCESS,627,
+run_0451_cfg_091_seed_1_of0,91,1,8,16,10,50.0,12,10,OF0,SUCCESS,627,
+run_0452_cfg_091_seed_2_of0,91,2,8,16,10,50.0,12,10,OF0,SUCCESS,627,
+run_0453_cfg_091_seed_3_of0,91,3,8,16,10,50.0,12,10,OF0,SUCCESS,627,
+run_0454_cfg_091_seed_4_of0,91,4,8,16,10,50.0,12,10,OF0,SUCCESS,627,
+run_0455_cfg_091_seed_5_of0,91,5,8,16,10,50.0,12,10,OF0,SUCCESS,627,
+run_0456_cfg_092_seed_1_of0,92,1,8,16,10,50.0,12,20,OF0,SUCCESS,627,
+run_0457_cfg_092_seed_2_of0,92,2,8,16,10,50.0,12,20,OF0,SUCCESS,627,
+run_0458_cfg_092_seed_3_of0,92,3,8,16,10,50.0,12,20,OF0,SUCCESS,627,
+run_0459_cfg_092_seed_4_of0,92,4,8,16,10,50.0,12,20,OF0,SUCCESS,627,
+run_0460_cfg_092_seed_5_of0,92,5,8,16,10,50.0,12,20,OF0,SUCCESS,627,
+run_0461_cfg_093_seed_1_mrhof,93,1,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
+run_0462_cfg_093_seed_2_mrhof,93,2,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
+run_0463_cfg_093_seed_3_mrhof,93,3,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
+run_0464_cfg_093_seed_4_mrhof,93,4,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
+run_0465_cfg_093_seed_5_mrhof,93,5,8,16,10,50.0,16,5,MRHOF,SUCCESS,855,
+run_0466_cfg_094_seed_1_mrhof,94,1,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
+run_0467_cfg_094_seed_2_mrhof,94,2,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
+run_0468_cfg_094_seed_3_mrhof,94,3,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
+run_0469_cfg_094_seed_4_mrhof,94,4,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
+run_0470_cfg_094_seed_5_mrhof,94,5,8,16,10,50.0,16,10,MRHOF,SUCCESS,855,
+run_0471_cfg_095_seed_1_mrhof,95,1,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
+run_0472_cfg_095_seed_2_mrhof,95,2,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
+run_0473_cfg_095_seed_3_mrhof,95,3,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
+run_0474_cfg_095_seed_4_mrhof,95,4,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
+run_0475_cfg_095_seed_5_mrhof,95,5,8,16,10,50.0,16,20,MRHOF,SUCCESS,855,
+run_0476_cfg_096_seed_1_of0,96,1,8,16,10,50.0,16,20,OF0,SUCCESS,855,
+run_0477_cfg_096_seed_2_of0,96,2,8,16,10,50.0,16,20,OF0,SUCCESS,855,
+run_0478_cfg_096_seed_3_of0,96,3,8,16,10,50.0,16,20,OF0,SUCCESS,855,
+run_0479_cfg_096_seed_4_of0,96,4,8,16,10,50.0,16,20,OF0,SUCCESS,855,
+run_0480_cfg_096_seed_5_of0,96,5,8,16,10,50.0,16,20,OF0,SUCCESS,855,
+run_0481_cfg_097_seed_1_of0,97,1,8,16,10,50.0,20,5,OF0,SUCCESS,1083,
+run_0482_cfg_097_seed_2_of0,97,2,8,16,10,50.0,20,5,OF0,SUCCESS,1083,
+run_0483_cfg_097_seed_3_of0,97,3,8,16,10,50.0,20,5,OF0,SUCCESS,1083,
+run_0484_cfg_097_seed_4_of0,97,4,8,16,10,50.0,20,5,OF0,SUCCESS,1083,
+run_0485_cfg_097_seed_5_of0,97,5,8,16,10,50.0,20,5,OF0,SUCCESS,1083,
+run_0486_cfg_098_seed_1_mrhof,98,1,8,16,10,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0487_cfg_098_seed_2_mrhof,98,2,8,16,10,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0488_cfg_098_seed_3_mrhof,98,3,8,16,10,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0489_cfg_098_seed_4_mrhof,98,4,8,16,10,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0490_cfg_098_seed_5_mrhof,98,5,8,16,10,50.0,20,10,MRHOF,SUCCESS,1083,
+run_0491_cfg_099_seed_1_of0,99,1,8,16,10,50.0,20,10,OF0,SUCCESS,1083,
+run_0492_cfg_099_seed_2_of0,99,2,8,16,10,50.0,20,10,OF0,SUCCESS,1083,
+run_0493_cfg_099_seed_3_of0,99,3,8,16,10,50.0,20,10,OF0,SUCCESS,1083,
+run_0494_cfg_099_seed_4_of0,99,4,8,16,10,50.0,20,10,OF0,SUCCESS,1083,
+run_0495_cfg_099_seed_5_of0,99,5,8,16,10,50.0,20,10,OF0,SUCCESS,1083,
+run_0496_cfg_100_seed_1_mrhof,100,1,8,16,10,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0497_cfg_100_seed_2_mrhof,100,2,8,16,10,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0498_cfg_100_seed_3_mrhof,100,3,8,16,10,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0499_cfg_100_seed_4_mrhof,100,4,8,16,10,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0500_cfg_100_seed_5_mrhof,100,5,8,16,10,50.0,20,20,MRHOF,SUCCESS,1083,
+run_0501_cfg_101_seed_1_of0,101,1,8,16,10,50.0,20,20,OF0,SUCCESS,1083,
+run_0502_cfg_101_seed_2_of0,101,2,8,16,10,50.0,20,20,OF0,SUCCESS,1083,
+run_0503_cfg_101_seed_3_of0,101,3,8,16,10,50.0,20,20,OF0,SUCCESS,1083,
+run_0504_cfg_101_seed_4_of0,101,4,8,16,10,50.0,20,20,OF0,SUCCESS,1083,
+run_0505_cfg_101_seed_5_of0,101,5,8,16,10,50.0,20,20,OF0,SUCCESS,1083,
+run_0506_cfg_102_seed_1_mrhof,102,1,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
+run_0507_cfg_102_seed_2_mrhof,102,2,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
+run_0508_cfg_102_seed_3_mrhof,102,3,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
+run_0509_cfg_102_seed_4_mrhof,102,4,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
+run_0510_cfg_102_seed_5_mrhof,102,5,8,16,10,60.0,12,5,MRHOF,SUCCESS,627,
+run_0511_cfg_103_seed_1_of0,103,1,8,16,10,60.0,12,5,OF0,SUCCESS,627,
+run_0512_cfg_103_seed_2_of0,103,2,8,16,10,60.0,12,5,OF0,SUCCESS,627,
+run_0513_cfg_103_seed_3_of0,103,3,8,16,10,60.0,12,5,OF0,SUCCESS,627,
+run_0514_cfg_103_seed_4_of0,103,4,8,16,10,60.0,12,5,OF0,SUCCESS,627,
+run_0515_cfg_103_seed_5_of0,103,5,8,16,10,60.0,12,5,OF0,SUCCESS,627,
+run_0516_cfg_104_seed_1_mrhof,104,1,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
+run_0517_cfg_104_seed_2_mrhof,104,2,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
+run_0518_cfg_104_seed_3_mrhof,104,3,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
+run_0519_cfg_104_seed_4_mrhof,104,4,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
+run_0520_cfg_104_seed_5_mrhof,104,5,8,16,10,60.0,12,10,MRHOF,SUCCESS,627,
+run_0521_cfg_105_seed_1_mrhof,105,1,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
+run_0522_cfg_105_seed_2_mrhof,105,2,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
+run_0523_cfg_105_seed_3_mrhof,105,3,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
+run_0524_cfg_105_seed_4_mrhof,105,4,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
+run_0525_cfg_105_seed_5_mrhof,105,5,8,16,10,60.0,12,20,MRHOF,SUCCESS,627,
+run_0526_cfg_106_seed_1_mrhof,106,1,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
+run_0527_cfg_106_seed_2_mrhof,106,2,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
+run_0528_cfg_106_seed_3_mrhof,106,3,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
+run_0529_cfg_106_seed_4_mrhof,106,4,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
+run_0530_cfg_106_seed_5_mrhof,106,5,8,16,10,60.0,16,5,MRHOF,SUCCESS,855,
+run_0531_cfg_107_seed_1_of0,107,1,8,16,10,60.0,16,5,OF0,SUCCESS,855,
+run_0532_cfg_107_seed_2_of0,107,2,8,16,10,60.0,16,5,OF0,SUCCESS,855,
+run_0533_cfg_107_seed_3_of0,107,3,8,16,10,60.0,16,5,OF0,SUCCESS,855,
+run_0534_cfg_107_seed_4_of0,107,4,8,16,10,60.0,16,5,OF0,SUCCESS,855,
+run_0535_cfg_107_seed_5_of0,107,5,8,16,10,60.0,16,5,OF0,SUCCESS,855,
+run_0536_cfg_108_seed_1_of0,108,1,8,16,10,60.0,16,10,OF0,SUCCESS,855,
+run_0537_cfg_108_seed_2_of0,108,2,8,16,10,60.0,16,10,OF0,SUCCESS,855,
+run_0538_cfg_108_seed_3_of0,108,3,8,16,10,60.0,16,10,OF0,SUCCESS,855,
+run_0539_cfg_108_seed_4_of0,108,4,8,16,10,60.0,16,10,OF0,SUCCESS,855,
+run_0540_cfg_108_seed_5_of0,108,5,8,16,10,60.0,16,10,OF0,SUCCESS,855,
+run_0541_cfg_109_seed_1_of0,109,1,8,16,10,60.0,20,5,OF0,SUCCESS,1083,
+run_0542_cfg_109_seed_2_of0,109,2,8,16,10,60.0,20,5,OF0,SUCCESS,1083,
+run_0543_cfg_109_seed_3_of0,109,3,8,16,10,60.0,20,5,OF0,SUCCESS,1083,
+run_0544_cfg_109_seed_4_of0,109,4,8,16,10,60.0,20,5,OF0,SUCCESS,1083,
+run_0545_cfg_109_seed_5_of0,109,5,8,16,10,60.0,20,5,OF0,SUCCESS,1083,
+run_0546_cfg_110_seed_1_mrhof,110,1,8,16,10,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0547_cfg_110_seed_2_mrhof,110,2,8,16,10,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0548_cfg_110_seed_3_mrhof,110,3,8,16,10,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0549_cfg_110_seed_4_mrhof,110,4,8,16,10,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0550_cfg_110_seed_5_mrhof,110,5,8,16,10,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0551_cfg_111_seed_1_of0,111,1,8,16,10,60.0,20,10,OF0,SUCCESS,1083,
+run_0552_cfg_111_seed_2_of0,111,2,8,16,10,60.0,20,10,OF0,SUCCESS,1083,
+run_0553_cfg_111_seed_3_of0,111,3,8,16,10,60.0,20,10,OF0,SUCCESS,1083,
+run_0554_cfg_111_seed_4_of0,111,4,8,16,10,60.0,20,10,OF0,SUCCESS,1083,
+run_0555_cfg_111_seed_5_of0,111,5,8,16,10,60.0,20,10,OF0,SUCCESS,1083,
+run_0556_cfg_112_seed_1_of0,112,1,8,18,0,40.0,12,5,OF0,SUCCESS,627,
+run_0557_cfg_112_seed_2_of0,112,2,8,18,0,40.0,12,5,OF0,SUCCESS,627,
+run_0558_cfg_112_seed_3_of0,112,3,8,18,0,40.0,12,5,OF0,SUCCESS,627,
+run_0559_cfg_112_seed_4_of0,112,4,8,18,0,40.0,12,5,OF0,SUCCESS,627,
+run_0560_cfg_112_seed_5_of0,112,5,8,18,0,40.0,12,5,OF0,SUCCESS,627,
+run_0561_cfg_113_seed_1_mrhof,113,1,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0562_cfg_113_seed_2_mrhof,113,2,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0563_cfg_113_seed_3_mrhof,113,3,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0564_cfg_113_seed_4_mrhof,113,4,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0565_cfg_113_seed_5_mrhof,113,5,8,18,0,40.0,12,10,MRHOF,SUCCESS,627,
+run_0566_cfg_114_seed_1_of0,114,1,8,18,0,40.0,12,10,OF0,SUCCESS,627,
+run_0567_cfg_114_seed_2_of0,114,2,8,18,0,40.0,12,10,OF0,SUCCESS,627,
+run_0568_cfg_114_seed_3_of0,114,3,8,18,0,40.0,12,10,OF0,SUCCESS,627,
+run_0569_cfg_114_seed_4_of0,114,4,8,18,0,40.0,12,10,OF0,SUCCESS,627,
+run_0570_cfg_114_seed_5_of0,114,5,8,18,0,40.0,12,10,OF0,SUCCESS,627,
+run_0571_cfg_115_seed_1_mrhof,115,1,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0572_cfg_115_seed_2_mrhof,115,2,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0573_cfg_115_seed_3_mrhof,115,3,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0574_cfg_115_seed_4_mrhof,115,4,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0575_cfg_115_seed_5_mrhof,115,5,8,18,0,40.0,12,20,MRHOF,SUCCESS,627,
+run_0576_cfg_116_seed_1_of0,116,1,8,18,0,40.0,12,20,OF0,SUCCESS,627,
+run_0577_cfg_116_seed_2_of0,116,2,8,18,0,40.0,12,20,OF0,SUCCESS,627,
+run_0578_cfg_116_seed_3_of0,116,3,8,18,0,40.0,12,20,OF0,SUCCESS,627,
+run_0579_cfg_116_seed_4_of0,116,4,8,18,0,40.0,12,20,OF0,SUCCESS,627,
+run_0580_cfg_116_seed_5_of0,116,5,8,18,0,40.0,12,20,OF0,SUCCESS,627,
+run_0581_cfg_117_seed_1_mrhof,117,1,8,18,0,40.0,16,5,MRHOF,FAILED,0,[Errno 28] No space left on device
+run_0582_cfg_117_seed_2_mrhof,117,2,8,18,0,40.0,16,5,MRHOF,FAILED,0,[Errno 28] No space left on device: '/home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0582_cfg_117_seed_2_mrhof'
+run_0583_cfg_117_seed_3_mrhof,117,3,8,18,0,40.0,16,5,MRHOF,FAILED,0,[Errno 28] No space left on device: '/home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0583_cfg_117_seed_3_mrhof'
+run_0584_cfg_117_seed_4_mrhof,117,4,8,18,0,40.0,16,5,MRHOF,FAILED,0,"Command '['./gradlew', 'run', '--args=--no-gui /home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0584_cfg_117_seed_4_mrhof/simulation.csc']' returned non-zero exit status 1."
+run_0585_cfg_117_seed_5_mrhof,117,5,8,18,0,40.0,16,5,MRHOF,FAILED,0,[Errno 28] No space left on device: '/home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0585_cfg_117_seed_5_mrhof'
+run_0586_cfg_118_seed_1_of0,118,1,8,18,0,40.0,16,5,OF0,FAILED,0,[Errno 28] No space left on device: '/home/mohamed/Bureau/projetStage/cooja_automation/logs/run_0586_cfg_118_seed_1_of0'
+run_0587_cfg_118_seed_2_of0,118,2,8,18,0,40.0,16,5,OF0,FAILrun_0003_cfg_002_seed_1_of0,2,1,8,18,5,40.0,20,5,OF0,SUCCESS,1083,
+run_0004_cfg_002_seed_2_of0,2,2,8,18,5,40.0,20,5,OF0,SUCCESS,1083,
+run_0005_cfg_003_seed_1_mrhof,3,1,8,16,0,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0006_cfg_003_seed_2_mrhof,3,2,8,16,0,60.0,20,10,MRHOF,SUCCESS,1083,
+run_0007_cfg_004_seed_1_mrhof,4,1,10,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0008_cfg_004_seed_2_mrhof,4,2,10,16,5,50.0,12,20,MRHOF,SUCCESS,627,
+run_0009_cfg_005_seed_1_mrhof,5,1,10,16,0,40.0,20,10,MRHOF,SUCCESS,1083,
+run_0010_cfg_005_seed_2_mrhof,5,2,10,16,0,40.0,20,10,MRHOF,SUCCESS,1083,

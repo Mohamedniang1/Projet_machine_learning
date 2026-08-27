@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from __future__ import annotations
 
 import shutil
@@ -6,16 +8,150 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
+# ============================================================
+# CHEMINS
+# ============================================================
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-CONTIKI_DIR = PROJECT_ROOT / "contiki-ng"
-COOJA_DIR = CONTIKI_DIR / "tools" / "cooja"
-RPL_UDP_DIR = CONTIKI_DIR / "examples" / "rpl-udp"
+CONTIKI_DIR = (
+    PROJECT_ROOT
+    / "contiki-ng"
+)
 
-BASE_CSC_FILE = RPL_UDP_DIR / "simulation_rpl.csc"
-PROJECT_CONF_FILE = RPL_UDP_DIR / "project-conf.h"
+COOJA_DIR = (
+    CONTIKI_DIR
+    / "tools"
+    / "cooja"
+)
 
-LOGS_DIR = PROJECT_ROOT / "cooja_automation" / "logs"
+RPL_UDP_DIR = (
+    CONTIKI_DIR
+    / "examples"
+    / "rpl-udp"
+)
+
+BASE_CSC_FILE = (
+    RPL_UDP_DIR
+    / "simulation_rpl.csc"
+)
+
+PROJECT_CONF_FILE = (
+    RPL_UDP_DIR
+    / "project-conf.h"
+)
+
+LOGS_DIR = (
+    PROJECT_ROOT
+    / "cooja_automation"
+    / "logs"
+)
+
+
+# ============================================================
+# OBJECTIVE FUNCTIONS
+# ============================================================
+
+SUPPORTED_OBJECTIVE_FUNCTIONS = {
+    "MRHOF": "RPL_OCP_MRHOF",
+    "OF0": "RPL_OCP_OF0",
+}
+
+
+# ============================================================
+# OUTILS CSC
+# ============================================================
+
+def count_motes_in_csc(
+    csc_file: Path,
+) -> int:
+    """
+    Compte automatiquement le nombre de balises <mote>
+    présentes dans <simulation>.
+    """
+
+    if not csc_file.exists():
+        raise FileNotFoundError(
+            f"Fichier .csc introuvable : {csc_file}"
+        )
+
+    try:
+        tree = ET.parse(csc_file)
+
+    except ET.ParseError as exc:
+        raise RuntimeError(
+            f"XML invalide dans {csc_file} : {exc}"
+        ) from exc
+
+    root = tree.getroot()
+
+    simulation = root.find("simulation")
+
+    if simulation is None:
+        raise RuntimeError(
+            "Balise <simulation> introuvable."
+        )
+
+    return len(
+        simulation.findall("mote")
+    )
+
+
+def get_mote_id(
+    mote: ET.Element,
+) -> int | None:
+    """
+    Retourne l'ID Contiki d'un mote.
+    """
+
+    for interface in mote.findall(
+        "interface_config"
+    ):
+
+        id_element = interface.find("id")
+
+        if id_element is not None:
+            try:
+                return int(id_element.text)
+
+            except (
+                TypeError,
+                ValueError,
+            ):
+                return None
+
+    return None
+
+
+def get_mote_ids_from_csc(
+    csc_file: Path,
+) -> list[int]:
+    """
+    Retourne tous les IDs des motes présents
+    dans le fichier .csc.
+    """
+
+    tree = ET.parse(csc_file)
+
+    root = tree.getroot()
+
+    simulation = root.find("simulation")
+
+    if simulation is None:
+        raise RuntimeError(
+            "Balise <simulation> introuvable."
+        )
+
+    ids = []
+
+    for mote in simulation.findall("mote"):
+
+        mote_id = get_mote_id(mote)
+
+        if mote_id is not None:
+            ids.append(mote_id)
+
+    return ids
 
 
 # ============================================================
@@ -30,34 +166,73 @@ def validate_parameters(
     tx_range: float,
     nb_nodes: int,
     send_interval: int,
+    objective_function: str,
 ):
-    if seed < 0:
-        raise ValueError("seed doit être >= 0")
+    """
+    Vérifie les paramètres expérimentaux.
+    """
 
-    if imin < 1:
-        raise ValueError("Imin doit être >= 1")
+    if seed < 0:
+        raise ValueError(
+            "La seed doit être positive ou nulle."
+        )
+
+    if imin < 0:
+        raise ValueError(
+            "Imin doit être positif ou nul."
+        )
 
     if imax < imin:
-        raise ValueError("Imax doit être >= Imin")
+        raise ValueError(
+            f"Imax ({imax}) doit être >= Imin ({imin})."
+        )
 
     if k < 0:
-        raise ValueError("k doit être >= 0")
+        raise ValueError(
+            "k doit être positif ou nul."
+        )
 
     if tx_range <= 0:
-        raise ValueError("tx_range doit être > 0")
+        raise ValueError(
+            "tx_range doit être strictement positif."
+        )
 
     if nb_nodes < 2:
         raise ValueError(
-            "Il faut au minimum 2 nœuds : 1 root + 1 client"
+            "Le réseau doit contenir au moins 2 nœuds."
         )
 
-    if nb_nodes > 16:
+    max_nodes = count_motes_in_csc(
+        BASE_CSC_FILE
+    )
+
+    if nb_nodes > max_nodes:
         raise ValueError(
-            "Le simulation_rpl.csc actuel contient seulement 16 nœuds."
+            f"Le fichier {BASE_CSC_FILE.name} contient "
+            f"{max_nodes} nœuds, mais nb_nodes={nb_nodes} "
+            f"a été demandé."
         )
 
     if send_interval <= 0:
-        raise ValueError("send_interval doit être > 0")
+        raise ValueError(
+            "send_interval doit être strictement positif."
+        )
+
+    objective_function = (
+        objective_function
+        .strip()
+        .upper()
+    )
+
+    if (
+        objective_function
+        not in SUPPORTED_OBJECTIVE_FUNCTIONS
+    ):
+        raise ValueError(
+            f"Objective Function invalide : "
+            f"{objective_function}. "
+            "Valeurs autorisées : OF0, MRHOF."
+        )
 
 
 # ============================================================
@@ -73,29 +248,33 @@ def write_project_conf(
     objective_function: str,
 ):
     """
-    Génère project-conf.h pour Contiki-NG.
-
-    objective_function :
-        - "MRHOF"
-        - "OF0"
+    Génère project-conf.h.
     """
 
-    doublings = imax - imin
+    objective_function = (
+        objective_function
+        .strip()
+        .upper()
+    )
 
-    objective_function = objective_function.upper()
-
-    if objective_function == "MRHOF":
-        rpl_ocp = "RPL_OCP_MRHOF"
-
-    elif objective_function == "OF0":
-        rpl_ocp = "RPL_OCP_OF0"
-
-    else:
+    if (
+        objective_function
+        not in SUPPORTED_OBJECTIVE_FUNCTIONS
+    ):
         raise ValueError(
-            "Objective Function invalide : "
-            f"{objective_function}. "
-            "Valeurs autorisées : MRHOF, OF0"
+            f"Objective Function non supportée : "
+            f"{objective_function}"
         )
+
+    doublings = (
+        imax - imin
+    )
+
+    objective_macro = (
+        SUPPORTED_OBJECTIVE_FUNCTIONS[
+            objective_function
+        ]
+    )
 
     content = f"""\
 #ifndef PROJECT_CONF_H_
@@ -116,10 +295,10 @@ def write_project_conf(
 /* =========================================================
  * RPL OBJECTIVE FUNCTION
  * Tous les noeuds supportent OF0 et MRHOF.
- * Le root sélectionne l'OF utilisée pour cette expérience.
+ * Le root sélectionne l'OF utilisée.
  * ========================================================= */
 #define RPL_CONF_SUPPORTED_OFS {{&rpl_of0, &rpl_mrhof}}
-#define RPL_CONF_OF_OCP {rpl_ocp}
+#define RPL_CONF_OF_OCP {objective_macro}
 
 /* =========================================================
  * APPLICATION
@@ -137,71 +316,200 @@ def write_project_conf(
 
 
 # ============================================================
-# GÉNÉRATION DU .CSC TEMPORAIRE
+# CREATION DU CSC TEMPORAIRE
 # ============================================================
 
 def create_experiment_csc(
     *,
     output_file: Path,
+    seed: int,
     tx_range: float,
     nb_nodes: int,
 ):
     """
-    Copie simulation_rpl.csc et modifie :
+    Crée un .csc spécifique au run.
 
-    - transmitting_range
-    - nombre de motes
+    Modifie :
+      - randomseed
+      - transmitting_range
+      - nombre de motes
 
-    Le fichier original n'est jamais modifié.
+    Le simulation_rpl.csc original n'est pas modifié.
     """
 
-    tree = ET.parse(BASE_CSC_FILE)
+    if not BASE_CSC_FILE.exists():
+        raise FileNotFoundError(
+            f"Fichier introuvable : {BASE_CSC_FILE}"
+        )
+
+    tree = ET.parse(
+        BASE_CSC_FILE
+    )
+
     root = tree.getroot()
 
-    simulation = root.find("simulation")
+    simulation = root.find(
+        "simulation"
+    )
 
     if simulation is None:
         raise RuntimeError(
-            "Balise <simulation> introuvable dans le .csc"
+            "Balise <simulation> introuvable."
         )
 
     # --------------------------------------------------------
-    # TX RANGE
+    # RANDOM SEED
     # --------------------------------------------------------
 
-    radio = simulation.find("radiomedium")
+    randomseed = simulation.find(
+        "randomseed"
+    )
 
-    if radio is None:
+    if randomseed is None:
+
+        randomseed = ET.Element(
+            "randomseed"
+        )
+
+        simulation.insert(
+            1,
+            randomseed,
+        )
+
+    randomseed.text = str(
+        int(seed)
+    )
+
+    # --------------------------------------------------------
+    # RADIO MEDIUM
+    # --------------------------------------------------------
+
+    radio_medium = simulation.find(
+        "radiomedium"
+    )
+
+    if radio_medium is None:
         raise RuntimeError(
-            "Balise <radiomedium> introuvable"
+            "Balise <radiomedium> introuvable."
         )
 
-    tx_element = radio.find("transmitting_range")
+    transmitting_range = (
+        radio_medium.find(
+            "transmitting_range"
+        )
+    )
 
-    if tx_element is None:
+    if transmitting_range is None:
         raise RuntimeError(
-            "<transmitting_range> introuvable"
+            "Balise <transmitting_range> introuvable."
         )
 
-    tx_element.text = str(float(tx_range))
+    transmitting_range.text = str(
+        float(tx_range)
+    )
 
     # --------------------------------------------------------
-    # NOMBRE DE NŒUDS
+    # MOTES
     # --------------------------------------------------------
 
-    motes = simulation.findall("mote")
+    motes = simulation.findall(
+        "mote"
+    )
 
-    if len(motes) < nb_nodes:
-        raise RuntimeError(
-            f"Seulement {len(motes)} motes disponibles, "
-            f"mais {nb_nodes} demandés."
+    available_nodes = len(
+        motes
+    )
+
+    if nb_nodes > available_nodes:
+        raise ValueError(
+            f"{nb_nodes} nœuds demandés mais "
+            f"{available_nodes} seulement sont disponibles."
         )
 
-    # On garde :
-    # mote 1 = root
-    # puis les premiers clients jusqu'à nb_nodes
-    for mote in motes[nb_nodes:]:
-        simulation.remove(mote)
+    # --------------------------------------------------------
+    # On suppose que les motes sont ordonnés :
+    #
+    # ID 1
+    # ID 2
+    # ...
+    # ID 20
+    #
+    # On conserve donc les nb_nodes premiers.
+    # --------------------------------------------------------
+
+    for mote in motes[
+        nb_nodes:
+    ]:
+        simulation.remove(
+            mote
+        )
+
+    # --------------------------------------------------------
+    # PLUGIN TIMELINE
+    # --------------------------------------------------------
+    #
+    # TimeLine utilise des indices 0-based.
+    #
+    # 0 -> node 1
+    # 1 -> node 2
+    # ...
+    #
+    # --------------------------------------------------------
+
+    for plugin in root.findall(
+        "plugin"
+    ):
+
+        plugin_name = (
+            plugin.text or ""
+        )
+
+        if "TimeLine" not in plugin_name:
+            continue
+
+        plugin_config = plugin.find(
+            "plugin_config"
+        )
+
+        if plugin_config is None:
+            continue
+
+        timeline_motes = (
+            plugin_config.findall(
+                "mote"
+            )
+        )
+
+        for mote_element in timeline_motes:
+
+            try:
+                mote_index = int(
+                    mote_element.text
+                )
+
+            except (
+                TypeError,
+                ValueError,
+            ):
+                continue
+
+            if mote_index >= nb_nodes:
+                plugin_config.remove(
+                    mote_element
+                )
+
+    # --------------------------------------------------------
+    # DOSSIER
+    # --------------------------------------------------------
+
+    output_file.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    # --------------------------------------------------------
+    # WRITE
+    # --------------------------------------------------------
 
     tree.write(
         output_file,
@@ -211,7 +519,138 @@ def create_experiment_csc(
 
 
 # ============================================================
-# SIMULATION
+# CLEAN BUILD
+# ============================================================
+
+def clean_cooja_build():
+    """
+    Nettoie les fichiers compilés Cooja
+    de l'application rpl-udp.
+    """
+
+    build_dir = (
+        RPL_UDP_DIR
+        / "build"
+        / "cooja"
+    )
+
+    if build_dir.exists():
+        shutil.rmtree(
+            build_dir
+        )
+
+
+# ============================================================
+# LANCEMENT COOJA
+# ============================================================
+
+def launch_cooja(
+    *,
+    csc_file: Path,
+    run_directory: Path,
+) -> Path:
+    """
+    Lance Cooja headless.
+
+    Cooja crée COOJA.testlog dans COOJA_DIR.
+    Ce fichier est ensuite déplacé dans le dossier du run.
+
+    Cela évite de mélanger les logs des différentes
+    simulations.
+    """
+
+    cooja_log = (
+        COOJA_DIR
+        / "COOJA.testlog"
+    )
+
+    run_log = (
+        run_directory
+        / "COOJA.testlog"
+    )
+
+    # --------------------------------------------------------
+    # SUPPRIMER LES ANCIENS LOGS
+    # --------------------------------------------------------
+
+    if cooja_log.exists():
+        cooja_log.unlink()
+
+    if run_log.exists():
+        run_log.unlink()
+
+    # --------------------------------------------------------
+    # COMMANDE
+    # --------------------------------------------------------
+
+    command = [
+        "./gradlew",
+        "run",
+        f"--args=--no-gui {csc_file}",
+    ]
+
+    # --------------------------------------------------------
+    # COOJA
+    # --------------------------------------------------------
+
+    subprocess.run(
+        command,
+        cwd=COOJA_DIR,
+        check=True,
+    )
+
+    # --------------------------------------------------------
+    # VERIFICATION LOG
+    # --------------------------------------------------------
+
+    if not cooja_log.exists():
+
+        raise FileNotFoundError(
+            "Cooja a terminé mais "
+            f"{cooja_log} n'existe pas."
+        )
+
+    # --------------------------------------------------------
+    # DEPLACEMENT
+    # --------------------------------------------------------
+
+    shutil.move(
+        str(cooja_log),
+        str(run_log),
+    )
+
+    return run_log
+
+
+# ============================================================
+# SUMMARY
+# ============================================================
+
+def count_summary_lines(
+    log_file: Path,
+) -> int:
+    """
+    Compte les lignes SUMMARY.
+    """
+
+    count = 0
+
+    with log_file.open(
+        "r",
+        encoding="utf-8",
+        errors="replace",
+    ) as file:
+
+        for line in file:
+
+            if "SUMMARY" in line:
+                count += 1
+
+    return count
+
+
+# ============================================================
+# RUN SIMULATION
 # ============================================================
 
 def run_simulation(
@@ -223,38 +662,119 @@ def run_simulation(
     tx_range: float,
     nb_nodes: int,
     send_interval: int,
-    objective_function: str,
-    run_name: str,
+    objective_function: str = "MRHOF",
+    run_name: str = "test_run",
     clean_build: bool = True,
 ) -> Path:
+    """
+    Lance une simulation Cooja complète.
 
-    validate_parameters(
-        seed,
-        imin,
-        imax,
-        k,
-        tx_range,
-        nb_nodes,
-        send_interval,
-    )
+    Retourne le chemin vers COOJA.testlog.
+    """
 
-    LOGS_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    run_dir = LOGS_DIR / run_name
-
-    if run_dir.exists():
-        shutil.rmtree(run_dir)
-
-    run_dir.mkdir(
-        parents=True,
-        exist_ok=True,
+    objective_function = (
+        objective_function
+        .strip()
+        .upper()
     )
 
     # --------------------------------------------------------
-    # Configuration Contiki
+    # VALIDATION
+    # --------------------------------------------------------
+
+    validate_parameters(
+        seed=seed,
+        imin=imin,
+        imax=imax,
+        k=k,
+        tx_range=tx_range,
+        nb_nodes=nb_nodes,
+        send_interval=send_interval,
+        objective_function=(
+            objective_function
+        ),
+    )
+
+    max_nodes = (
+        count_motes_in_csc(
+            BASE_CSC_FILE
+        )
+    )
+
+    # --------------------------------------------------------
+    # RUN DIRECTORY
+    # --------------------------------------------------------
+
+    run_directory = (
+        LOGS_DIR
+        / run_name
+    )
+
+    run_directory.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    csc_file = (
+        run_directory
+        / "simulation.csc"
+    )
+
+    # --------------------------------------------------------
+    # AFFICHAGE
+    # --------------------------------------------------------
+
+    print()
+    print("=" * 75)
+
+    print(
+        f"RUN           : {run_name}"
+    )
+
+    print(
+        f"Seed          : {seed}"
+    )
+
+    print(
+        f"Imin          : {imin}"
+    )
+
+    print(
+        f"Imax          : {imax}"
+    )
+
+    print(
+        f"Doublings     : {imax - imin}"
+    )
+
+    print(
+        f"k             : {k}"
+    )
+
+    print(
+        f"Objective Fn  : {objective_function}"
+    )
+
+    print(
+        f"TX Range      : {tx_range}"
+    )
+
+    print(
+        f"Nb nodes      : {nb_nodes}"
+    )
+
+    print(
+        f"Max CSC nodes : {max_nodes}"
+    )
+
+    print(
+        f"Send interval : {send_interval}s"
+    )
+
+    print("=" * 75)
+
+    # --------------------------------------------------------
+    # PROJECT CONF
     # --------------------------------------------------------
 
     write_project_conf(
@@ -262,97 +782,92 @@ def run_simulation(
         imax=imax,
         k=k,
         send_interval=send_interval,
-        objective_function=objective_function,
+        objective_function=(
+            objective_function
+        ),
     )
 
     # --------------------------------------------------------
-    # Configuration Cooja
+    # CSC
     # --------------------------------------------------------
 
-    experiment_csc = run_dir / "simulation.csc"
-
     create_experiment_csc(
-        output_file=experiment_csc,
+        output_file=csc_file,
+        seed=seed,
         tx_range=tx_range,
         nb_nodes=nb_nodes,
     )
 
     # --------------------------------------------------------
-    # IMPORTANT :
-    # project-conf.h a changé -> recompilation
+    # Vérification seed du fichier généré
+    # --------------------------------------------------------
+
+    check_tree = ET.parse(
+        csc_file
+    )
+
+    check_simulation = (
+        check_tree
+        .getroot()
+        .find(
+            "simulation"
+        )
+    )
+
+    written_seed = None
+
+    if check_simulation is not None:
+
+        randomseed = (
+            check_simulation.find(
+                "randomseed"
+            )
+        )
+
+        if randomseed is not None:
+            written_seed = (
+                randomseed.text
+            )
+
+    if written_seed != str(seed):
+
+        raise RuntimeError(
+            f"Seed incorrecte dans le CSC : "
+            f"attendu={seed}, "
+            f"trouvé={written_seed}"
+        )
+
+    # --------------------------------------------------------
+    # CLEAN
     # --------------------------------------------------------
 
     if clean_build:
-        build_dir = RPL_UDP_DIR / "build"
+        clean_cooja_build()
 
-        if build_dir.exists():
-            shutil.rmtree(build_dir)
+    # --------------------------------------------------------
+    # RUN COOJA
+    # --------------------------------------------------------
 
-    doublings = imax - imin
-
-    print("\n" + "=" * 75)
-    print(f"RUN           : {run_name}")
-    print(f"Seed          : {seed}")
-    print(f"Imin          : {imin}")
-    print(f"Imax          : {imax}")
-    print(f"Doublings     : {doublings}")
-    print(f"k             : {k}")
-    print(f"Objective Fn  : {objective_function}")
-    print(f"TX Range      : {tx_range}")
-    print(f"Nb nodes      : {nb_nodes}")
-    print(f"Send interval : {send_interval}s")
-    print("=" * 75)
-
-    cooja_args = " ".join(
-        [
-            "--no-gui",
-            "--autostart",
-            "--no-log-color",
-            f"--random-seed={seed}",
-            f"--logdir={run_dir}",
-            f"--contiki={CONTIKI_DIR}",
-            str(experiment_csc),
-        ]
+    log_file = launch_cooja(
+        csc_file=csc_file,
+        run_directory=run_directory,
     )
 
-    command = [
-        str(COOJA_DIR / "gradlew"),
-        "run",
-        f"--args={cooja_args}",
-    ]
+    # --------------------------------------------------------
+    # SUMMARY
+    # --------------------------------------------------------
 
-    result = subprocess.run(
-        command,
-        cwd=COOJA_DIR,
-        check=False,
+    summary_count = (
+        count_summary_lines(
+            log_file
+        )
     )
-
-    if result.returncode != 0:
-        raise RuntimeError(
-            f"Cooja a échoué : code {result.returncode}"
-        )
-
-    testlog = run_dir / "COOJA.testlog"
-
-    if not testlog.exists():
-        raise FileNotFoundError(
-            f"COOJA.testlog absent pour {run_name}"
-        )
-
-    summary_count = 0
-
-    with testlog.open(
-        "r",
-        encoding="utf-8",
-        errors="replace",
-    ) as f:
-        for line in f:
-            if "SUMMARY," in line:
-                summary_count += 1
 
     if summary_count == 0:
+
         raise RuntimeError(
-            f"Aucun SUMMARY pour {run_name}"
+            f"Aucun SUMMARY trouvé dans "
+            f"{log_file}"
         )
 
     print(
@@ -360,14 +875,42 @@ def run_simulation(
         f"({summary_count} SUMMARY)"
     )
 
-    return testlog
+    return log_file
 
 
 # ============================================================
-# TEST DIRECT
+# TEST
 # ============================================================
 
 if __name__ == "__main__":
+
+    print()
+    print(
+        "Vérification automatique du "
+        "fichier simulation_rpl.csc"
+    )
+
+    print(
+        f"CSC : {BASE_CSC_FILE}"
+    )
+
+    print(
+        "Motes détectés :",
+        count_motes_in_csc(
+            BASE_CSC_FILE
+        ),
+    )
+
+    print(
+        "IDs détectés :",
+        get_mote_ids_from_csc(
+            BASE_CSC_FILE
+        ),
+    )
+
+    # --------------------------------------------------------
+    # TEST 20 NODES
+    # --------------------------------------------------------
 
     log = run_simulation(
         seed=1,
@@ -375,11 +918,13 @@ if __name__ == "__main__":
         imax=18,
         k=5,
         tx_range=50.0,
-        nb_nodes=12,
+        nb_nodes=20,
         send_interval=10,
-        objective_function="OF0",
-        run_name="test_of0",
+        objective_function="MRHOF",
+        run_name="test_20_nodes",
         clean_build=True,
     )
 
-    print(f"\nLog : {log}")
+    print(
+        f"\nLog : {log}"
+    )
