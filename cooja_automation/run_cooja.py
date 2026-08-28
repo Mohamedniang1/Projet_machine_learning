@@ -19,6 +19,66 @@ LOGS_DIR = PROJECT_ROOT / "cooja_automation" / "logs"
 
 
 # ============================================================
+# OUTILS CSC
+# ============================================================
+
+def count_motes_in_csc(csc_file: Path) -> int:
+    """
+    Compte automatiquement le nombre de balises <mote>
+    présentes dans <simulation> du fichier .csc.
+    """
+    if not csc_file.exists():
+        raise FileNotFoundError(
+            f"Fichier .csc introuvable : {csc_file}"
+        )
+
+    try:
+        tree = ET.parse(csc_file)
+    except ET.ParseError as exc:
+        raise RuntimeError(
+            f"XML invalide dans {csc_file} : {exc}"
+        ) from exc
+
+    root = tree.getroot()
+    simulation = root.find("simulation")
+
+    if simulation is None:
+        raise RuntimeError(
+            "Balise <simulation> introuvable dans le .csc"
+        )
+
+    return len(simulation.findall("mote"))
+
+
+def get_mote_ids_from_csc(csc_file: Path) -> list[int]:
+    """
+    Retourne les IDs Contiki des motes présents dans le .csc.
+    """
+    tree = ET.parse(csc_file)
+    root = tree.getroot()
+    simulation = root.find("simulation")
+
+    if simulation is None:
+        raise RuntimeError(
+            "Balise <simulation> introuvable dans le .csc"
+        )
+
+    ids = []
+
+    for mote in simulation.findall("mote"):
+        for interface in mote.findall("interface_config"):
+            id_element = interface.find("id")
+            if id_element is not None:
+                try:
+                    ids.append(int(id_element.text))
+                except (TypeError, ValueError):
+                    pass
+                break
+
+    return ids
+
+
+# ============================================================
 # VALIDATION
 # ============================================================
 
@@ -50,12 +110,13 @@ def validate_parameters(
         raise ValueError(
             "Il faut au minimum 2 nœuds : 1 root + 1 client"
         )
+    max_nodes = count_motes_in_csc(BASE_CSC_FILE)
 
-    if nb_nodes > 16:
+    if nb_nodes > max_nodes:
         raise ValueError(
-            "Le simulation_rpl.csc actuel contient seulement 16 nœuds."
+            f"Le fichier {BASE_CSC_FILE.name} contient "
+            f"{max_nodes} nœuds, mais nb_nodes={nb_nodes} a été demandé."
         )
-
     if send_interval <= 0:
         raise ValueError("send_interval doit être > 0")
 
@@ -300,6 +361,7 @@ def run_simulation(
     print(f"Objective Fn  : {objective_function}")
     print(f"TX Range      : {tx_range}")
     print(f"Nb nodes      : {nb_nodes}")
+    print(f"Max CSC nodes : {count_motes_in_csc(BASE_CSC_FILE)}")
     print(f"Send interval : {send_interval}s")
     print("=" * 75)
 
@@ -369,16 +431,26 @@ def run_simulation(
 
 if __name__ == "__main__":
 
+    print(
+        "Motes détectés :",
+        count_motes_in_csc(BASE_CSC_FILE),
+    )
+
+    print(
+        "IDs détectés :",
+        get_mote_ids_from_csc(BASE_CSC_FILE),
+    )
+
     log = run_simulation(
         seed=1,
         imin=10,
         imax=18,
         k=5,
         tx_range=50.0,
-        nb_nodes=12,
+        nb_nodes=20,
         send_interval=10,
         objective_function="OF0",
-        run_name="test_of0",
+        run_name="test_20_nodes",
         clean_build=True,
     )
 

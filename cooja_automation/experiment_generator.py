@@ -72,7 +72,7 @@ SEND_INTERVAL_VALUES = [
 
 
 # Répétitions stochastiques
-SEEDS = [1,2,3]
+SEEDS = [1,2,3,4,5]
 
 
 # ============================================================

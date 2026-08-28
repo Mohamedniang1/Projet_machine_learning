@@ -9,9 +9,9 @@
 /* =========================================================
  * RPL / TRICKLE
  * ========================================================= */
-#define RPL_CONF_DIO_INTERVAL_MIN 8
-#define RPL_CONF_DIO_INTERVAL_DOUBLINGS 10
-#define RPL_CONF_DIO_REDUNDANCY 0
+#define RPL_CONF_DIO_INTERVAL_MIN 12
+#define RPL_CONF_DIO_INTERVAL_DOUBLINGS 8
+#define RPL_CONF_DIO_REDUNDANCY 10
 
 /* =========================================================
  * RPL OBJECTIVE FUNCTION
