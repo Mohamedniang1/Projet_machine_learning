@@ -10,3 +10,13 @@ cooja_automation/dataset.csv
 cooja_automation/logs/
 cooja_automation/experiment_status.csv
 cooja_automation/.~lock.*
+# Résultats de simulations
+cooja_automation/*.csv
+cooja_automation_mini/*.csv
+cooja_automation/logs/
+cooja_automation_mini/logs/
+*.testlog
+
+# Builds Contiki/Cooja
+contiki-ng/examples/rpl-udp/build/
+*.sky
