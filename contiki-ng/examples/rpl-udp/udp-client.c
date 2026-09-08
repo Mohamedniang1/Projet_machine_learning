@@ -1,28 +1,36 @@
 /*
  * udp-client.c
  *
- * Collecteur de métriques pour génération de datasets ML.
+ * Campagne expérimentale RPL / Sky / CC2420
  *
- * Mesures :
- * - PDR global
- * - PDR par fenêtre corrigé
- * - RTT moyen / min / max
- * - RSSI moyen
- * - ETX du parent préféré
- * - Rang RPL
- * - Rang et ID du parent préféré
- * - Nombre de voisins IPv6
- * - Energest CPU / LPM / TX / LISTEN
+ * Réseau :
+ * - 36 noeuds au total
+ * - 1 root
+ * - 35 clients
+ * - RPL-Lite
+ * - CSMA
  *
- * Correction importante :
+ * Trafic :
+ * - phase de convergence : 600 s
+ * - phase de mesure : 36 fenêtres
+ * - durée d'une fenêtre : 600 s
+ * - exactement 1 tentative applicative par client / fenêtre
+ * - instant aléatoire dans [0, 599] s
+ * - payload applicatif : exactement 10 octets
  *
- * Chaque paquet transporte maintenant le numéro de la fenêtre
- * dans laquelle il a été émis.
+ * IMPORTANT :
  *
- * Une réponse UDP retardée est donc rattachée à sa fenêtre
- * d'émission et non à la fenêtre pendant laquelle elle arrive.
+ * Une ligne TX représente une tentative applicative.
  *
- * Cela empêche d'obtenir des PDR de fenêtre supérieurs à 100 %.
+ * Même si aucune route n'est disponible au moment choisi,
+ * le message est compté comme généré pour cette fenêtre.
+ *
+ * Cela garantit :
+ *
+ * 35 clients × 36 fenêtres = 1260 TX applicatifs.
+ *
+ * Le champ udp_sent indique si simple_udp_sendto()
+ * a réellement pu être appelé avec une adresse root connue.
  */
 
 #include "contiki.h"
@@ -32,12 +40,14 @@
 #include "net/routing/rpl-lite/rpl-neighbor.h"
 
 #include "net/netstack.h"
+
 #include "net/ipv6/simple-udp.h"
 #include "net/ipv6/uip-ds6-nbr.h"
 
-#include "net/packetbuf.h"
 #include "net/link-stats.h"
 #include "net/linkaddr.h"
+
+#include "dev/radio.h"
 
 #include "sys/energest.h"
 #include "sys/log.h"
@@ -46,86 +56,123 @@
 
 #include <inttypes.h>
 #include <stdint.h>
-#include <limits.h>
 
 
 /* ========================================================= */
-/* CONFIGURATION GÉNÉRALE                                   */
+/* LOG                                                       */
 /* ========================================================= */
 
 #define LOG_MODULE "App"
 #define LOG_LEVEL LOG_LEVEL_INFO
 
+
+/* ========================================================= */
+/* UDP                                                       */
+/* ========================================================= */
+
 #define UDP_CLIENT_PORT 8765
 #define UDP_SERVER_PORT 5678
 
 
-/*
- * Intervalle d'envoi configurable depuis project-conf.h
- *
- * Exemple :
- *
- * #define APP_CONF_SEND_INTERVAL 5
- */
+/* ========================================================= */
+/* TRAFIC                                                    */
+/* ========================================================= */
 
-#ifndef APP_CONF_SEND_INTERVAL
-#define APP_CONF_SEND_INTERVAL 10
+/*
+ * Une fenêtre = 10 minutes.
+ */
+#ifndef APP_CONF_TRAFFIC_WINDOW_SECONDS
+#define APP_CONF_TRAFFIC_WINDOW_SECONDS 600
 #endif
 
-#define SEND_INTERVAL \
-  (APP_CONF_SEND_INTERVAL * CLOCK_SECOND)
+
+/*
+ * Phase initiale sans trafic applicatif.
+ */
+#ifndef APP_CONF_TRAFFIC_START_SECONDS
+#define APP_CONF_TRAFFIC_START_SECONDS 600
+#endif
 
 
 /*
- * Une fenêtre statistique toutes les 60 secondes.
+ * 6 heures de mesure :
+ *
+ * 6 h = 21600 s
+ * 21600 / 600 = 36 fenêtres
  */
+#ifndef APP_CONF_MEASUREMENT_WINDOWS
+#define APP_CONF_MEASUREMENT_WINDOWS 36
+#endif
 
-#define METRIC_INTERVAL \
-  (60 * CLOCK_SECOND)
+
+/* ========================================================= */
+/* PAYLOAD                                                   */
+/* ========================================================= */
+
+#ifndef APP_CONF_PAYLOAD_SIZE
+#define APP_CONF_PAYLOAD_SIZE 10
+#endif
+
+
+#if APP_CONF_PAYLOAD_SIZE != 10
+#error "APP_CONF_PAYLOAD_SIZE doit etre egal a 10"
+#endif
 
 
 /*
- * Signature utilisée pour vérifier qu'un écho UDP
- * appartient bien à notre application.
+ * Format exact :
+ *
+ * [0]    magic R
+ * [1]    magic P
+ *
+ * [2-3]  source_id
+ * [4-5]  sequence
+ * [6-9]  window_id
+ *
+ * Total = 10 octets.
  */
 
-#define PACKET_MAGIC 0x52504C4DUL /* "RPLM" */
+#define PAYLOAD_MAGIC_0 0x52
+#define PAYLOAD_MAGIC_1 0x50
 
 
-/*
- * Valeurs indiquant une métrique non disponible.
- */
+/* ========================================================= */
+/* PUISSANCE RADIO                                           */
+/* ========================================================= */
+
+#ifndef APP_CONF_TX_POWER_DBM
+#define APP_CONF_TX_POWER_DBM 0
+#endif
+
+
+/* ========================================================= */
+/* TIMERS                                                    */
+/* ========================================================= */
+
+#define TRAFFIC_WINDOW_TICKS \
+  ((clock_time_t)APP_CONF_TRAFFIC_WINDOW_SECONDS * CLOCK_SECOND)
+
+#define TRAFFIC_START_TICKS \
+  ((clock_time_t)APP_CONF_TRAFFIC_START_SECONDS * CLOCK_SECOND)
+
+
+/* ========================================================= */
+/* VALEURS INVALIDES                                         */
+/* ========================================================= */
 
 #define INVALID_PARENT_ID 65535U
 #define INVALID_RANK      65535U
 #define INVALID_ETX       0U
-
-
-/*
- * Identifiant utilisé lorsqu'un slot de fenêtre
- * n'a encore jamais été utilisé.
- */
-
-#define WINDOW_UNUSED_ID UINT32_MAX
-
-
-/*
- * Nombre de séquences récentes mémorisées.
- *
- * Cela permet de détecter les doublons sans supposer
- * que les réponses arrivent nécessairement dans l'ordre.
- */
-
-#define RX_HISTORY_SIZE 32
+#define INVALID_RSSI      32767
 
 
 /* ========================================================= */
-/* PROCESSUS CONTIKI                                        */
+/* PROCESSUS                                                 */
 /* ========================================================= */
 
 PROCESS(
   udp_client_process,
-  "UDP client metric collector"
+  "RPL UDP client"
 );
 
 AUTOSTART_PROCESSES(
@@ -134,176 +181,102 @@ AUTOSTART_PROCESSES(
 
 
 /* ========================================================= */
-/* CONNEXION UDP                                            */
+/* UDP                                                       */
 /* ========================================================= */
 
 static struct simple_udp_connection udp_conn;
 
 
 /* ========================================================= */
-/* FORMAT DU PAQUET                                         */
+/* ETAT DE L'EXPERIENCE                                      */
 /* ========================================================= */
 
 /*
- * window_id permet de savoir dans quelle fenêtre
- * le paquet a été transmis.
+ * ID de fenêtre :
  *
- * Le serveur UDP renvoie simplement le paquet tel quel.
+ * 0 ... 35
  */
-
-struct data_packet {
-
-  uint32_t magic;
-
-  uint32_t seq;
-
-  uint32_t window_id;
-
-  uint16_t source_id;
-
-  clock_time_t tx_time;
-};
-
-
-/* ========================================================= */
-/* COMPTEURS GLOBAUX                                        */
-/* ========================================================= */
-
-static uint32_t total_tx;
-
-static uint32_t total_rx;
-
-static uint32_t total_duplicates;
-
-
-/* ========================================================= */
-/* HISTORIQUE POUR DÉTECTION DES DOUBLONS                    */
-/* ========================================================= */
-
-static uint32_t rx_history[RX_HISTORY_SIZE];
-
-static uint8_t rx_history_count;
-
-static uint8_t rx_history_position;
-
-
-/* ========================================================= */
-/* STRUCTURE D'UNE FENÊTRE                                  */
-/* ========================================================= */
-
-struct window_stats {
-
-  /*
-   * Identifiant logique de la fenêtre.
-   *
-   * 0 = première fenêtre
-   * 1 = deuxième fenêtre
-   * etc.
-   */
-  uint32_t id;
-
-
-  /*
-   * Temps simulé auquel la fenêtre s'est terminée.
-   */
-  uint32_t end_time_seconds;
-
-
-  /* -------------------- TRAFIC -------------------------- */
-
-  uint32_t tx;
-
-  uint32_t rx;
-
-  uint32_t duplicates;
-
-
-  /* -------------------- DELAY --------------------------- */
-
-  uint32_t delay_sum_ms;
-
-  uint32_t delay_min_ms;
-
-  uint32_t delay_max_ms;
-
-
-  /* -------------------- RSSI ---------------------------- */
-
-  int32_t rssi_sum;
-
-  uint32_t samples;
-
-
-  /* -------------------- ENERGEST ------------------------ */
-
-  uint64_t cpu_ticks;
-
-  uint64_t lpm_ticks;
-
-  uint64_t deep_lpm_ticks;
-
-  uint64_t radio_tx_ticks;
-
-  uint64_t radio_listen_ticks;
-
-  uint64_t total_time_ticks;
-};
-
-
-/*
- * Deux fenêtres sont conservées.
- *
- * Exemple :
- *
- * slot 0 = fenêtre précédente
- * slot 1 = fenêtre actuelle
- *
- * Cela laisse une fenêtre entière aux réponses retardées
- * pour arriver avant publication du SUMMARY.
- */
-
-static struct window_stats windows[2];
-
-
-/*
- * Slot actuellement utilisé pour les nouveaux TX.
- */
-
-static uint8_t current_window_slot;
-
-
-/*
- * ID de la fenêtre courante.
- */
-
 static uint32_t current_window_id;
 
 
+/*
+ * Nombre de fenêtres complètement terminées.
+ */
+static uint16_t completed_windows;
+
+
+/*
+ * Numéro de séquence applicatif.
+ */
+static uint16_t sequence_number;
+
+
+/*
+ * Nombre total de messages applicatifs générés.
+ *
+ * A la fin :
+ * total_tx = 36
+ * pour chaque client.
+ */
+static uint32_t total_tx;
+
+
+/*
+ * Nombre de fois où simple_udp_sendto()
+ * a réellement été appelé.
+ */
+static uint32_t total_udp_sent;
+
+
+/*
+ * Offset aléatoire de l'envoi dans la fenêtre.
+ */
+static uint16_t scheduled_offset_s;
+
+
+/*
+ * Garantit une seule tentative dans la fenêtre.
+ */
+static uint8_t sent_this_window;
+
+
+/*
+ * Indique si simple_udp_sendto() a été appelé
+ * pendant la fenêtre.
+ */
+static uint8_t udp_sent_this_window;
+
+
 /* ========================================================= */
-/* RÉFÉRENCES ENERGEST                                      */
+/* ROOT IP                                                   */
+/* ========================================================= */
+
+/*
+ * On garde en mémoire la dernière adresse du root connue.
+ *
+ * Cela permet de tenter l'envoi même si
+ * node_is_reachable() devient temporairement faux.
+ */
+static uip_ipaddr_t cached_root_ipaddr;
+
+static uint8_t root_ip_known;
+
+
+/* ========================================================= */
+/* ENERGEST                                                  */
 /* ========================================================= */
 
 static uint64_t previous_cpu;
-
 static uint64_t previous_lpm;
-
 static uint64_t previous_deep_lpm;
-
 static uint64_t previous_tx;
-
 static uint64_t previous_listen;
-
 static uint64_t previous_total_time;
 
 
 /* ========================================================= */
-/* FONCTIONS UTILITAIRES                                    */
+/* NODE ID                                                   */
 /* ========================================================= */
-
-
-/*
- * Retourne l'identifiant court du nœud.
- */
 
 static uint16_t
 get_node_id(void)
@@ -314,9 +287,119 @@ get_node_id(void)
 }
 
 
-/*
- * Compte le nombre de voisins IPv6.
- */
+/* ========================================================= */
+/* TX POWER                                                  */
+/* ========================================================= */
+
+static void
+configure_tx_power(void)
+{
+  radio_value_t actual_power;
+
+
+  if(
+    NETSTACK_RADIO.set_value(
+      RADIO_PARAM_TXPOWER,
+      (radio_value_t)APP_CONF_TX_POWER_DBM
+    )
+    ==
+    RADIO_RESULT_OK
+  ) {
+
+    if(
+      NETSTACK_RADIO.get_value(
+        RADIO_PARAM_TXPOWER,
+        &actual_power
+      )
+      ==
+      RADIO_RESULT_OK
+    ) {
+
+      LOG_INFO(
+        "TXPWR,%d,%d\n",
+        APP_CONF_TX_POWER_DBM,
+        (int)actual_power
+      );
+    }
+  }
+}
+
+
+/* ========================================================= */
+/* PAYLOAD 10 OCTETS                                         */
+/* ========================================================= */
+
+static void
+build_payload(
+  uint8_t *payload,
+  uint16_t source_id,
+  uint16_t seq,
+  uint32_t window_id
+)
+{
+  /*
+   * Magic RP
+   */
+  payload[0] = PAYLOAD_MAGIC_0;
+  payload[1] = PAYLOAD_MAGIC_1;
+
+
+  /*
+   * Source ID
+   */
+  payload[2] =
+    (uint8_t)(
+      source_id >> 8
+    );
+
+  payload[3] =
+    (uint8_t)(
+      source_id & 0xff
+    );
+
+
+  /*
+   * Sequence
+   */
+  payload[4] =
+    (uint8_t)(
+      seq >> 8
+    );
+
+  payload[5] =
+    (uint8_t)(
+      seq & 0xff
+    );
+
+
+  /*
+   * Window ID
+   */
+  payload[6] =
+    (uint8_t)(
+      window_id >> 24
+    );
+
+  payload[7] =
+    (uint8_t)(
+      window_id >> 16
+    );
+
+  payload[8] =
+    (uint8_t)(
+      window_id >> 8
+    );
+
+  payload[9] =
+    (uint8_t)(
+      window_id & 0xff
+    );
+}
+
+
+/* ========================================================= */
+/* VOISINS                                                   */
+/* ========================================================= */
 
 static uint16_t
 count_ipv6_neighbors(void)
@@ -324,6 +407,7 @@ count_ipv6_neighbors(void)
   uint16_t count = 0;
 
   uip_ds6_nbr_t *nbr;
+
 
   for(
     nbr = uip_ds6_nbr_head();
@@ -334,29 +418,28 @@ count_ipv6_neighbors(void)
     count++;
   }
 
+
   return count;
 }
 
 
 /* ========================================================= */
-/* INFORMATIONS RPL                                         */
+/* RPL RANK                                                  */
 /* ========================================================= */
-
-
-/*
- * Retourne le rang RPL logique du nœud.
- */
 
 static uint16_t
 get_rpl_rank(void)
 {
   if(
-    !curr_instance.used ||
-    curr_instance.dag.rank == RPL_INFINITE_RANK
+    !curr_instance.used
+    ||
+    curr_instance.dag.rank ==
+      RPL_INFINITE_RANK
   ) {
 
     return INVALID_RANK;
   }
+
 
   return DAG_RANK(
     curr_instance.dag.rank
@@ -364,23 +447,47 @@ get_rpl_rank(void)
 }
 
 
-/*
- * Retourne le rang du parent préféré.
- */
+/* ========================================================= */
+/* PARENT                                                    */
+/* ========================================================= */
+
+static rpl_nbr_t *
+get_preferred_parent(void)
+{
+  if(
+    !curr_instance.used
+  ) {
+
+    return NULL;
+  }
+
+
+  return
+    curr_instance.dag.preferred_parent;
+}
+
+
+/* ========================================================= */
+/* PARENT RANK                                               */
+/* ========================================================= */
 
 static uint16_t
 get_parent_rank(void)
 {
   rpl_nbr_t *parent =
-    curr_instance.dag.preferred_parent;
+    get_preferred_parent();
+
 
   if(
-    parent == NULL ||
-    parent->rank == RPL_INFINITE_RANK
+    parent == NULL
+    ||
+    parent->rank ==
+      RPL_INFINITE_RANK
   ) {
 
     return INVALID_RANK;
   }
+
 
   return DAG_RANK(
     parent->rank
@@ -388,76 +495,104 @@ get_parent_rank(void)
 }
 
 
-/*
- * Retourne l'identifiant du parent préféré.
- */
+/* ========================================================= */
+/* PARENT ID                                                 */
+/* ========================================================= */
 
 static uint16_t
 get_parent_id(void)
 {
   rpl_nbr_t *parent =
-    curr_instance.dag.preferred_parent;
+    get_preferred_parent();
 
-  const linkaddr_t *parent_lladdr;
+  const linkaddr_t *lladdr;
 
-  if(parent == NULL) {
 
-    return INVALID_PARENT_ID;
-  }
-
-  parent_lladdr =
-    rpl_neighbor_get_lladdr(parent);
-
-  if(parent_lladdr == NULL) {
+  if(
+    parent == NULL
+  ) {
 
     return INVALID_PARENT_ID;
   }
 
-  return parent_lladdr->u8[
+
+  lladdr =
+    rpl_neighbor_get_lladdr(
+      parent
+    );
+
+
+  if(
+    lladdr == NULL
+  ) {
+
+    return INVALID_PARENT_ID;
+  }
+
+
+  return lladdr->u8[
     LINKADDR_SIZE - 1
   ];
 }
 
 
-/*
- * Retourne ETX vers le parent préféré * 100.
- *
- * Exemple :
- *
- * 100 = 1.00
- * 125 = 1.25
- * 200 = 2.00
- */
+/* ========================================================= */
+/* LINK STATS DU PARENT                                      */
+/* ========================================================= */
+
+static const struct link_stats *
+get_parent_link_stats(void)
+{
+  rpl_nbr_t *parent =
+    get_preferred_parent();
+
+
+  if(
+    parent == NULL
+  ) {
+
+    return NULL;
+  }
+
+
+  return
+    rpl_neighbor_get_link_stats(
+      parent
+    );
+}
+
+
+/* ========================================================= */
+/* ETX x100                                                  */
+/* ========================================================= */
 
 static uint32_t
 get_parent_etx_x100(void)
 {
-  rpl_nbr_t *parent =
-    curr_instance.dag.preferred_parent;
+  const struct link_stats *stats =
+    get_parent_link_stats();
 
-  const struct link_stats *stats;
-
-  if(parent == NULL) {
-
-    return INVALID_ETX;
-  }
-
-  stats =
-    rpl_neighbor_get_link_stats(parent);
 
   if(
-    stats == NULL ||
-    !link_stats_is_fresh(stats)
+    stats == NULL
+    ||
+    !link_stats_is_fresh(
+      stats
+    )
   ) {
 
     return INVALID_ETX;
   }
 
+
 #ifdef LINK_STATS_ETX_DIVISOR
 
   return (
-    (uint32_t)stats->etx * 100UL
-  ) / LINK_STATS_ETX_DIVISOR;
+    (uint32_t)stats->etx *
+    100UL
+  )
+  /
+  LINK_STATS_ETX_DIVISOR;
 
 #else
 
@@ -468,257 +603,152 @@ get_parent_etx_x100(void)
 
 
 /* ========================================================= */
-/* CALCUL PDR                                               */
+/* RSSI DU PARENT                                            */
 /* ========================================================= */
 
-
-/*
- * Retourne un pourcentage multiplié par 100.
- *
- * Exemple :
- *
- * numerator   = 97
- * denominator = 100
- *
- * résultat = 9700
- *
- * soit 97.00 %
- */
-
-static uint32_t
-ratio_x100(
-  uint32_t numerator,
-  uint32_t denominator
-)
+static int16_t
+get_parent_rssi(void)
 {
-  if(denominator == 0) {
+  const struct link_stats *stats =
+    get_parent_link_stats();
 
-    return 0;
-  }
-
-  return (
-    numerator * 10000UL
-  ) / denominator;
-}
-
-
-/* ========================================================= */
-/* GESTION DES FENÊTRES                                     */
-/* ========================================================= */
-
-
-/*
- * Réinitialise complètement une fenêtre.
- */
-
-static void
-reset_window(
-  struct window_stats *window,
-  uint32_t id
-)
-{
-  window->id = id;
-
-  window->end_time_seconds = 0;
-
-
-  /* trafic */
-
-  window->tx = 0;
-
-  window->rx = 0;
-
-  window->duplicates = 0;
-
-
-  /* delay */
-
-  window->delay_sum_ms = 0;
-
-  window->delay_min_ms =
-    UINT32_MAX;
-
-  window->delay_max_ms = 0;
-
-
-  /* RSSI */
-
-  window->rssi_sum = 0;
-
-  window->samples = 0;
-
-
-  /* Energest */
-
-  window->cpu_ticks = 0;
-
-  window->lpm_ticks = 0;
-
-  window->deep_lpm_ticks = 0;
-
-  window->radio_tx_ticks = 0;
-
-  window->radio_listen_ticks = 0;
-
-  window->total_time_ticks = 0;
-}
-
-
-/*
- * Recherche une fenêtre à partir de son ID.
- */
-
-static struct window_stats *
-find_window(
-  uint32_t id
-)
-{
-  uint8_t i;
-
-  for(i = 0; i < 2; i++) {
-
-    if(windows[i].id == id) {
-
-      return &windows[i];
-    }
-  }
-
-  return NULL;
-}
-
-
-/* ========================================================= */
-/* DÉTECTION DES DOUBLONS                                   */
-/* ========================================================= */
-
-
-/*
- * Vérifie si un numéro de séquence
- * a déjà été reçu récemment.
- */
-
-static int
-sequence_already_received(
-  uint32_t seq
-)
-{
-  uint8_t i;
-
-  for(
-    i = 0;
-    i < rx_history_count;
-    i++
-  ) {
-
-    if(rx_history[i] == seq) {
-
-      return 1;
-    }
-  }
-
-  return 0;
-}
-
-
-/*
- * Ajoute une séquence à l'historique.
- */
-
-static void
-remember_sequence(
-  uint32_t seq
-)
-{
-  rx_history[
-    rx_history_position
-  ] = seq;
-
-  rx_history_position++;
 
   if(
-    rx_history_position >=
-    RX_HISTORY_SIZE
+    stats == NULL
   ) {
 
-    rx_history_position = 0;
+    return INVALID_RSSI;
   }
 
+
+#ifdef LINK_STATS_RSSI_UNKNOWN
+
   if(
-    rx_history_count <
-    RX_HISTORY_SIZE
+    stats->rssi ==
+    LINK_STATS_RSSI_UNKNOWN
   ) {
 
-    rx_history_count++;
+    return INVALID_RSSI;
+  }
+
+#endif
+
+
+  return stats->rssi;
+}
+
+
+/* ========================================================= */
+/* ROOT IP                                                   */
+/* ========================================================= */
+
+static void
+refresh_root_ip(void)
+{
+  uip_ipaddr_t root_ip;
+
+
+  /*
+   * Si Contiki connaît actuellement le root,
+   * on met à jour le cache.
+   */
+  if(
+    NETSTACK_ROUTING.get_root_ipaddr(
+      &root_ip
+    )
+  ) {
+
+    uip_ipaddr_copy(
+      &cached_root_ipaddr,
+      &root_ip
+    );
+
+    root_ip_known = 1;
   }
 }
 
 
 /* ========================================================= */
-/* ENERGEST                                                 */
+/* ENERGEST INIT                                             */
 /* ========================================================= */
-
-
-/*
- * Initialise la référence Energest.
- */
 
 static void
 initialize_energest_reference(void)
 {
   energest_flush();
 
+
   previous_cpu =
     energest_type_time(
       ENERGEST_TYPE_CPU
     );
+
 
   previous_lpm =
     energest_type_time(
       ENERGEST_TYPE_LPM
     );
 
+
   previous_deep_lpm =
     energest_type_time(
       ENERGEST_TYPE_DEEP_LPM
     );
+
 
   previous_tx =
     energest_type_time(
       ENERGEST_TYPE_TRANSMIT
     );
 
+
   previous_listen =
     energest_type_time(
       ENERGEST_TYPE_LISTEN
     );
+
 
   previous_total_time =
     ENERGEST_GET_TOTAL_TIME();
 }
 
 
-/*
- * Capture les deltas Energest correspondant
- * exactement à la fenêtre qui vient de se terminer.
- */
+/* ========================================================= */
+/* SUMMARY DE FENETRE                                        */
+/* ========================================================= */
 
 static void
-capture_energest_for_window(
-  struct window_stats *window
-)
+print_window_summary(void)
 {
   uint64_t cpu_now;
-
   uint64_t lpm_now;
-
   uint64_t deep_lpm_now;
-
   uint64_t tx_now;
-
   uint64_t listen_now;
-
   uint64_t total_time_now;
 
+  uint64_t cpu_delta;
+  uint64_t lpm_delta;
+  uint64_t deep_lpm_delta;
+  uint64_t tx_delta;
+  uint64_t listen_delta;
+  uint64_t total_time_delta;
+
+  uint16_t rank;
+  uint16_t parent_rank;
+  uint16_t parent_id;
+  uint16_t neighbors;
+
+  uint32_t etx_x100;
+
+  int16_t parent_rssi;
+
+  uint8_t connected;
+
+
+  /* ------------------------------------------------------- */
+  /* Energest                                                */
+  /* ------------------------------------------------------- */
 
   energest_flush();
 
@@ -728,56 +758,64 @@ capture_energest_for_window(
       ENERGEST_TYPE_CPU
     );
 
+
   lpm_now =
     energest_type_time(
       ENERGEST_TYPE_LPM
     );
+
 
   deep_lpm_now =
     energest_type_time(
       ENERGEST_TYPE_DEEP_LPM
     );
 
+
   tx_now =
     energest_type_time(
       ENERGEST_TYPE_TRANSMIT
     );
+
 
   listen_now =
     energest_type_time(
       ENERGEST_TYPE_LISTEN
     );
 
+
   total_time_now =
     ENERGEST_GET_TOTAL_TIME();
 
 
-  window->cpu_ticks =
-    cpu_now - previous_cpu;
+  cpu_delta =
+    cpu_now -
+    previous_cpu;
 
-  window->lpm_ticks =
-    lpm_now - previous_lpm;
 
-  window->deep_lpm_ticks =
+  lpm_delta =
+    lpm_now -
+    previous_lpm;
+
+
+  deep_lpm_delta =
     deep_lpm_now -
     previous_deep_lpm;
 
-  window->radio_tx_ticks =
-    tx_now - previous_tx;
 
-  window->radio_listen_ticks =
+  tx_delta =
+    tx_now -
+    previous_tx;
+
+
+  listen_delta =
     listen_now -
     previous_listen;
 
-  window->total_time_ticks =
+
+  total_time_delta =
     total_time_now -
     previous_total_time;
 
-
-  /*
-   * Mise à jour des références pour
-   * la fenêtre suivante.
-   */
 
   previous_cpu =
     cpu_now;
@@ -796,202 +834,93 @@ capture_energest_for_window(
 
   previous_total_time =
     total_time_now;
-}
-
-
-/* ========================================================= */
-/* AFFICHAGE DU SUMMARY                                     */
-/* ========================================================= */
-
-
-static void
-print_summary(
-  struct window_stats *window
-)
-{
-  uint32_t global_pdr_x100;
-
-  uint32_t window_pdr_x100;
-
-  uint32_t delay_avg_ms;
-
-  uint32_t delay_min_ms;
-
-  uint32_t delay_max_ms;
-
-  int32_t rssi_avg;
-
-  uint64_t energy_ticks;
-
-  uint16_t node_id;
-
-  uint16_t rank;
-
-  uint16_t parent_rank;
-
-  uint16_t parent_id;
-
-  uint16_t neighbor_count;
-
-  uint32_t parent_etx_x100;
-
-
-  /* ------------------------------------------------------- */
-  /* PDR                                                     */
-  /* ------------------------------------------------------- */
-
-  global_pdr_x100 =
-    ratio_x100(
-      total_rx,
-      total_tx
-    );
-
-
-  window_pdr_x100 =
-    ratio_x100(
-      window->rx,
-      window->tx
-    );
-
-
-  /* ------------------------------------------------------- */
-  /* DELAY / RSSI                                            */
-  /* ------------------------------------------------------- */
-
-  if(window->samples > 0) {
-
-    delay_avg_ms =
-      window->delay_sum_ms /
-      window->samples;
-
-    delay_min_ms =
-      window->delay_min_ms;
-
-    delay_max_ms =
-      window->delay_max_ms;
-
-    rssi_avg =
-      window->rssi_sum /
-      (int32_t)window->samples;
-
-  } else {
-
-    delay_avg_ms = 0;
-
-    delay_min_ms = 0;
-
-    delay_max_ms = 0;
-
-    rssi_avg = 0;
-  }
-
-
-  /* ------------------------------------------------------- */
-  /* ENERGIE BRUTE                                           */
-  /* ------------------------------------------------------- */
-
-  /*
-   * Attention :
-   *
-   * ceci n'est PAS encore une énergie physique en joules.
-   *
-   * La conversion correcte sera faite ensuite en Python
-   * avec les courants CPU / TX / RX et la tension.
-   */
-
-  energy_ticks =
-    window->cpu_ticks +
-    window->lpm_ticks +
-    window->deep_lpm_ticks +
-    window->radio_tx_ticks +
-    window->radio_listen_ticks;
 
 
   /* ------------------------------------------------------- */
   /* RPL                                                     */
   /* ------------------------------------------------------- */
 
-  node_id =
-    get_node_id();
+  connected =
+    NETSTACK_ROUTING.node_is_reachable()
+    ?
+    1
+    :
+    0;
+
 
   rank =
     get_rpl_rank();
 
+
   parent_rank =
     get_parent_rank();
+
 
   parent_id =
     get_parent_id();
 
-  neighbor_count =
+
+  neighbors =
     count_ipv6_neighbors();
 
-  parent_etx_x100 =
+
+  etx_x100 =
     get_parent_etx_x100();
 
 
+  parent_rssi =
+    get_parent_rssi();
+
+
   /* ------------------------------------------------------- */
-  /* LOG                                                     */
+  /* Log                                                     */
   /* ------------------------------------------------------- */
 
   LOG_INFO(
     "SUMMARY,"
     "node=%u,"
-    "time=%" PRIu32 ","
-    "tx_total=%" PRIu32 ","
-    "rx_total=%" PRIu32 ","
-    "dup_total=%" PRIu32 ","
-    "pdr_global_x100=%" PRIu32 ","
-    "tx_window=%" PRIu32 ","
-    "rx_window=%" PRIu32 ","
-    "dup_window=%" PRIu32 ","
-    "pdr_window_x100=%" PRIu32 ","
-    "delay_avg_ms=%" PRIu32 ","
-    "delay_min_ms=%" PRIu32 ","
-    "delay_max_ms=%" PRIu32 ","
-    "rssi_avg=%" PRId32 ","
-    "etx_x100=%" PRIu32 ","
+    "time=%lu,"
+    "window=%lu,"
+    "scheduled_s=%u,"
+    "tx_total=%lu,"
+    "tx_window=%u,"
+    "udp_sent_total=%lu,"
+    "udp_sent_window=%u,"
+    "connected=%u,"
     "rank=%u,"
     "parent_rank=%u,"
     "parent_id=%u,"
     "neighbors=%u,"
+    "etx_x100=%lu,"
+    "rssi_parent=%d,"
     "cpu_ticks=%" PRIu64 ","
     "lpm_ticks=%" PRIu64 ","
     "deep_lpm_ticks=%" PRIu64 ","
     "radio_tx_ticks=%" PRIu64 ","
     "radio_listen_ticks=%" PRIu64 ","
-    "total_time_ticks=%" PRIu64 ","
-    "energy_ticks=%" PRIu64 "\n",
+    "total_time_ticks=%" PRIu64 "\n",
 
-    node_id,
+    get_node_id(),
 
-    window->end_time_seconds,
+    (unsigned long)
+    clock_seconds(),
 
+    (unsigned long)
+    current_window_id,
+
+    scheduled_offset_s,
+
+    (unsigned long)
     total_tx,
 
-    total_rx,
+    sent_this_window,
 
-    total_duplicates,
+    (unsigned long)
+    total_udp_sent,
 
-    global_pdr_x100,
+    udp_sent_this_window,
 
-    window->tx,
-
-    window->rx,
-
-    window->duplicates,
-
-    window_pdr_x100,
-
-    delay_avg_ms,
-
-    delay_min_ms,
-
-    delay_max_ms,
-
-    rssi_avg,
-
-    parent_etx_x100,
+    connected,
 
     rank,
 
@@ -999,273 +928,67 @@ print_summary(
 
     parent_id,
 
-    neighbor_count,
+    neighbors,
 
-    window->cpu_ticks,
+    (unsigned long)
+    etx_x100,
 
-    window->lpm_ticks,
+    parent_rssi,
 
-    window->deep_lpm_ticks,
+    cpu_delta,
 
-    window->radio_tx_ticks,
+    lpm_delta,
 
-    window->radio_listen_ticks,
+    deep_lpm_delta,
 
-    window->total_time_ticks,
+    tx_delta,
 
-    energy_ticks
+    listen_delta,
+
+    total_time_delta
   );
 }
 
 
 /* ========================================================= */
-/* RÉCEPTION UDP                                            */
+/* PLANIFICATION D'UNE FENETRE                               */
 /* ========================================================= */
 
-
-static void
-udp_rx_callback(
-  struct simple_udp_connection *c,
-  const uip_ipaddr_t *sender_addr,
-  uint16_t sender_port,
-  const uip_ipaddr_t *receiver_addr,
-  uint16_t receiver_port,
-  const uint8_t *data,
-  uint16_t datalen
-)
+static clock_time_t
+choose_send_delay(void)
 {
-  const struct data_packet *pkt;
-
-  struct window_stats *window;
-
-  clock_time_t now;
-
-  clock_time_t rtt_ticks;
-
-  uint32_t rtt_ms;
-
-  int16_t rssi;
-
-
-  (void)c;
-
-  (void)sender_addr;
-
-  (void)sender_port;
-
-  (void)receiver_addr;
-
-  (void)receiver_port;
-
-
-  /* ------------------------------------------------------- */
-  /* VALIDATION DU PAQUET                                    */
-  /* ------------------------------------------------------- */
-
-  if(
-    data == NULL ||
-    datalen != sizeof(
-      struct data_packet
-    )
-  ) {
-
-    LOG_WARN(
-      "Paquet echo invalide, taille=%u\n",
-      datalen
+  scheduled_offset_s =
+    (uint16_t)(
+      random_rand()
+      %
+      APP_CONF_TRAFFIC_WINDOW_SECONDS
     );
-
-    return;
-  }
-
-
-  pkt =
-    (const struct data_packet *)data;
-
-
-  if(
-    pkt->magic !=
-    PACKET_MAGIC
-  ) {
-
-    LOG_WARN(
-      "Paquet avec signature invalide\n"
-    );
-
-    return;
-  }
-
-
-  if(
-    pkt->source_id !=
-    get_node_id()
-  ) {
-
-    LOG_WARN(
-      "Echo destiné à un autre noeud\n"
-    );
-
-    return;
-  }
 
 
   /*
-   * Recherche de la fenêtre à laquelle
-   * appartient ce paquet.
+   * Evite un etimer de durée 0.
+   *
+   * L'offset logique reste bien 0 seconde.
    */
-
-  window =
-    find_window(
-      pkt->window_id
-    );
-
-
-  /* ------------------------------------------------------- */
-  /* DOUBLONS                                                */
-  /* ------------------------------------------------------- */
-
   if(
-    sequence_already_received(
-      pkt->seq
-    )
+    scheduled_offset_s == 0
   ) {
 
-    total_duplicates++;
-
-    if(window != NULL) {
-
-      window->duplicates++;
-    }
-
-    return;
+    return 1;
   }
 
 
-  remember_sequence(
-    pkt->seq
-  );
-
-
-  /* ------------------------------------------------------- */
-  /* COMPTEUR GLOBAL                                         */
-  /* ------------------------------------------------------- */
-
-  total_rx++;
-
-
-  /*
-   * Le paquet peut être tellement ancien que sa fenêtre
-   * a déjà été supprimée.
-   *
-   * Dans ce cas, il reste compté dans total_rx,
-   * mais pas dans une fenêtre.
-   *
-   * Avec des fenêtres de 60 secondes et des RTT
-   * de quelques centaines de ms, ce cas devrait être
-   * extrêmement rare.
-   */
-
-  if(window != NULL) {
-
-    window->rx++;
-  }
-
-
-  /* ------------------------------------------------------- */
-  /* RTT                                                     */
-  /* ------------------------------------------------------- */
-
-  now =
-    clock_time();
-
-  rtt_ticks =
-    now -
-    pkt->tx_time;
-
-
-  rtt_ms =
-    (
-      (uint32_t)rtt_ticks *
-      1000UL
-    ) /
-    CLOCK_SECOND;
-
-
-  /* ------------------------------------------------------- */
-  /* RSSI                                                    */
-  /* ------------------------------------------------------- */
-
-  rssi =
-    (int16_t)
-    packetbuf_attr(
-      PACKETBUF_ATTR_RSSI
-    );
-
-
-  /* ------------------------------------------------------- */
-  /* STATISTIQUES DE LA FENÊTRE D'ÉMISSION                  */
-  /* ------------------------------------------------------- */
-
-  if(window != NULL) {
-
-    window->delay_sum_ms +=
-      rtt_ms;
-
-    window->rssi_sum +=
-      rssi;
-
-    window->samples++;
-
-
-    if(
-      rtt_ms <
-      window->delay_min_ms
-    ) {
-
-      window->delay_min_ms =
-        rtt_ms;
-    }
-
-
-    if(
-      rtt_ms >
-      window->delay_max_ms
-    ) {
-
-      window->delay_max_ms =
-        rtt_ms;
-    }
-  }
-
-
-  /* ------------------------------------------------------- */
-  /* LOG PAR PAQUET                                          */
-  /* ------------------------------------------------------- */
-
-  LOG_INFO(
-    "PACKET,"
-    "node=%u,"
-    "seq=%" PRIu32 ","
-    "window=%" PRIu32 ","
-    "rtt_ms=%" PRIu32 ","
-    "rssi=%d\n",
-
-    get_node_id(),
-
-    pkt->seq,
-
-    pkt->window_id,
-
-    rtt_ms,
-
-    rssi
+  return (
+    (clock_time_t)scheduled_offset_s
+    *
+    CLOCK_SECOND
   );
 }
 
 
 /* ========================================================= */
-/* PROCESSUS PRINCIPAL                                      */
+/* PROCESSUS PRINCIPAL                                       */
 /* ========================================================= */
-
 
 PROCESS_THREAD(
   udp_client_process,
@@ -1273,13 +996,22 @@ PROCESS_THREAD(
   data
 )
 {
+  static struct etimer warmup_timer;
+
+  static struct etimer window_timer;
+
   static struct etimer send_timer;
 
-  static struct etimer metric_timer;
 
-  static uip_ipaddr_t root_ipaddr;
+  static uint8_t payload[
+    APP_CONF_PAYLOAD_SIZE
+  ];
 
-  static struct data_packet packet;
+
+  static clock_time_t send_delay_ticks;
+
+
+  static uint8_t reachable;
 
 
   PROCESS_BEGIN();
@@ -1289,117 +1021,119 @@ PROCESS_THREAD(
   /* INITIALISATION                                          */
   /* ======================================================= */
 
+  current_window_id = 0;
+
+  completed_windows = 0;
+
+  sequence_number = 0;
 
   total_tx = 0;
 
-  total_rx = 0;
+  total_udp_sent = 0;
 
-  total_duplicates = 0;
+  sent_this_window = 0;
 
+  udp_sent_this_window = 0;
 
-  rx_history_count = 0;
-
-  rx_history_position = 0;
-
-
-  /*
-   * Première fenêtre active.
-   */
-
-  current_window_id = 0;
-
-  current_window_slot = 0;
-
-
-  reset_window(
-    &windows[0],
-    0
-  );
-
-
-  /*
-   * Deuxième slot non utilisé.
-   */
-
-  reset_window(
-    &windows[1],
-    WINDOW_UNUSED_ID
-  );
-
-
-  initialize_energest_reference();
+  root_ip_known = 0;
 
 
   /* ======================================================= */
-  /* BOOT LOG                                                */
+  /* RADIO                                                   */
   /* ======================================================= */
 
-  LOG_INFO(
-    "BOOT,"
-    "node=%u,"
-    "send_interval_ticks=%lu,"
-    "metric_interval_ticks=%lu\n",
-
-    get_node_id(),
-
-    (unsigned long)
-    SEND_INTERVAL,
-
-    (unsigned long)
-    METRIC_INTERVAL
-  );
+  configure_tx_power();
 
 
   /* ======================================================= */
   /* UDP                                                     */
   /* ======================================================= */
 
+  /*
+   * Pas de callback.
+   *
+   * Le root ne fait plus d'echo.
+   */
   simple_udp_register(
     &udp_conn,
-
     UDP_CLIENT_PORT,
-
     NULL,
-
     UDP_SERVER_PORT,
+    NULL
+  );
 
-    udp_rx_callback
+
+  LOG_INFO(
+    "BOOT,%u\n",
+    get_node_id()
   );
 
 
   /* ======================================================= */
-  /* PREMIER ENVOI                                           */
+  /* CONVERGENCE                                             */
   /* ======================================================= */
 
-  /*
-   * Petit décalage aléatoire afin que tous
-   * les nœuds n'émettent pas simultanément.
-   */
-
   etimer_set(
-    &send_timer,
+    &warmup_timer,
+    TRAFFIC_START_TICKS
+  );
 
-    CLOCK_SECOND +
-    (
-      random_rand() %
-      (2 * CLOCK_SECOND)
+
+  PROCESS_WAIT_EVENT_UNTIL(
+    etimer_expired(
+      &warmup_timer
     )
   );
 
 
-  /* ======================================================= */
-  /* PREMIÈRE FRONTIÈRE DE FENÊTRE                          */
-  /* ======================================================= */
+  /*
+   * On récupère immédiatement l'adresse
+   * du root si elle est connue.
+   */
+  refresh_root_ip();
 
-  etimer_set(
-    &metric_timer,
 
-    METRIC_INTERVAL
+  /*
+   * Début des mesures énergétiques.
+   */
+  initialize_energest_reference();
+
+
+  LOG_INFO(
+    "TRAFFIC_START,%u\n",
+    get_node_id()
   );
 
 
   /* ======================================================= */
-  /* BOUCLE PRINCIPALE                                       */
+  /* FENETRE 0                                               */
+  /* ======================================================= */
+
+  current_window_id = 0;
+
+  sent_this_window = 0;
+
+  udp_sent_this_window = 0;
+
+
+  send_delay_ticks =
+    choose_send_delay();
+
+
+  etimer_set(
+    &send_timer,
+    send_delay_ticks
+  );
+
+
+  etimer_set(
+    &window_timer,
+    TRAFFIC_WINDOW_TICKS
+  );
+
+
+  /* ======================================================= */
+  /* BOUCLE                                                  */
   /* ======================================================= */
 
   while(1) {
@@ -1407,207 +1141,307 @@ PROCESS_THREAD(
     PROCESS_WAIT_EVENT();
 
 
-    /*
-     * IMPORTANT :
-     *
-     * On traite la frontière de fenêtre AVANT l'envoi.
-     *
-     * Si send_timer et metric_timer expirent au même moment,
-     * le nouveau paquet appartiendra ainsi à la nouvelle
-     * fenêtre.
-     */
-
-    if(
-      etimer_expired(
-        &metric_timer
-      )
-    ) {
-
-      struct window_stats *current_window;
-
-      uint8_t next_slot;
-
-
-      /*
-       * Fenêtre qui vient de se terminer.
-       */
-
-      current_window =
-        &windows[
-          current_window_slot
-        ];
-
-
-      /*
-       * Enregistre son temps de fin.
-       */
-
-      current_window->
-        end_time_seconds =
-        (uint32_t)
-        clock_seconds();
-
-
-      /*
-       * Capture Energest pour cette fenêtre.
-       */
-
-      capture_energest_for_window(
-        current_window
-      );
-
-
-      /*
-       * Le prochain slot est également celui
-       * contenant la fenêtre précédente.
-       */
-
-      next_slot =
-        (
-          current_window_slot +
-          1
-        ) % 2;
-
-
-      /*
-       * Si ce slot contient une ancienne fenêtre,
-       * elle a bénéficié d'une fenêtre complète
-       * pour recevoir les réponses retardées.
-       *
-       * Elle peut donc maintenant être publiée.
-       */
-
-      if(
-        windows[next_slot].id !=
-        WINDOW_UNUSED_ID
-      ) {
-
-        print_summary(
-          &windows[next_slot]
-        );
-      }
-
-
-      /*
-       * Création de la nouvelle fenêtre.
-       */
-
-      current_window_id++;
-
-
-      reset_window(
-        &windows[next_slot],
-        current_window_id
-      );
-
-
-      current_window_slot =
-        next_slot;
-
-
-      /*
-       * Relance le timer.
-       */
-
-      etimer_reset_with_new_interval(
-        &metric_timer,
-
-        METRIC_INTERVAL
-      );
-    }
-
-
     /* ===================================================== */
-    /* ENVOI UDP                                              */
+    /* ENVOI APPLICATIF                                      */
     /* ===================================================== */
 
     if(
+      !sent_this_window
+      &&
       etimer_expired(
         &send_timer
       )
     ) {
 
+      /*
+       * Très important :
+       *
+       * à partir d'ici, cette fenêtre est considérée
+       * comme ayant produit son UNIQUE message.
+       *
+       * Aucun retry.
+       */
+      sent_this_window = 1;
+
+
+      /*
+       * Nouveau numéro de séquence.
+       */
+      sequence_number++;
+
+
+      /*
+       * Compteur applicatif.
+       *
+       * Il augmente UNE fois par fenêtre,
+       * qu'une route existe ou non.
+       */
+      total_tx++;
+
+
+      /* --------------------------------------------------- */
+      /* Payload 10 octets                                   */
+      /* --------------------------------------------------- */
+
+      build_payload(
+        payload,
+        get_node_id(),
+        sequence_number,
+        current_window_id
+      );
+
+
+      /* --------------------------------------------------- */
+      /* Etat RPL                                            */
+      /* --------------------------------------------------- */
+
+      reachable =
+        NETSTACK_ROUTING.node_is_reachable()
+        ?
+        1
+        :
+        0;
+
+
+      /*
+       * Actualise l'adresse root lorsqu'elle
+       * est actuellement disponible.
+       */
+      refresh_root_ip();
+
+
+      /* --------------------------------------------------- */
+      /* Tentative UDP                                       */
+      /* --------------------------------------------------- */
+
+      udp_sent_this_window = 0;
+
+
+      /*
+       * Si le root a déjà été découvert,
+       * on appelle simple_udp_sendto()
+       * même si reachable vaut actuellement 0.
+       *
+       * Le paquet pourra ensuite être perdu
+       * dans la couche réseau, ce qui fait partie
+       * de la performance que l'on veut mesurer.
+       */
       if(
-        NETSTACK_ROUTING.
-          node_is_reachable()
-        &&
-        NETSTACK_ROUTING.
-          get_root_ipaddr(
-            &root_ipaddr
-          )
+        root_ip_known
       ) {
 
-        struct window_stats
-          *current_window;
+        simple_udp_sendto(
+          &udp_conn,
+          payload,
+          APP_CONF_PAYLOAD_SIZE,
+          &cached_root_ipaddr
+        );
 
 
-        current_window =
-          &windows[
-            current_window_slot
-          ];
+        total_udp_sent++;
+
+        udp_sent_this_window = 1;
+      }
 
 
-        /* compteur global */
+      /* --------------------------------------------------- */
+      /* Log TX                                              */
+      /* --------------------------------------------------- */
+
+      LOG_INFO(
+        "TX,"
+        "node=%u,"
+        "seq=%u,"
+        "window=%lu,"
+        "reachable=%u,"
+        "root_known=%u,"
+        "udp_sent=%u\n",
+
+        get_node_id(),
+
+        sequence_number,
+
+        (unsigned long)
+        current_window_id,
+
+        reachable,
+
+        root_ip_known,
+
+        udp_sent_this_window
+      );
+    }
+
+
+    /* ===================================================== */
+    /* FIN DE FENETRE                                        */
+    /* ===================================================== */
+
+    if(
+      etimer_expired(
+        &window_timer
+      )
+    ) {
+
+      /*
+       * Même dans le cas extrêmement improbable
+       * où le send timer n'aurait pas été exécuté,
+       * on force ici une trace de tentative.
+       *
+       * En pratique offset <= 599 s,
+       * donc elle doit toujours être passée avant 600 s.
+       */
+      if(
+        !sent_this_window
+      ) {
+
+        sent_this_window = 1;
+
+        sequence_number++;
 
         total_tx++;
 
 
-        /* compteur de la fenêtre */
-
-        current_window->tx++;
-
-
-        /* préparation du paquet */
-
-        packet.magic =
-          PACKET_MAGIC;
-
-        packet.seq =
-          total_tx;
-
-        packet.window_id =
-          current_window_id;
-
-        packet.source_id =
-          get_node_id();
-
-        packet.tx_time =
-          clock_time();
+        build_payload(
+          payload,
+          get_node_id(),
+          sequence_number,
+          current_window_id
+        );
 
 
-        /* envoi */
+        reachable =
+          NETSTACK_ROUTING.node_is_reachable()
+          ?
+          1
+          :
+          0;
 
-        simple_udp_sendto(
-          &udp_conn,
 
-          &packet,
+        refresh_root_ip();
 
-          sizeof(packet),
 
-          &root_ipaddr
+        udp_sent_this_window = 0;
+
+
+        if(
+          root_ip_known
+        ) {
+
+          simple_udp_sendto(
+            &udp_conn,
+            payload,
+            APP_CONF_PAYLOAD_SIZE,
+            &cached_root_ipaddr
+          );
+
+
+          total_udp_sent++;
+
+          udp_sent_this_window = 1;
+        }
+
+
+        LOG_INFO(
+          "TX,"
+          "node=%u,"
+          "seq=%u,"
+          "window=%lu,"
+          "reachable=%u,"
+          "root_known=%u,"
+          "udp_sent=%u\n",
+
+          get_node_id(),
+
+          sequence_number,
+
+          (unsigned long)
+          current_window_id,
+
+          reachable,
+
+          root_ip_known,
+
+          udp_sent_this_window
         );
       }
 
 
+      /* --------------------------------------------------- */
+      /* Summary                                             */
+      /* --------------------------------------------------- */
+
+      print_window_summary();
+
+
+      completed_windows++;
+
+
+      /* =================================================== */
+      /* FIN DES 36 FENETRES                                 */
+      /* =================================================== */
+
+      if(
+        completed_windows >=
+        APP_CONF_MEASUREMENT_WINDOWS
+      ) {
+
+        LOG_INFO(
+          "TRAFFIC_DONE,"
+          "node=%u,"
+          "windows=%u,"
+          "tx_total=%lu,"
+          "udp_sent_total=%lu\n",
+
+          get_node_id(),
+
+          completed_windows,
+
+          (unsigned long)
+          total_tx,
+
+          (unsigned long)
+          total_udp_sent
+        );
+
+
+        /*
+         * Plus aucun trafic applicatif après
+         * la 36e fenêtre.
+         */
+        PROCESS_EXIT();
+      }
+
+
+      /* =================================================== */
+      /* FENETRE SUIVANTE                                    */
+      /* =================================================== */
+
+      current_window_id++;
+
+
+      sent_this_window = 0;
+
+      udp_sent_this_window = 0;
+
+
+      send_delay_ticks =
+        choose_send_delay();
+
+
       /*
-       * Prochain envoi :
-       *
-       * SEND_INTERVAL
-       * +
-       * jitter entre 0 et 2 secondes.
+       * On conserve des frontières de fenêtres
+       * régulières de 600 secondes.
        */
-
       etimer_reset_with_new_interval(
-        &send_timer,
+        &window_timer,
+        TRAFFIC_WINDOW_TICKS
+      );
 
-        SEND_INTERVAL +
-        (
-          random_rand() %
-          (
-            2 *
-            CLOCK_SECOND
-          )
-        )
+
+      etimer_set(
+        &send_timer,
+        send_delay_ticks
       );
     }
   }

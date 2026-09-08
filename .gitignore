@@ -20,3 +20,17 @@ cooja_automation_mini/logs/
 # Builds Contiki/Cooja
 contiki-ng/examples/rpl-udp/build/
 *.sky
+
+# Fichiers temporaires LibreOffice
+.~lock.*
+
+# Résultats de simulations
+*.csv
+*.testlog
+cooja_automation/logs/
+cooja_automation_mini/logs/
+
+# Builds Contiki/Cooja
+contiki-ng/examples/rpl-udp/build/
+contiki-ng/tools/cooja/bin/
+*.sky
